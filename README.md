@@ -53,7 +53,9 @@ npm install chai
 
 4 Place the copied link into URL text field. Click 'Clone'.
 
-5 Open the terminal and type the following command: 
+5 Click 'VCS - Git - Fetch.' If 'Fetch' command does not work, please use 'Pull' button. 
+
+6 Open the terminal and type the following command: 
 ````
 nmp install
 ````
