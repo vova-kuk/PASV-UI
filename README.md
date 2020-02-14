@@ -1,6 +1,6 @@
 ### Content 
 * [x] PASV-UI Project Installation From The Scratch
-* [x] PASV-UI Project Installation Instruction For Collaborators
+* [x] PASV-UI Project Installation Instruction For Current Collaborators
 
 #### PASV-UI Project Installation From The Scratch 
 1 Go to https://github.com/ and create a new repository called 'PASV-UI'.
