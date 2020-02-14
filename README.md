@@ -62,4 +62,4 @@ nmp install
 #### Useful Resources
 * GitHub: https://github.com/
 * WedDiverIO: https://webdriver.io/docs/gettingstarted.html
-* Eslint: 
+
