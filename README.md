@@ -80,7 +80,7 @@ module.exports = {
 
 6 Type the following command in the terminal: 
 ````
-nmp install
+npm install
 ````
  
 
