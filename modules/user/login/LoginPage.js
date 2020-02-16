@@ -14,6 +14,10 @@ class LoginPage extends AppPage{
         return browser.$('//input[@name="password"]');
     }
 
+    get forgotPassword() {
+        return $('//div[@id="root"]//a[@qa="forgot-password-link"]');
+    }
+
     get submitBtn () {
         return browser.$('//button[@type="submit"]');
     }
