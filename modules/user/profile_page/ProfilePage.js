@@ -5,9 +5,13 @@ class ProfilePage extends AppPage{
         return $('//h1');
     }
 
-    open(){
-        super.open('https://stage.pasv.us/user/5e1f1a337f1021003c5991b3')
+    get createDayReportButton(){
+        return $('//a[@class=\'btn btn-secondary\']');
     }
+
+    // open(){
+    //     super.open('https://stage.pasv.us/user/5e1f1a337f1021003c5991b3')
+    // }
 }
 
 export default new ProfilePage();
