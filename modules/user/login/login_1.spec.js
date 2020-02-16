@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import LoginPage from './LoginPage';
 import ProfilePage from '../profile_page/ProfilePage';
 
-describe('LOGIN', () => {
+describe('LOGIN_1', () => {
     it('should open login page', () => {
         LoginPage.open();
     });
@@ -21,12 +21,12 @@ describe('LOGIN', () => {
         LoginPage.password.setValue('123456');
     });
 
-    it('should submit form', () => {
+    it('should click Login button', () => {
         LoginPage.submitBtn.click();
         browser.pause(2000);
     });
 
     // it('should check h1 text', () => {
-    //     expect(ProfilePage.h1.getText()).eq('Arthur Aminov');
+    //     expect(ProfilePage.h1.getText()).eq('Test Testov');
     // });
 });
