@@ -9,7 +9,7 @@ class HomePage extends AppPage {
         return $('//div[@class="container"]//span[@id="site-name"]');
     }
 
-    get loginButton() {
+    get loginLink() {
         return $('//a[@qa="login-link"]')
     }
 

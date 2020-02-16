@@ -7,7 +7,7 @@ describe('PASSWORD RECOVERY', () => {
         HomePage.open();
     });
     it('should click Login button', () => {
-        HomePage.loginButton.click();
+        HomePage.loginLink.click();
     });
     it('should have correct User Login page title', () => {
         expect(LoginPage.h1.getText()).eq('User Login');
