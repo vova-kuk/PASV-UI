@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import ProfilePage from './ProfilePage';
-import LoginPage from "../login/LoginPage";
+import ProfilePage from '../../_PageObjects/ProfilePage';
+import LoginPage from "../../_PageObjects/LoginPage";
 
 describe('PROFILEPAGE', () => {
     before(() => {

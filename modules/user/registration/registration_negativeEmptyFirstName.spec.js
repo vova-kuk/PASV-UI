@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import RegistrationPage from './RegistrationPage';
+import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import {newUser, pageRegister} from './registration_data';
 
 describe('REGISTRATION PAGE NEGATIVE with empty field `First Name`', () => {

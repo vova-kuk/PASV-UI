@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import HomePage from '../homepage/HomePage';
-import LoginPage from "../login/LoginPage";
-import ResetPasswordPage from "./ResetPasswordPage";
+import HomePage from '../../_PageObjects/HomePage';
+import LoginPage from "../../_PageObjects/LoginPage";
+import ResetPasswordPage from "../../_PageObjects/ResetPasswordPage";
 
 describe('PASSWORD RECOVERY', () => {
     it('should open the Homepage', () => {
