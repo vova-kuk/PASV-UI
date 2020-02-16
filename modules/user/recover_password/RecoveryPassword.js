@@ -1,11 +1,13 @@
+
 import AppPage from './../../AppPage';
 
-class HomePage extends AppPage{
+class RecoveryPassword extends AppPage{
+
     get h1(){
         return $('//h1');
     }
-    get title() {
-        return $('//div[@class="container"]//span[@id="site-name"]');
+    get loginButton() {
+        return $('//a[@qa="login-link"]')
     }
 
     open(){
@@ -13,5 +15,4 @@ class HomePage extends AppPage{
     }
 }
 
-export default new HomePage();
-
+export default new RecoveryPassword();
