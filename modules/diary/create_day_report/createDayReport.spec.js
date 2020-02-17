@@ -11,14 +11,18 @@ describe('CREATE DAY REPORT', () => {
         CreateDayReportPage.createDayReport();
     });
     it('Should check page elements', () => {
-        CreateDayReportPage.checkPageElements();
+        expect(CreateDayReportPage.header.getText()).to.contain('Create day report');
+        expect(CreateDayReportPage.marks.getText()).to.contain('Marks to your daily report');
+        expect(CreateDayReportPage.version.getText()).to.contain('0.1.126');
+        expect(CreateDayReportPage.slogan.getText()).to.contain('© 2020 And what do you do for your career?');
+        expect(CreateDayReportPage.saveButton.getText()).to.contain('Save');
     });
     it('Should fill out day report', () => {
         CreateDayReportPage.fillOutReport();
         browser.pause(1000);
     });
     it('Should verify day report was created', () => {
-        CreateDayReportPage.verifyNewReport();
+        expect(CreateDayReportPage.newDayReport.getText()).to.contain('Write what is useful for self-development, learning, or practice you did today.');
     });
     //Will add once there is LogoutPage
     // after('Should logout', () => {

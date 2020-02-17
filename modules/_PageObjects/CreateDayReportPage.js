@@ -16,6 +16,12 @@ class CreateDayReportPage extends AppPage {
     get slogan() {
         return browser.$('//small[@qa="app-slogan"]');
     }
+    get saveButton() {
+        return browser.$('//button[contains(text(),"Save")]')
+    }
+    get newDayReport() {
+        return browser.$('//div[@qa="day-report-item-0"]//div[@qa="description"]');
+    }
     get diaryLink() {
         return browser.$('//div[@id="site-menu"]//a[@qa="diary-link"]');
     }
@@ -64,24 +70,17 @@ class CreateDayReportPage extends AppPage {
     get howWasYourDay() {
         return browser.$('//textarea[@name="description"]');
     }
-    get saveButton() {
-        return browser.$('//button[contains(text(),"Save")]')
-    }
-    get newDayReport() {
-        return browser.$('//div[@qa="day-report-item-0"]//div[@qa="description"]');
-    }
     createDayReport() {
         browser.$('//a[@qa="create-day-report-button"]').click();
         browser.pause(1000);
     }
-
-    checkPageElements() {
-        expect(this.header.getText()).to.contain('Create day report');
-        expect(this.marks.getText()).to.contain('Marks to your daily report');
-        expect(this.version.getText()).to.contain('0.1.126');
-        expect(this.slogan.getText()).to.contain('© 2020 And what do you do for your career?');
-        expect(this.saveButton.getText()).to.contain('Save');
-    }
+    // checkPageElements() {
+    //     expect(this.header.getText()).to.contain('Create day report');
+    //     expect(this.marks.getText()).to.contain('Marks to your daily report');
+    //     expect(this.version.getText()).to.contain('0.1.126');
+    //     expect(this.slogan.getText()).to.contain('© 2020 And what do you do for your career?');
+    //     expect(this.saveButton.getText()).to.contain('Save');
+    // }
     fillOutReport() {
         this.needHelp.click();
         this.understoodEverything.click();
@@ -94,9 +93,9 @@ class CreateDayReportPage extends AppPage {
         this.saveButton.click();
         browser.pause(1000);
     }
-    verifyNewReport() {
-        expect(this.newDayReport.getText()).to.contain('Write what is useful for self-development, learning, or practice you did today.');
-    }
+    // verifyNewReport() {
+    //     expect(this.newDayReport.getText()).to.contain('Write what is useful for self-development, learning, or practice you did today.');
+    // }
 
 }
 export default new CreateDayReportPage();
