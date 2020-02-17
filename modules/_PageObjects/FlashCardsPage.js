@@ -1,5 +1,5 @@
 import AppPage from '../AppPage';
-import { groupNameLink} from "../cards/create_new_card/newCard_data";
+import { groupNameLink} from '../cards/create_new_card/newCard_data';
 
 
 class FlashCardsPage extends AppPage {
