@@ -27,11 +27,11 @@ describe('DAY_REPORT_LIKE_PAGE', () => {
 
     it('should click Like button', () => {
         DayReportLikePage.submitBtn.click();
-        browser.pause(1000);
+        browser.pause(2000);
     });
 
-    // it('should check Like button status', () => {
-    //
-    //   browser.pause(1000);
-    // });
+    it('should check Like button status', () => {
+        DayReportLikePage.likeBtnStatus.click();
+        browser.pause(2000);
+    });
 });
