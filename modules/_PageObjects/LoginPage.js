@@ -30,6 +30,15 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
+    loginAsStudent(){
+        this.open();
+        this.email.setValue('studentofpasv@gmail.com');
+        this.password.setValue('98765ytrewq$');
+        this.submitBtn.click();
+        browser.pause(2000);
+    }
+
+
     open(){
         super.open('https://stage.pasv.us/user/login');
     }
