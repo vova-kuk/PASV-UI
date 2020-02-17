@@ -1,5 +1,6 @@
 import AppPage from '../AppPage';
 
+
 class LoginPage extends AppPage{
 
     get h1 () {
@@ -38,6 +39,13 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
+    loginRole(role) {
+        this.open();
+        this.email.setValue(role.email);
+        this.password.setValue(role.password);
+        this.submitBtn.click();
+        browser.pause(2000);
+    }
 
     open(){
         super.open('https://stage.pasv.us/user/login');
