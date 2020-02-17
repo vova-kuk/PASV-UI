@@ -58,7 +58,7 @@ describe('PASSWORD RECOVERY', () => {
         expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password');
     });
 
-    it('should try again link is displayed', () => {
+    it('should try again link be displayed', () => {
         expect(CheckEmailPage.tryAgainLink.isDisplayed()).true;
     });
 
