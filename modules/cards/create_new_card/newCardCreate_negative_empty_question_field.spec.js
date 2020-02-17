@@ -2,11 +2,11 @@ import {expect} from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import {negative1} from './newCard_data';
+import {student} from '../../user/login/loginRole_data';
 
 describe('NEW FLASH CARD CREATE WITH EMPTY QUESTION', ()=> {
     before('should login as student', () => {
-// ====== currently logging in as an admin. Waiting for login(role) implementation ==========
-        LoginPage.login();
+        LoginPage.loginRole(student);
     });
 
     it('should open Flash Cards page', () => {
