@@ -17,6 +17,12 @@ class HomePage extends AppPage {
     open() {
         super.open('https://stage.pasv.us/')
     }
+
+    clickGroupsBtn() {
+        browser.$('//a[@qa="groups-link"]').click();
+    }
+
+
 }
 
 export default new HomePage();
