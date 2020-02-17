@@ -1,9 +1,9 @@
 import {expect} from 'chai';
 import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
 import LoginPage from "../../_PageObjects/LoginPage";
-import {negative3} from "./newFlashCard_data";
+import {negative1} from "./newCard_data";
 
-describe('NEW FLASH CARD CREATE', ()=> {
+describe('NEW FLASH CARD CREATE WITH EMPTY QUESTION', ()=> {
     before('should login as student', () => {
 // ====== currently logging in as an admin. Waiting for login(role) implementation ==========
         LoginPage.login();
@@ -43,11 +43,11 @@ describe('NEW FLASH CARD CREATE', ()=> {
     });
 
     it('should fill in the Question field', () => {
-        FlashCardsPage.question.setValue(negative3.questionText);
+        FlashCardsPage.question.setValue(negative1.questionText);
     });
 
     it('should fill in the Answer field',  () => {
-        FlashCardsPage.answer.setValue(negative3.answerText);
+        FlashCardsPage.answer.setValue(negative1.answerText);
         browser.pause(3000);
     });
 
