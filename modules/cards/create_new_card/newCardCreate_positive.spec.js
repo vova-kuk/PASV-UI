@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
-import LoginPage from "../../_PageObjects/LoginPage";
-import {positive, pageTitle} from "./newCard_data";
+import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import {positive, pageTitle} from './newCard_data';
 
 describe('NEW FLASH CARD CREATE POSITIVE', ()=> {
    before('should login as student', () => {

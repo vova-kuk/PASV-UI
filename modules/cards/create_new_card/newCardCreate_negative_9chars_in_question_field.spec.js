@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
-import LoginPage from "../../_PageObjects/LoginPage";
-import {negative3} from "./newCard_data";
+import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import {negative3} from './newCard_data';
 
 describe('NEW FLASH CARD CREATE WITH 9 CHARS IN QUESTION', ()=> {
     before('should login as student', () => {

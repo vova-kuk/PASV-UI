@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
-import LoginPage from "../../_PageObjects/LoginPage";
-import {negative2} from "./newCard_data";
+import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import {negative2} from './newCard_data';
 
 describe('NEW FLASH CARD CREATE WITH EMPTY ANSWER', ()=> {
     before('should login as student', () => {
