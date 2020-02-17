@@ -1,8 +1,8 @@
 import {expect} from 'chai';
-import RegistrationPage from './RegistrationPage';
+import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import {newUser, pageRegister} from './registration_data';
-import LoginPage from '../login/LoginPage';
-import ProfilePage from '../profile_page/ProfilePage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import ProfilePage from '../../_PageObjects/ProfilePage';
 import Logout from './Logout';
 
 describe('REGISTRATION PAGE POSITIVE', () => {

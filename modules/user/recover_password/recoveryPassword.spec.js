@@ -1,8 +1,8 @@
 import {expect} from 'chai';
-import HomePage from '../homepage/HomePage';
-import LoginPage from "../login/LoginPage";
-import ResetPasswordPage from "./ResetPasswordPage";
-import CheckEmailPage from "./CheckEmailPage";
+import HomePage from '../../_PageObjects/HomePage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import ResetPasswordPage from '../../_PageObjects/ResetPasswordPage';
+import CheckEmailPage from '../../_PageObjects/CheckEmailPage';
 
 describe('PASSWORD RECOVERY', () => {
     it('should open the Homepage', () => {
@@ -26,14 +26,14 @@ describe('PASSWORD RECOVERY', () => {
         browser.pause(1000);
     });
 
-    it('should check if header of the “ResetPassword” page is correct “Reset your password”', () => {
+    it('should check if header of the `ResetPassword` page is correct `Reset your password`', () => {
         expect(ResetPasswordPage.h1.getText()).eq('Reset your password');
         browser.pause(1000);
     });
 
     // Miradil Omuraliev
 
-    it('should check failed message “User not found” appears if entered email is not found in the database', () => {
+    it('should check failed message `User not found` appears if entered email is not found in the database', () => {
         ResetPasswordPage.emailReset.setValue('asdadfdfs@mail.com');
         ResetPasswordPage.sendButton.click();
         browser.pause(2000)
@@ -48,7 +48,7 @@ describe('PASSWORD RECOVERY', () => {
         browser.pause(2000);
     });
 
-    it('should check that user gets redirected to “CheckMail” page if correct email was entered', () => {
+    it('should check that user gets redirected to `CheckMail` page if correct email was entered', () => {
         ResetPasswordPage.emailReset.setValue('ooopartner00@mail.ru');
         ResetPasswordPage.sendButton.click();
         browser.pause(2000)

@@ -1,4 +1,4 @@
-import AppPage from './../../AppPage';
+import AppPage from '../AppPage';
 
 class ProfilePage extends AppPage{
     get h1(){
