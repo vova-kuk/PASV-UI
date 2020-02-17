@@ -36,22 +36,18 @@ describe('PASSWORD RECOVERY', () => {
     it('should check failed message `User not found` appears if entered email is not found in the database', () => {
         ResetPasswordPage.emailReset.setValue('asdadfdfs@mail.com');
         ResetPasswordPage.sendButton.click();
-        browser.pause(1000)
         expect(ResetPasswordPage.h4.getText()).eq('User not found');
-        browser.pause(1000)
     });
 
     it('should check that user is left on the same page if entered email is not found in the database', () => {
         expect(ResetPasswordPage.h1.getText()).eq('Reset your password');
-        browser.pause(2000);
     });
 
     it('should check that user gets redirected to `CheckMail` page if correct email was entered', () => {
         ResetPasswordPage.emailReset.setValue('ooopartner00@mail.ru');
         ResetPasswordPage.sendButton.click();
-        browser.pause(1000)
+        browser.pause(500)
         expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password') ;
-        browser.pause(1000)
     });
 
 });
