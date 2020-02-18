@@ -3,7 +3,7 @@ import AppPage from "../AppPage";
 
 class DiaryPage extends AppPage{
 
-    get goToDiaryPage() {
+    goToDiaryPage() {
         super.click('//a[@qa="diary-link"]');
     }
 

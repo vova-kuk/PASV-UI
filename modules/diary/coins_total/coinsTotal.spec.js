@@ -13,7 +13,7 @@ let newCoinAmmount = 0;
 describe('SAVE COINS AMOUNT BEFORE ', () => {
     before(() => {
         LoginPage.loginRole(student);
-        DiaryPage.goToDiaryPage;
+        DiaryPage.goToDiaryPage();
         CreateDayReportPage.createDayReport();
         CreateDayReportPage.fillOutReport();
     });
@@ -32,7 +32,7 @@ describe('APPROVE DAY REPORT BY ADMIN', () => {
 
     before(() => {
         LoginPage.loginRole(admin);
-        DiaryPage.goToDiaryPage;
+        DiaryPage.goToDiaryPage();
     });
 
     it('should approve day report', () => {
