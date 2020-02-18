@@ -1,5 +1,5 @@
 import AppPage from '../AppPage';
-import { groupNameLink} from '../cards/create_new_card/newCard_data';
+import {groupNameLink} from '../cards/create_new_card/newCard_data';
 
 
 class FlashCardsPage extends AppPage {
@@ -12,7 +12,6 @@ class FlashCardsPage extends AppPage {
         return browser.$('//h1');
     }
     get groupName() {
-
         return browser.$(groupNameLink);
     }
 
@@ -67,4 +66,4 @@ class FlashCardsPage extends AppPage {
     }
 }
 
-export default new FlashCardsPage();
+export default new FlashCardsPage()
