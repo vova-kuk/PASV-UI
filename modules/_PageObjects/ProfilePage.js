@@ -1,6 +1,19 @@
 import AppPage from '../AppPage';
 
 class ProfilePage extends AppPage{
+    get profileDropdown() {
+        return $('//a[@class="dropdown-toggle nav-link"]');
+    }
+
+    get profileBtn() {
+        return $('//button[contains(text(),"Profile")]');
+    }
+
+    profile() {
+        this.profileDropdown.click();
+        this.profileBtn.click();
+    }
+
     get h1(){
         return $('//h1');
     }
