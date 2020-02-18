@@ -9,3 +9,4 @@ const student = {
 };
 
 export {admin, student};
+
