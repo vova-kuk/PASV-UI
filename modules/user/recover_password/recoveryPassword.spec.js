@@ -5,12 +5,15 @@ import ResetPasswordPage from '../../_PageObjects/ResetPasswordPage';
 import CheckEmailPage from '../../_PageObjects/CheckEmailPage';
 
 describe('PASSWORD RECOVERY', () => {
+
     it('should open the Homepage', () => {
         HomePage.open();
     });
+
     it('should click Login button', () => {
         HomePage.loginLink.click();
     });
+
     it('should have correct User Login page title', () => {
         expect(LoginPage.h1.getText()).eq('User Login');
         browser.pause(1000);
@@ -31,8 +34,6 @@ describe('PASSWORD RECOVERY', () => {
         browser.pause(1000);
     });
 
- // Anna Strik
-
     it('should check if the button is displayed', () => {
         expect($(ResetPasswordPage.sendButton).isDisplayed()).to.be.true;
     });
@@ -46,8 +47,6 @@ describe('PASSWORD RECOVERY', () => {
         expect($(ResetPasswordPage.sendButton).isEnabled()).to.be.false;
         browser.pause(1000);
     });
-
-    // Miradil Omuraliev
 
     it('should check failed message `User not found` appears if entered email is not found in the database', () => {
         ResetPasswordPage.emailReset.setValue('asdadfdfs@mail.com');
@@ -76,6 +75,14 @@ describe('PASSWORD RECOVERY', () => {
 
     it('should try again link be displayed', () => {
         expect(CheckEmailPage.tryAgainLink.isDisplayed()).true;
+    });
+
+    it('should check that "try again" is clickable', () => {
+        CheckEmailPage.tryAgainLink.click();
+    });
+
+    it('should check user gets redirected to "Forgot Password" page', () => {
+        expect(ResetPasswordPage.h1.getText()).eq('Reset your password');
     });
 
 });
