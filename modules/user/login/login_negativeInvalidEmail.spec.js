@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 
-describe('LOGIN_4', () => {
+describe('LOGIN PAGE NEGATIVE with invalid Email and valid Password', () => {
     it('should open login page', () => {
         LoginPage.open();
     });
