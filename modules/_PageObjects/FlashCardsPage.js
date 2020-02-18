@@ -11,6 +11,15 @@ class FlashCardsPage extends AppPage {
     get h1() {
         return browser.$('//h1');
     }
+
+    get description(){
+        return browser.$('//div//p[@qa="flash-description"]');
+    }
+
+    openCardsMenu(){
+        return browser.$('//li//a[contains(text(),"Cards")]');
+    }
+
     get groupName() {
 
         return browser.$(groupNameLink);
@@ -48,6 +57,11 @@ class FlashCardsPage extends AppPage {
         return browser.$('//h1');
 
     }
+
+    get firstCreatedCard() {
+        return browser.$('//div[@qa="flash-group-list "]//a');
+    }
+
     get lastCreatedCard() {
         return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//strong[@class = "d-block mb-2"]');
     }

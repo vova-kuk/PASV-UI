@@ -30,7 +30,7 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
-    loginAsStudent(){
+    loginAsStudent () {
         this.open();
         this.email.setValue('studentofpasv@gmail.com');
         this.password.setValue('98765ytrewq$');
