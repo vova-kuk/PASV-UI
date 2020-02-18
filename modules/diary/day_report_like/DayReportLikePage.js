@@ -19,9 +19,8 @@ class DayReportLikePage extends AppPage{
     }
 
     get likeBtnStatus () {
-        return browser.$('//button[@class="btn btn-outline-primary btn-sm disabled]');
+        return browser.$('//button[@disabled]');
     }
-
 
 
     open(){

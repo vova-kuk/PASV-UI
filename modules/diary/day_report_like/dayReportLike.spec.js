@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import LoginPage from './../../user/login/LoginPage';
-import ProfilePage from './../../user/profile_page/ProfilePage';
+import LoginPage from '../../_PageObjects/LoginPage';
+import ProfilePage from '../../_PageObjects/ProfilePage';
 import DayReportLikePage from './DayReportLikePage';
 
 describe('DAY_REPORT_LIKE_PAGE', () => {
@@ -27,11 +27,11 @@ describe('DAY_REPORT_LIKE_PAGE', () => {
 
     it('should click Like button', () => {
         DayReportLikePage.submitBtn.click();
-        browser.pause(1000);
+        browser.pause(2000);
     });
 
-    // it('should check Like button status', () => {
-    //
-    //   browser.pause(1000);
-    // });
+    it('should check Like button status', () => {
+        DayReportLikePage.likeBtnStatus.click();
+        browser.pause(2000);
+    });
 });

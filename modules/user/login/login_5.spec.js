@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import LoginPage from './LoginPage';
+import LoginPage from '../../_PageObjects/LoginPage';
 
 describe('LOGIN_5', () => {
     it('should open login page', () => {
