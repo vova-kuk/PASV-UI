@@ -33,6 +33,28 @@ describe('PASSWORD RECOVERY', () => {
         expect(ResetPasswordPage.h1.getText()).eq('Reset your password');
         browser.pause(1000);
     });
+    //Yuliya Akhunbabaeva
+
+    it ('should check if “Send password reset email” button is not clickable if email in incorrect format is entered', () => {
+        ResetPasswordPage.emailReset.setValue('amcamc@@');
+        expect(ResetPasswordPage.sendButton.isClickable()).to.be.false;
+        browser.pause(1000);
+
+    });
+
+     it ('should check if “Invalid email address” warning is displayed if email in incorrect format is entered', () =>{
+         ResetPasswordPage.emailReset.setValue('amcamc@@');
+         expect(ResetPasswordPage.warningMessage.isDisplayed());
+     });
+
+
+
+     it ('should check if “Send password reset email” button is clickable if email in correct format is entered', () => {
+         ResetPasswordPage.emailReset.setValue('ooopartner00@mail.ru');
+         ResetPasswordPage.sendButton.isClickable();
+         browser.pause(1000);
+     });
+
 
     it('should check if the button is displayed', () => {
         expect($(ResetPasswordPage.sendButton).isDisplayed()).to.be.true;

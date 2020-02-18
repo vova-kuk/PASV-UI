@@ -6,6 +6,11 @@ class ResetPasswordPage extends AppPage {
     get h1() {
         return browser.$('//h1');
     }
+    get warningMessage() {
+
+        return $('//div[@class="invalid-feedback"]');
+
+    }
 
 
 // Miradil Omuraliev
