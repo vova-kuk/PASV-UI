@@ -11,7 +11,7 @@ describe('GROUP RATING TEST', () => {
         LoginPage.loginAsStudent();
     });
 
-    it ('should open Groups page', () => {
+    it ('should open groups page', () => {
         HomePage.clickGroupsBtn();
         browser.pause(500);
     });
