@@ -66,5 +66,17 @@ describe('PASSWORD RECOVERY', () => {
         expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password');
     });
 
+    it('should success message be displayed', () => {
+        expect(CheckEmailPage.successMessage.isDisplayed()).true;
+    });
+
+    it('should h1 title be correct', () => {
+        expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password');
+    });
+
+    it('should try again link be displayed', () => {
+        expect(CheckEmailPage.tryAgainLink.isDisplayed()).true;
+    });
+
 });
 
