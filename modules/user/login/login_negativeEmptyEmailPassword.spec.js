@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 
-describe('LOGIN_5', () => {
+describe('LOGIN PAGE NEGATIVE with empty Email and empty Password fields', () => {
     it('should open login page', () => {
         LoginPage.open();
     });
@@ -10,10 +10,6 @@ describe('LOGIN_5', () => {
         const actual = LoginPage.h1.getText();
         const expected = 'User Login';
         expect(actual).eq(expected);
-    });
-
-    it('should fill out password field', () => {
-        LoginPage.password.setValue('123456');
     });
 
     it('should click Login button', () => {
@@ -25,5 +21,5 @@ describe('LOGIN_5', () => {
         const actual = LoginPage.h1.getText();
         const expected = 'User Login';
         expect(actual).eq(expected);
-    });
+        });
 });
