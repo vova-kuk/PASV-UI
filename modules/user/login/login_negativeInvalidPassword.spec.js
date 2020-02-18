@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 
-describe('LOGIN_2', () => {
+describe('LOGIN PAGE NEGATIVE with valid Email and invalid Password', () => {
     it('should open login page', () => {
         LoginPage.open();
     });
@@ -10,6 +10,14 @@ describe('LOGIN_2', () => {
         const actual = LoginPage.h1.getText();
         const expected = 'User Login';
         expect(actual).eq(expected);
+    });
+
+    it('should fill out email field', () => {
+        LoginPage.email.setValue('ooopartner00@mail.ru');
+    });
+
+    it('should fill out password field', () => {
+        LoginPage.password.setValue('123123');
     });
 
     it('should click Login button', () => {
@@ -21,5 +29,5 @@ describe('LOGIN_2', () => {
         const actual = LoginPage.h1.getText();
         const expected = 'User Login';
         expect(actual).eq(expected);
-        });
+    });
 });
