@@ -22,6 +22,9 @@ class DayReportLikePage extends AppPage{
         return browser.$('//button[@disabled]');
     }
 
+    get createDayReportBtn () {
+        return browser.$('//a[@qa="create-day-report-button"]');
+    }
 
     open(){
         super.open('https://stage.pasv.us/user/login');
