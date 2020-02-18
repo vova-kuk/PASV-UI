@@ -31,6 +31,22 @@ describe('PASSWORD RECOVERY', () => {
         browser.pause(1000);
     });
 
+ // Anna Strik
+
+    it('should check if the button is displayed', () => {
+        expect($(ResetPasswordPage.sendButton).isDisplayed()).to.be.true;
+    });
+
+    it('should check if `Required` message is displayed if email field is empty', () => {
+        $(ResetPasswordPage.email).clearValue();
+        expect($(ResetPasswordPage.requiredMsg).isDisplayed()).to.be.true;
+    });
+
+    it('should check if the button is not clickable if email field is empty', () => {
+        expect($(ResetPasswordPage.sendButton).isEnabled()).to.be.false;
+        browser.pause(1000);
+    });
+
     // Miradil Omuraliev
 
     it('should check failed message `User not found` appears if entered email is not found in the database', () => {
@@ -47,7 +63,7 @@ describe('PASSWORD RECOVERY', () => {
         ResetPasswordPage.emailReset.setValue('ooopartner00@mail.ru');
         ResetPasswordPage.sendButton.click();
         browser.pause(500);
-        expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password') ;
+        expect(CheckEmailPage.h1Check.getText()).eq('Check your email for a link to reset your password');
     });
 
     it('should success message be displayed', () => {
