@@ -1,10 +1,10 @@
 import {expect} from 'chai';
-import LoginPage from "../../_PageObjects/LoginPage";
-import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
-import {admin, student} from "../../user/login/loginRole_data";
-import Logout from "../../_PageObjects/Logout";
-import DiaryPage from "../../_PageObjects/DiaryPage";
-import ProfilePage from "../../_PageObjects/ProfilePage";
+import LoginPage from '../../_PageObjects/LoginPage';
+import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
+import {admin, student} from '../../user/login/loginRole_data';
+import Logout from '../../_PageObjects/Logout';
+import DiaryPage from '../../_PageObjects/DiaryPage';
+import ProfilePage from '../../_PageObjects/ProfilePage';
 
 
 let beforeCoinAmmount = 0;
