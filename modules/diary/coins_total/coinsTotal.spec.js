@@ -7,8 +7,8 @@ import DiaryPage from '../../_PageObjects/DiaryPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 
 
-let beforeCoinAmmount = 0;
-let newCoinAmmount = 0;
+let beforeCoinAmount = 0;
+let newCoinAmount = 0;
 
 describe('SAVE COINS AMOUNT BEFORE ', () => {
     before(() => {
@@ -20,7 +20,7 @@ describe('SAVE COINS AMOUNT BEFORE ', () => {
 
     it('should save current amount of user coins from Profile page', () => {
         ProfilePage.goToProfilePage();
-        beforeCoinAmmount = ProfilePage.coinTotal.getText()
+        beforeCoinAmount = ProfilePage.coinTotal.getText()
     });
 
     it('should logout as user', () => {
@@ -52,12 +52,12 @@ describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
     });
 
     it('should verify new coin amount not equal coin amount before', () => {
-        newCoinAmmount = ProfilePage.coinTotal.getText();
-        expect(newCoinAmmount).to.not.equal(beforeCoinAmmount);
+        newCoinAmount = ProfilePage.coinTotal.getText();
+        expect(newCoinAmount).to.not.equal(beforeCoinAmount);
     });
 
     it('should verify new coin amount equal to amount of coin before + 1', () => {
-        expect(Number.parseInt(newCoinAmmount)).equal(Number.parseInt(beforeCoinAmmount)+1);
+        expect(Number.parseInt(newCoinAmount)).equal(Number.parseInt(beforeCoinAmount)+1);
     });
 
 });
