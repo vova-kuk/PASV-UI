@@ -1,13 +1,23 @@
 import {expect} from 'chai';
 import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
-import CheckEmailPage from "../../_PageObjects/CheckEmailPage";
+import {student} from "../../user/login/loginRole_data";
 
 let progressBefore;
 
 describe('', () => {
-    before('login', () => {
+    before('Loin as Student', () => {
+        LoginPage.loginRole(student);
+    });
 
+    it('should check if start button is displayed -click, if not -check i know button', () => {
+        if (CardsTrainingPage.startTraining.isDisplayed()) {
+            CardsTrainingPage.startTraining.click();
+            browser.pause(1000);
+        } else {
+            CardsTrainingPage.iKnow.isDisplayed();
+        }
+        browser.pause(1000);
     });
 
     it('should check if answer is displayed', () => {
