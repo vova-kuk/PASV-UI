@@ -19,15 +19,7 @@ describe ('CARDS TRAINING', () => {
 
     it('should have correct h1 title', () => {
         expect(FlashCardsPage.h1.getText()).eq('FlashCards');
-    it('should check if start button is displayed -click, if not -check i know button', () => {
-        if (CardsTrainingPage.startTraining.isDisplayed()) {
-            CardsTrainingPage.startTraining.click();
-            browser.pause(1000);
-        } else {
-            CardsTrainingPage.iKnow.isDisplayed();
-        }
-        browser.pause(1000);
-    });
+
 
     //Olga
     // it('should check Group title', function () {
@@ -41,6 +33,17 @@ describe ('CARDS TRAINING', () => {
     //     CardsTrainingPage.trainingLabel.click();
     //     browser.pause(500);
     // });
+
+        //Artem
+        //     it('should check if start button is displayed -click, if not -check i know button', () => {
+        //     if (CardsTrainingPage.startTraining.isDisplayed()) {
+        //         CardsTrainingPage.startTraining.click();
+        //         browser.pause(1000);
+        //     } else {
+        //         CardsTrainingPage.iKnow.isDisplayed();
+        //     }
+        //     browser.pause(1000);
+        // });
 
 //Anna
     /*
