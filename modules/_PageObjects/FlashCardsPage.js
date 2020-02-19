@@ -98,6 +98,10 @@ class FlashCardsPage extends AppPage {
     get cardLastInList() {
         return browser.$('//div[@qa="flash-group-list "]//div[@qa="flash-group-item"][last()]//a');
     }
+
+    get linkToGroup() {
+        return browser.$('=TestGroup');
+    }
 }
 
 export default new FlashCardsPage()

@@ -21,6 +21,11 @@ describe ('CARDS TRAINING', () => {
         expect(FlashCardsPage.h1.getText()).eq('FlashCards');
     });
 
+    it('should find group "Test Group" and click', () => {
+        FlashCardsPage.linkToGroup.scrollIntoView();
+        FlashCardsPage.linkToGroup.click();
+    });
+
 //Anna
     /*
     it('should check if answer is displayed', () => {
