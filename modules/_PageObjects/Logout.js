@@ -1,16 +1,16 @@
 class Logout {
-    get logoutDropdown() {
-        return $('//a[@class="dropdown-toggle nav-link"]');
-    }
+  get logoutDropdown() {
+    return $('//a[@class="dropdown-toggle nav-link"]');
+  }
 
-    get logoutBtn() {
-        return $('//button[contains(text(),"Logout")]');
-    }
+  get logoutBtn() {
+    return $('//button[contains(text(),"Logout")]');
+  }
 
-    logout() {
-        this.logoutDropdown.click();
-        this.logoutBtn.click();
-    }
+  logout() {
+    this.logoutDropdown.click();
+    this.logoutBtn.click();
+  }
 
 }
 
