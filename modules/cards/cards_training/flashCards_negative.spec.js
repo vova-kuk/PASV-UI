@@ -5,7 +5,7 @@ import FlashCardList from "./FlashCardList";
 
 describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
     before('Login as Student', () => {
-        LoginPage.loginAsStudent();
+        LoginPage.loginRole();
         browser.pause(500);
     });
 

@@ -30,7 +30,9 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
-    loginAsStudent () {
+
+    // Код loginAsStudent не актуален. Смотрите ниже loginRole(role)
+    loginAsStudent(){
         this.open();
         this.email.setValue('studentofpasv@gmail.com');
         this.password.setValue('98765ytrewq$');
@@ -38,6 +40,13 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
+    loginRole(role) {
+        this.open();
+        this.email.setValue(role.email);
+        this.password.setValue(role.password);
+        this.submitBtn.click();
+        browser.pause(2000);
+    }
 
     open(){
         super.open('https://stage.pasv.us/user/login');
@@ -45,4 +54,3 @@ class LoginPage extends AppPage{
 }
 
 export default new LoginPage();
-
