@@ -1,6 +1,14 @@
 import AppPage from "../AppPage";
 class CardsTrainingPage extends AppPage{
 
+    get title () {
+        return $ ('//h1');
+    }
+
+    get trainingLabel(){
+        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
+    }
+
     get startTraining () {
         return $('//button[contains(text(),"Start training")]');
     }
