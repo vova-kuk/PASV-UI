@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import {newUser, pageRegister} from './registration_data';
 import {userRegistered} from './userAlreadyRegister';
-import HomePage from "../../_PageObjects/HomePage";
+import HomePage from '../../_PageObjects/HomePage';
 
 describe('REGISTRATION PAGE NEGATIVE with already registered user in the system', () => {
   before('should open Home Page, click button `Registration` ' +

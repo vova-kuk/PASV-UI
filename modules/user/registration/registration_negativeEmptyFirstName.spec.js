@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import {newUser, pageRegister} from './registration_data';
-import HomePage from "../../_PageObjects/HomePage";
+import HomePage from '../../_PageObjects/HomePage';
 
 describe('REGISTRATION PAGE NEGATIVE with empty field `First Name`', () => {
   before('should open Home Page, click button `Registration` ' +
