@@ -24,10 +24,6 @@ class FlashCardsPage extends AppPage {
         return browser.$(groupNameLink);
     }
 
-    get waitingForApproval() {
-        return browser.$('=Waiting for approval');
-    }
-
     get createNewCardBtn() {
         return browser.$('//button[text() = "Create new Card"]');
     }
@@ -76,6 +72,31 @@ class FlashCardsPage extends AppPage {
         this.profileDropdown.click();
         this.logoutLink.click();
         browser.pause(1000);
+    }
+
+//testing one of the cards
+    get h1LastCreated(){
+        return browser.$('//h1');
+    }
+
+    get mainView() {
+        return browser.$('//*[contains(text(),"Main view")]');
+    }
+
+    get compactView() {
+        return browser.$('//*[contains(text(),"Compact view")]');
+    }
+
+    get waitingForApproval() {
+        return browser.$('//*[contains(text(),"Waiting for approval")]');
+    }
+
+    get training() {
+        return browser.$('//*[contains(text(),"Training")]');
+    }
+
+    get cardLastInList() {
+        return browser.$('//div[@qa="flash-group-list "]//div[@qa="flash-group-item"][last()]//a');
     }
 }
 
