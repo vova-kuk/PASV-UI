@@ -21,6 +21,19 @@ describe ('CARDS TRAINING', () => {
         expect(FlashCardsPage.h1.getText()).eq('FlashCards');
     });
 
+    //Olga
+    // it('should check Group title', function () {
+    //     expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    // });
+    //
+    // it('should check if Training label is displayed', function () {
+    //     expect(CardsTrainingPage.trainingLabel.isDisplayed()).true;
+    // });
+    // it('should click Training link', function () {
+    //     CardsTrainingPage.trainingLabel.click();
+    //     browser.pause(500);
+    // });
+
 //Anna
     /*
     it('should check if answer is displayed', () => {
