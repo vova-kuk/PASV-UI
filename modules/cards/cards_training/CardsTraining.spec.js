@@ -20,11 +20,24 @@ describe ('CARDS TRAINING', () => {
     it('should have correct h1 title', () => {
         expect(FlashCardsPage.h1.getText()).eq('FlashCards');
     });
-
-    it('should find group "Test Group" and click', () => {
+  
+  it('should find group "Test Group" and click', () => {
         FlashCardsPage.linkToGroup.scrollIntoView();
         FlashCardsPage.linkToGroup.click();
     });
+  
+    //Olga
+    // it('should check Group title', function () {
+    //     expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    // });
+    //
+    // it('should check if Training label is displayed', function () {
+    //     expect(CardsTrainingPage.trainingLabel.isDisplayed()).true;
+    // });
+    // it('should click Training link', function () {
+    //     CardsTrainingPage.trainingLabel.click();
+    //     browser.pause(500);
+    // });
 
 //Anna
     /*
