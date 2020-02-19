@@ -1,5 +1,5 @@
 import AppPage from '../AppPage';
-import { groupNameLink} from '../cards/create_new_card/newCard_data';
+import {groupNameLink} from '../cards/create_new_card/newCard_data';
 
 
 class FlashCardsPage extends AppPage {
@@ -11,8 +11,16 @@ class FlashCardsPage extends AppPage {
     get h1() {
         return browser.$('//h1');
     }
-    get groupName() {
 
+    get description(){
+        return browser.$('//div//p[@qa="flash-description"]');
+    }
+
+    openCardsMenu(){
+        return browser.$('//li//a[contains(text(),"Cards")]');
+    }
+
+    get groupName() {
         return browser.$(groupNameLink);
     }
 
@@ -46,8 +54,12 @@ class FlashCardsPage extends AppPage {
 
     get titleOfCurrentGroup() {
         return browser.$('//h1');
-
     }
+
+    get firstCreatedCard() {
+        return browser.$('//div[@qa="flash-group-list "]//a');
+    }
+
     get lastCreatedCard() {
         return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//strong[@class = "d-block mb-2"]');
     }
@@ -67,4 +79,4 @@ class FlashCardsPage extends AppPage {
     }
 }
 
-export default new FlashCardsPage();
+export default new FlashCardsPage()
