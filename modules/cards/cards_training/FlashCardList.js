@@ -1,6 +1,6 @@
 import AppPage from "../../AppPage";
 
-class qwewertFlashCard extends AppPage {
+class FlashCardList extends AppPage {
 
     get h1(){
         return browser.$('//h1');
@@ -29,4 +29,4 @@ class qwewertFlashCard extends AppPage {
 
 }
 
-export default new qwewertFlashCard();
+export default new FlashCardList();

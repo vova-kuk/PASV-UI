@@ -55,7 +55,6 @@ class FlashCardsPage extends AppPage {
 
     get titleOfCurrentGroup() {
         return browser.$('//h1');
-
     }
 
     get firstCreatedCard() {
