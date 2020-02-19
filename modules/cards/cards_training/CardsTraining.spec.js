@@ -4,7 +4,7 @@ import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
 import {student} from "../../user/login/loginRole_data";
 import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
-import CheckEmailPage from "../../_PageObjects/CheckEmailPage";
+
 let progressBefore;
 
 describe ('CARDS TRAINING', () => {
