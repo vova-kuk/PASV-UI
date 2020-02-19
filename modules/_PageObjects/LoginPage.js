@@ -55,4 +55,3 @@ class LoginPage extends AppPage{
 }
 
 export default new LoginPage();
-
