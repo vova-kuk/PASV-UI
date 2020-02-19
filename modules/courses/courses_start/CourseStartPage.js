@@ -1,26 +1,15 @@
 import AppPage from '../../AppPage';
-import NewCourseCreate from '../../courses/courses_start/NewCourseCreate';
+import {courseCreate} from '../../courses/courses_start/courseStartData';
+
 
 class CourseStartPage extends AppPage {
 
-    // const CourseStartData = {
-    //     courseName: 'PASV Project Course TEST',
-    //
-    // };
-
-    get createdCourse () {
-        return $('//a[text()="PASV Project Course TEST2"]');
-        //a[contains(text(),'PASV Project Course TEST')]
-    }
-
     createdCourseOpen () {
-        this.createdCourse.click();
-        browser.pause(5000);
+        return $(`//a[text()="${courseCreate.courseName}"]`).click();
     }
 
     get h1 () {
         return $('//h1');
-
     }
 
     get startCourseBtn () {

@@ -1,8 +1,8 @@
 import AppPage from './../../AppPage';
+import {courseCreate} from '../../courses/courses_start/courseStartData';
 
-const newCourse = 'PASV Course TEST' + Math.random();
 
-class NewCourseCreate extends AppPage {
+class newCourseCreatePage extends AppPage {
 
     open() {
         super.open('https://stage.pasv.us/course');
@@ -17,7 +17,7 @@ class NewCourseCreate extends AppPage {
     }
 
     get setCourseName () {
-        return $('//input[@name="name"]'); //why no set value in course name?
+        return $('//input[@name="name"]');
     }
 
     get setCourseDescription () {
@@ -33,21 +33,23 @@ class NewCourseCreate extends AppPage {
     }
 
 
-    createNewCourse () {
+    courseCreate () {
         this.open();
         this.createBtn.click();
-        this.setCourseName.setValue(newCourse);
-        this.setCourseDescription.setValue('Test Test Test Test Test');
-        this.setAccessType.selectByVisibleText('All');
+        this.setCourseName.setValue(courseCreate.courseName);
+        this.setCourseDescription.setValue(courseCreate.description);
+        this.setAccessType.selectByVisibleText(courseCreate.accessType);
         this.CreateBtn.click();
         browser.pause(2000);
     }
 
+    get createdCourseTitle () {
+        return $(`//a[text()="${courseCreate.courseName}"]`);
+    }
 
 }
 
-export default new NewCourseCreate();
+export default new newCourseCreatePage();
 
-// get goToCoursesPage(){
-//     return $('//div[@id="site-menu"]//a[@qa="courses-link"]');
-// }
+
+
