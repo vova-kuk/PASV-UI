@@ -16,7 +16,6 @@ describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
 
     it('should create a new course', () => {
         NewCourseCreatePage.courseCreate();
-        browser.pause(1000);
     });
 
     it('should check the created course exists on the courses page', () => {
@@ -39,19 +38,16 @@ describe('START THE COURSE (AS A STUDENT)', () => {
 
     it('should go to courses page', () => {
         NewCourseCreatePage.open();
-        browser.pause(1000);
     });
 
     it('should open the course', () => {
         CourseStartPage.createdCourseOpen();
-        browser.pause(1000);
     });
 
     it('should have a correct h1 equal to the name of the course', () => {
         const actual = CourseStartPage.h1.getText();
         const expected = courseCreate.courseName;
         expect(actual).eq(expected);
-        browser.pause(1000);
     });
 
     it('should start the course', () => {
@@ -62,7 +58,6 @@ describe('START THE COURSE (AS A STUDENT)', () => {
         const actual = CourseStartPage.successMessage.getText();
         const expected = 'Course loaded';
         expect(actual).eq(expected);
-        browser.pause(2000);
     });
 
 });

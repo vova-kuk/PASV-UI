@@ -40,7 +40,7 @@ class newCourseCreatePage extends AppPage {
         this.setCourseDescription.setValue(courseCreate.description);
         this.setAccessType.selectByVisibleText(courseCreate.accessType);
         this.CreateBtn.click();
-        browser.pause(2000);
+        browser.pause(500);
     }
 
     get createdCourseTitle () {

@@ -14,7 +14,6 @@ class CourseStartPage extends AppPage {
 
     get startCourseBtn () {
         return $('//button[@class="btn btn-primary"]');
-        browser.pause(5000);
     }
 
     startCourse () {
