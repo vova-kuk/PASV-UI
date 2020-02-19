@@ -13,7 +13,6 @@ describe('CREATE DAY REPORT', () => {
     it('Should check page elements', () => {
         expect(CreateDayReportPage.header.getText()).to.contain('Create day report');
         expect(CreateDayReportPage.marks.getText()).to.contain('Marks to your daily report');
-        expect(CreateDayReportPage.version.getText()).to.contain('0.1.126');
         expect(CreateDayReportPage.slogan.getText()).to.contain('© 2020 And what do you do for your career?');
         expect(CreateDayReportPage.saveButton.getText()).to.contain('Save');
     });
