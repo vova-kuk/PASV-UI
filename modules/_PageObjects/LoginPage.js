@@ -31,6 +31,8 @@ class LoginPage extends AppPage{
         browser.pause(2000);
     }
 
+
+    // Код loginAsStudent не актуален. Смотрите ниже loginRole(role)
     loginAsStudent(){
         this.open();
         this.email.setValue('studentofpasv@gmail.com');

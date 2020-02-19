@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 
-describe('LOGIN_3', () => {
+describe('LOGIN PAGE NEGATIVE with empty Email field and valid Password', () => {
     it('should open login page', () => {
         LoginPage.open();
     });
@@ -12,12 +12,8 @@ describe('LOGIN_3', () => {
         expect(actual).eq(expected);
     });
 
-    it('should fill out email field', () => {
-        LoginPage.email.setValue('ooopartner00@mail.ru');
-    });
-
     it('should fill out password field', () => {
-        LoginPage.password.setValue('123123');
+        LoginPage.password.setValue('123456');
     });
 
     it('should click Login button', () => {

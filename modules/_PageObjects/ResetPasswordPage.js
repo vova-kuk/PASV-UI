@@ -2,24 +2,24 @@ import AppPage from '../AppPage';
 
 class ResetPasswordPage extends AppPage {
 
-
     get h1() {
         return $('//h1');
     }
-
-
-// Miradil Omuraliev
-    get emailReset(){
-        return $('//input[@placeholder="Enter your email address"]');
+    get invalidMsg() {
+        return $('//div[contains(@class, "form")]//div[contains(text(), "Invalid")]');
     }
     get sendButton() {
-        return $('//button[@class="btn btn-primary"]');
+        return $('//button[contains(text(),"Send password reset email")]');
     }
-    get h4(){
+    get failedMsg(){
         return $('//h4[@class="notification-title"]');
     }
-
-
+    get email(){
+        return $('//input[@name="email"]');
+    }
+    get requiredMsg(){
+        return $('//div[contains(@class, "form")]//span[contains(text(), "Required")]');
+    }
     open(path) {
         super.open('https://stage.pasv.us/user/password/reset/request');
     }
