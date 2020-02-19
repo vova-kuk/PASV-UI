@@ -1,15 +1,28 @@
 import {expect} from 'chai';
+import ProfilePage from '../../_PageObjects/ProfilePage';
+import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
+import {student} from "../../user/login/loginRole_data";
 import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
-import CheckEmailPage from "../../_PageObjects/CheckEmailPage";
 
 let progressBefore;
 
-describe('', () => {
-    before('login', () => {
-
+describe ('CARDS TRAINING', () => {
+    before('login as a student', () => {
+        LoginPage.loginRole(student);
     });
 
+    it ('should click main menu "Cards" link', () => {
+        ProfilePage.cardsLink.click();
+        browser.pause(500);
+    });
+
+    it('should have correct h1 title', () => {
+        expect(FlashCardsPage.h1.getText()).eq('FlashCards');
+    });
+
+//Anna
+    /*
     it('should check if answer is displayed', () => {
         expect(CardsTrainingPage.answer.isDisplayed()).true;
     });
@@ -18,6 +31,7 @@ describe('', () => {
         CardsTrainingPage.getRandomClick();
         browser.pause(500);
     });
+
     it('should click `Get random next`', () => {
         CardsTrainingPage.getRandomClick();
         browser.pause(500);
@@ -39,4 +53,6 @@ describe('', () => {
         expect(progressAfter).to.not.equal(progressBefore);
         browser.pause(1000);
     });
+
+     */
 });

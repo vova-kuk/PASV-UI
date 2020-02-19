@@ -9,6 +9,10 @@ class ProfilePage extends AppPage{
         return $('//button[contains(text(),"Profile")]');
     }
 
+    get cardsLink() {
+        return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
+    }
+
     profile() {
         this.profileDropdown.click();
         this.profileBtn.click();
