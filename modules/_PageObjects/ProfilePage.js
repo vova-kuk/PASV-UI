@@ -61,6 +61,17 @@ class ProfilePage extends AppPage{
     get linkedInURL () {
         return ('https://www.linkedin.com/in/arthur-aminov-14081b18b/');
     }
+
+    get coinTotal () {
+        return $('//div[@qa="user-achievement"]//span');
+    }
+
+    goToProfilePage(){
+        super.click('//a[@class="dropdown-toggle nav-link"]');
+        super.click('//button[contains(text(), "Profile")]')
+    }
+
+
 }
 
 export default new ProfilePage();
