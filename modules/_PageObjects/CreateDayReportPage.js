@@ -10,9 +10,9 @@ class CreateDayReportPage extends AppPage {
     get marks() {
         return browser.$('//div[contains(@class, "mb-2")]//strong');
     }
-    get version() {
-        return browser.$('//span[@qa="app-version"]');
-    }
+    // get version() {
+    //     return browser.$('//span[@qa="app-version"]');
+    // }
     get slogan() {
         return browser.$('//small[@qa="app-slogan"]');
     }
