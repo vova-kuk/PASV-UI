@@ -1,34 +1,33 @@
 import AppPage from "../AppPage";
 class CardsTrainingPage extends AppPage{
 
-    get startTraining (){
+    get startTraining () {
         return $('//button[contains(text(),"Start training")]');
     }
-    get iKnow(){
+    get iKnow() {
         return $('//button[contains(text(),"I know")]');
     }
-    get getRandom(){
+
+    get getRandom() {
         return $('//button[contains(text(),"Get random next")]');
     }
 
-    get answer(){
+    get answer() {
         return $('//div[@class="result")]');
     }
 
-    get iKnow(){
-        return $('//button[contains(text(),"I know")]');
-    }
-
-    get progress(){
+    get progress() {
         return $('//div[@class="progress")]//div[@aria-valuenow="0"]');
     }
 
     open(path) {
         super.open('')
     }
+
     getRandomClick() {
         this.getRandom.click();
     }
+
     iKnowClick() {
         this.iKnow.click();
     }

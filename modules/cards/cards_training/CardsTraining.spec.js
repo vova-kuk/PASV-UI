@@ -1,15 +1,24 @@
 import {expect} from 'chai';
+import ProfilePage from '../../_PageObjects/ProfilePage';
+import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
+import {student} from "../../user/login/loginRole_data";
 import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
-import {student} from "../../user/login/loginRole_data";
 
 let progressBefore;
 
-describe('', () => {
-    before('Loin as Student', () => {
+describe ('CARDS TRAINING', () => {
+    before('login as a student', () => {
         LoginPage.loginRole(student);
     });
 
+    it ('should click main menu "Cards" link', () => {
+        ProfilePage.cardsLink.click();
+        browser.pause(500);
+    });
+
+    it('should have correct h1 title', () => {
+        expect(FlashCardsPage.h1.getText()).eq('FlashCards');
     it('should check if start button is displayed -click, if not -check i know button', () => {
         if (CardsTrainingPage.startTraining.isDisplayed()) {
             CardsTrainingPage.startTraining.click();
@@ -20,6 +29,21 @@ describe('', () => {
         browser.pause(1000);
     });
 
+    //Olga
+    // it('should check Group title', function () {
+    //     expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    // });
+    //
+    // it('should check if Training label is displayed', function () {
+    //     expect(CardsTrainingPage.trainingLabel.isDisplayed()).true;
+    // });
+    // it('should click Training link', function () {
+    //     CardsTrainingPage.trainingLabel.click();
+    //     browser.pause(500);
+    // });
+
+//Anna
+    /*
     it('should check if answer is displayed', () => {
         expect(CardsTrainingPage.answer.isDisplayed()).true;
     });
@@ -28,6 +52,7 @@ describe('', () => {
         CardsTrainingPage.getRandomClick();
         browser.pause(500);
     });
+
     it('should click `Get random next`', () => {
         CardsTrainingPage.getRandomClick();
         browser.pause(500);
@@ -49,4 +74,6 @@ describe('', () => {
         expect(progressAfter).to.not.equal(progressBefore);
         browser.pause(1000);
     });
+
+     */
 });

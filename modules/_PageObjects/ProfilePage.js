@@ -9,6 +9,10 @@ class ProfilePage extends AppPage{
         return $('//button[contains(text(),"Profile")]');
     }
 
+    get cardsLink() {
+        return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
+    }
+
     profile() {
         this.profileDropdown.click();
         this.profileBtn.click();
@@ -61,6 +65,17 @@ class ProfilePage extends AppPage{
     get linkedInURL () {
         return ('https://www.linkedin.com/in/arthur-aminov-14081b18b/');
     }
+
+    get coinTotal () {
+        return $('//div[@qa="user-achievement"]//span');
+    }
+
+    goToProfilePage(){
+        super.click('//a[@class="dropdown-toggle nav-link"]');
+        super.click('//button[contains(text(), "Profile")]')
+    }
+
+
 }
 
 export default new ProfilePage();

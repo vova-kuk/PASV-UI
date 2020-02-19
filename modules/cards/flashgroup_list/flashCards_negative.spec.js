@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import LoginPage from "../../_PageObjects/LoginPage";
 import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
-import FlashCardList from "./FlashCardList";
+import {student} from "../../user/login/loginRole_data";
 
 describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
     before('Login as Student', () => {
-        LoginPage.loginRole();
+        LoginPage.loginRole(student);
         browser.pause(500);
     });
 
@@ -31,7 +31,7 @@ describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
     });
 
     it('should check title of the very 1st created card', function (){
-        const actual=FlashCardList.cardLastInList.getText();
+        const actual=FlashCardsPage.cardLastInList.getText();
         const expected='Любители агов';
         expect(actual).not.eq(expected);
     });
@@ -39,51 +39,51 @@ describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
 
     it('should have `Black Jack` title when clicked on name', function () {
         FlashCardsPage.firstCreatedCard.click();
-        const actual=FlashCardList.h1.getText();
+        const actual=FlashCardsPage.h1LastCreated.getText();
         const expected='Black ack';
         expect(actual).not.eq(expected);
     });
 
     it('should check `Main view` title of Navigation Menu link', function () {
-        const actual=FlashCardList.mainView.getText();
+        const actual=FlashCardsPage.mainView.getText();
         expect(actual).not.eq('Main View');
     });
 
     it('should check `Compact view` title of Navigation Menu link', function () {
-        const actual=FlashCardList.compactView.getText();
+        const actual=FlashCardsPage.compactView.getText();
         expect(actual).not.eq('Compact View');
     });
 
     it('should check `Waiting for approval` title of Navigation Menu link', function () {
-        const actual=FlashCardList.waitingForApproval.getText();
+        const actual=FlashCardsPage.waitingForApproval.getText();
         expect(actual).not.eq('Waiting approval');
     });
 
     it('should check `Training` title of Navigation Menu link', function () {
-        const actual=FlashCardList.training.getText();
+        const actual=FlashCardsPage.training.getText();
         expect(actual).not.eq('raining');
     });
 
     it('should check link `Main view` be clickable/active', function () {
-        const actual=FlashCardList.mainView.isClickable();
+        const actual=FlashCardsPage.mainView.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
     it('should check link `Compact view` be clickable/active', function () {
-        const actual=FlashCardList.compactView.isClickable();
+        const actual=FlashCardsPage.compactView.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
     it('should check link `Waiting for approval` be clickable/active', function () {
-        const actual=FlashCardList.waitingForApproval.isClickable();
+        const actual=FlashCardsPage.waitingForApproval.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
     it('should check link `Training` be clickable/active', function () {
-        const actual=FlashCardList.training.isClickable();
+        const actual=FlashCardsPage.training.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
