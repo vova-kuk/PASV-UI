@@ -6,6 +6,8 @@ import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
 
 let progressBefore;
+let progressAfter;
+
 
 describe('CARDS TRAINING', () => {
   before('login as a student', () => {
@@ -19,13 +21,13 @@ describe('CARDS TRAINING', () => {
 
   it('should have correct h1 title', () => {
     expect(FlashCardsPage.h1.getText()).eq('FlashCards');
-
+    browser.pause(500);
   });
 
   it('should find group "Test Group" and click', () => {
     FlashCardsPage.linkToGroup.scrollIntoView();
     FlashCardsPage.linkToGroup.click();
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   it('should check Group title', function () {
@@ -35,71 +37,77 @@ describe('CARDS TRAINING', () => {
   it('should check if Training label is displayed', function () {
     expect(CardsTrainingPage.trainingLabel.isDisplayed()).true;
   });
+
   it('should click Training link', function () {
     CardsTrainingPage.trainingLabel.click();
     browser.pause(500);
   });
 
-  // Artem
-  it('should check if start button is displayed -click, if not -check i know button', () => {
-    if (CardsTrainingPage.startTraining.isDisplayed()) {
-      CardsTrainingPage.startTraining.click();
-      browser.pause(1000);
-    } else {
-      CardsTrainingPage.iKnow.isDisplayed();
-    }
-    browser.pause(1000);
+  it('should check if start button is displayed', () => {
+    expect(CardsTrainingPage.startTrainingButton.isDisplayed()).true;
+    browser.pause(500);
   });
 
-//Yuliya
-
-   it('should check if "Show answer button" is displayed', () => {
-     expect(CardsTrainingPage.showAnswer.isDisplayed()).true;
-   });
-
-   it('should check if "Get random next" button is displayed', () => {
-     expect(CardsTrainingPage.getRandom.isDisplayed()).true;
-   });
-
-   it('should click "Show answer button" button', () => {
-     CardsTrainingPage.showAnswer.click();
-   });
-
-
-//Anna
-  /*
-  it('should check if answer is displayed', () => {
-      expect(CardsTrainingPage.answer.isDisplayed()).true;
+  it('should check if start button is clickable', () => {
+    CardsTrainingPage.startTrainingButton.click();
+    browser.pause(500);
   });
 
-  it('should click `Get random next`', () => {
-      CardsTrainingPage.getRandomClick();
-      browser.pause(500);
+  it('should check if button I know is displayed', function () {
+    expect(CardsTrainingPage.iKnow.isDisplayed()).true;
   });
 
-  it('should click `Get random next`', () => {
-      CardsTrainingPage.getRandomClick();
-      browser.pause(500);
+  it('should check if "Show answer button" is displayed', () => {
+    expect(CardsTrainingPage.showAnswerButton.isDisplayed()).true;
+  });
+
+  it('should check if "Get random next" button is displayed', () => {
+    expect(CardsTrainingPage.getRandom.isDisplayed()).true;
+  });
+
+  it('should click "Show answer button" button', () => {
+    CardsTrainingPage.showAnswerButton.click();
+    browser.pause(500);
+  });
+
+  it('should check if Answer is displayed', function () {
+    expect(CardsTrainingPage.answer.isDisplayed()).true;
+    CardsTrainingPage.getRandomClick();
+    browser.pause(500);
   });
 
   it('should check progress bar before `I Know` click', () => {
-      progressBefore = CardsTrainingPage.progress.getText();
-      browser.pause(2000);
+    progressBefore = CardsTrainingPage.progress1.getText();
+    browser.pause(500);
   });
 
-  it('should click `I Know`', () => {
-      CardsTrainingPage.iKnowClick();
-      browser.pause(500);
+  it('should click `I Know` and check if progress has changed from 0 to 33', () => {
+    CardsTrainingPage.iKnowClick();
+    progressAfter = CardsTrainingPage.progress2.getText();
+    expect(progressAfter).to.not.equal(progressBefore);
+    browser.pause(500);
   });
 
-  it('should check if progress has changed', () => {
-      browser.refresh();
-      const progressAfter = CardsTrainingPage.progress.getText();
-      expect(progressAfter).to.not.equal(progressBefore);
-      browser.pause(1000);
-  //});
+  it('should click `I Know` and check if progress has changed from 33 to 66', () => {
+    CardsTrainingPage.iKnowClick();
+    progressBefore = CardsTrainingPage.progress2.getText();
+    progressAfter = CardsTrainingPage.progress3.getText();
+    expect(progressAfter).to.not.equal(progressBefore);
+    browser.pause(500);
+  });
 
-   */
+  it('should click `I Know` and exit to the start', () => {
+    CardsTrainingPage.iKnowClick();
+    browser.pause(500);
+  });
 
+  it('should check if start training button is displayed ', function () {
+    expect(CardsTrainingPage.startTrainingButton.isDisplayed()).true;
+    browser.pause(500);
+  });
 });
+
+
+
+
 

@@ -1,45 +1,61 @@
 import AppPage from "../AppPage";
-class CardsTrainingPage extends AppPage{
 
-    get title () {
-        return $ ('//h1');
-    }
+class CardsTrainingPage extends AppPage {
 
-    get trainingLabel(){
-        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
-    }
+  get title() {
+    return browser.$('//h1');
+  }
 
-    get startTraining () {
-        return $('//button[contains(text(),"Start training")]');
-    }
-    get iKnow() {
-        return $('//button[contains(text(),"I know")]');
-    }
+  get trainingLabel() {
+    return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
+  }
 
-    get getRandom() {
-        return $('//button[contains(text(),"Get random next")]');
-    }
+  get startTrainingButton() {
+    return browser.$('//div//button[@class="btn btn-secondary btn-sm"]');
+  }
 
-    get answer() {
-        return $('//div[@class="result")]');
-    }
+  get showAnswerButton() {
+    return browser.$('//div//button[contains(text(),"Show")]');
+  }
 
-    get progress() {
-        return $('//div[@class="progress")]//div[@aria-valuenow="0"]');
-    }
+  get iKnow() {
+    return browser.$('//button[contains(text(),"I know")]');
+  }
 
-    open(path) {
-        super.open('')
-    }
+  get getRandom() {
+    return browser.$('//button[contains(text(),"Get random next")]');
+  }
 
-    getRandomClick() {
-        this.getRandom.click();
-    }
+  get answer() {
+    return browser.$('//div[@class="result"]//p');
+  }
 
-    iKnowClick() {
-        this.iKnow.click();
-    }
+  get progress1() {
+    return browser.$('//div[@class="container"]//div[@aria-valuenow="0"]');
+  }
+
+  get progress2() {
+    return browser.$('//div[@class="container"]//div[@aria-valuenow="33"]');
+  }
+
+  get progress3() {
+    return browser.$('//div[@class="container"]//div[@aria-valuenow="66"]');
+  }
+
+
+  open(path) {
+    super.open('')
+  }
+
+  getRandomClick() {
+    this.getRandom.click();
+  }
+
+  iKnowClick() {
+    this.iKnow.click();
+  }
 
 
 }
+
 export default new CardsTrainingPage();
