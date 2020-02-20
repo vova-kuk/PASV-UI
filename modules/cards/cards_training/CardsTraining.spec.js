@@ -19,7 +19,7 @@ describe('CARDS TRAINING', () => {
     browser.pause(500);
   });
 
-  it('should have correct h1 title', () => {
+  it('should have correct Flash cards page title', () => {
     expect(FlashCardsPage.h1.getText()).eq('FlashCards');
     browser.pause(500);
   });
@@ -30,30 +30,30 @@ describe('CARDS TRAINING', () => {
     browser.pause(500);
   });
 
-  it('should check Group title', function () {
+  it('should check Group title', () => {
     expect(CardsTrainingPage.title.getText()).equal('TestGroup');
   });
 
-  it('should check if Training label is displayed', function () {
+  it('should check if Training label is displayed', () => {
     expect(CardsTrainingPage.trainingLabel.isDisplayed()).true;
   });
 
-  it('should click Training link', function () {
+  it('should click Training link', () => {
     CardsTrainingPage.trainingLabel.click();
     browser.pause(500);
   });
 
-  it('should check if start button is displayed', () => {
+  it('should check if start training button is displayed', () => {
     expect(CardsTrainingPage.startTrainingButton.isDisplayed()).true;
     browser.pause(500);
   });
 
-  it('should check if start button is clickable', () => {
+  it('should check if start training button is clickable', () => {
     CardsTrainingPage.startTrainingButton.click();
     browser.pause(500);
   });
 
-  it('should check if button I know is displayed', function () {
+  it('should check if button I know is displayed', () => {
     expect(CardsTrainingPage.iKnow.isDisplayed()).true;
   });
 
@@ -70,7 +70,7 @@ describe('CARDS TRAINING', () => {
     browser.pause(500);
   });
 
-  it('should check if Answer is displayed', function () {
+  it('should check if Answer is displayed', () => {
     expect(CardsTrainingPage.answer.isDisplayed()).true;
     CardsTrainingPage.getRandomClick();
     browser.pause(500);
@@ -101,7 +101,7 @@ describe('CARDS TRAINING', () => {
     browser.pause(500);
   });
 
-  it('should check if start training button is displayed ', function () {
+  it('should check if start training button is displayed ', () => {
     expect(CardsTrainingPage.startTrainingButton.isDisplayed()).true;
     browser.pause(500);
   });
