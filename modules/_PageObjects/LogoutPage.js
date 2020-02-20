@@ -1,4 +1,4 @@
-class Logout {
+class LogoutPage {
   get logoutDropdown() {
     return $('//a[@class="dropdown-toggle nav-link"]');
   }
@@ -14,5 +14,5 @@ class Logout {
 
 }
 
-export default new Logout();
+export default new LogoutPage();
 

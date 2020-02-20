@@ -1,6 +1,6 @@
-import AppPage from '../../AppPage';
+import AppPage from '../AppPage';
 
-class Challenge extends AppPage {
+class ChallengePage extends AppPage {
     get createNewChallengeBtn() {
         return browser.$('//button[@qa="create-challenge-button"]')
     };
@@ -68,5 +68,5 @@ class Challenge extends AppPage {
     };
 
 
-export default new Challenge();
+export default new ChallengePage();
 export {challenge};

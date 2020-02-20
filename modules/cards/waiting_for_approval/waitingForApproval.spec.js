@@ -6,7 +6,7 @@ import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import CardsWaitingForApprovalPage from '../../_PageObjects/CardsWaitingForApprovalPage';
 import {positive} from '../create_new_card/newCard_data';
-import Logout from '../../_PageObjects/Logout';
+import Logout from '../../_PageObjects/LogoutPage';
 
 describe('WAITING FOR APPROVAL', () => {
     before('login as a student', () => {

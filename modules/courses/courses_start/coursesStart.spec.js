@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
-import Logout from '../../_PageObjects/Logout';
+import Logout from '../../_PageObjects/LogoutPage';
 
 import NewCourseCreatePage from './NewCourseCreatePage';
 import CourseStartPage from '../../courses/courses_start/CourseStartPage';

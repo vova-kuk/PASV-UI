@@ -1,9 +1,9 @@
-import LoginPage from "../../_PageObjects/LoginPage";
-import {admin} from "../../user/login/loginRole_data";
-import Courses from "../Courses";
-import Challenge from "./Challenge";
-import {course} from "../Courses";
-import {challenge} from "./Challenge";
+import LoginPage from '../../_PageObjects/LoginPage';
+import {admin} from '../../user/login/loginRole_data';
+import Courses from '../Courses';
+import Challenge from '../../_PageObjects/ChallengePage';
+import {course} from '../Courses';
+import {challenge} from '../../_PageObjects/ChallengePage';
 
 
 describe('CREATE A NEW COURSE AND CHALLENGE', () => {
