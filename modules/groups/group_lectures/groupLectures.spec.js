@@ -25,7 +25,7 @@ describe('GROUP LECTURES', () => {
     it ('should click group name in the list', () => {
         GroupsPage.linkToGroup.scrollIntoView();
         GroupsPage.linkToGroup.click();
-        browser.pause(10000);
+        browser.pause(1000);
     });
 
     it ('should verify the header on Group Name Page is correct', () => {
