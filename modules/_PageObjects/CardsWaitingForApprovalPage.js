@@ -1,4 +1,4 @@
-import AppPage from "../AppPage";
+import AppPage from '../AppPage';
 
 class CardsWaitingForApprovalPage extends AppPage{
     get PageNameTitle(){
@@ -14,7 +14,7 @@ class CardsWaitingForApprovalPage extends AppPage{
     }
 
     get ModuleWindowTitle(){
-        return browser.$('//div[@class="modal-body"]//h5[@class="modal-title"]')
+        return browser.$('//div[@class="modal-body"]//h5[@class="modal-title"]');
     }
 
     get ModuleWindowQuestion(){
@@ -26,7 +26,7 @@ class CardsWaitingForApprovalPage extends AppPage{
     }
 
     get ModuleWindowClose(){
-        return browser.$('//button[@class="close"]')
+        return browser.$('//button[@class="close"]');
     }
 
     get lastCreatedCardQuestion() {
@@ -38,15 +38,15 @@ class CardsWaitingForApprovalPage extends AppPage{
     }
 
     get lastCreatedCardCreator() {
-        return browser.$('//div[@class = "row"]//small[@class]')
+        return browser.$('//div[@class = "row"]//small[@class]');
     }
 
     get lastCreatedCardStatus(){
-        return browser.$('//div[@class = "row"]//span[contains(@class,"badge")]')
+        return browser.$('//div[@class = "row"]//span[contains(@class,"badge")]');
     }
     // Я пытался найти где взять этот селектор, но не нашел. Решил временно свой написать.
     get userName() {
-        return browser.$('//a[@class="dropdown-toggle nav-link"]')
+        return browser.$('//a[@class="dropdown-toggle nav-link"]');
     }
 }
 
