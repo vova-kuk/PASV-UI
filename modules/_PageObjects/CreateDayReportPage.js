@@ -17,7 +17,7 @@ class CreateDayReportPage extends AppPage {
         return browser.$('//small[@qa="app-slogan"]');
     }
     get saveButton() {
-        return browser.$('//button[contains(text(),"Save")]')
+        return browser.$('//button[contains(text(),"Save")]');
     }
     get newDayReport() {
         return browser.$('//div[@qa="day-report-item-0"]//div[@qa="description"]');
