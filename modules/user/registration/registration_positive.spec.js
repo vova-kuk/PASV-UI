@@ -32,6 +32,11 @@ describe('REGISTRATION PAGE POSITIVE', () => {
     expect(actual).eq(expected);
   });
 
+  it('should button `Submit` will be disable by default', () => {
+    const element = RegistrationPage.submitBtn;
+    expect(element.isEnabled()).to.be.false;
+  });
+
   it('should fill out First Name Field', () => {
     RegistrationPage.firstName.setValue(newUser.firstName);
   });
@@ -67,7 +72,7 @@ describe('REGISTRATION PAGE POSITIVE', () => {
 
   it('should click button Submit after filling all fields', () => {
     RegistrationPage.submitBtn.click();
-    browser.pause(2000);
+    browser.pause(1000);
   });
 });
 
@@ -83,7 +88,7 @@ describe('CREATING USER CONFIRMATION', () => {
     LoginPage.email.setValue(newUser.email);
     LoginPage.password.setValue(newUser.password);
     LoginPage.submitBtn.click();
-    browser.pause(2000);
+    browser.pause(1000);
   });
 
   it('should verify heading of New User page', () => {
@@ -106,6 +111,6 @@ describe('CREATING USER CONFIRMATION', () => {
 
   after('should user logout', () => {
     Logout.logout();
-    browser.pause(2000);
+    browser.pause(1000);
   });
 });
