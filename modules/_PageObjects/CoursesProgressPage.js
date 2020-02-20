@@ -11,7 +11,15 @@ class CoursesProgressPage extends AppPage{
     }
 
     get progressLink(){
-        return $('//body[@class=\'js-focus-visible\']/div[@id=\'root\']/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div/ul[1]/div[1]/a[1]');
+        return $('//ul[@class="list-group"]//div/a');
+    }
+
+    get completedLessonsBtn(){
+        return $('//div[contains(text(),\"Completed Lessons\")]');
+    }
+
+    get profilePageLink(){
+        return $('//div[@class=\'rt-tr -even\']//a[@class=\'mr-2\'][contains(text(),\'Test Testov\')]');
     }
 }
 

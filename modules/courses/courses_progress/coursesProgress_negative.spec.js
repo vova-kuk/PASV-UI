@@ -13,21 +13,17 @@ describe('COURSES PROGRESS PAGE', () => {
         browser.pause(3000);
     });
 
-    it('should open course progress url', function () {
-        browser.url('https://stage.pasv.us/course/5deb5af855f2b4003c545112/report');
+    it('should choose click link Progress', () => {
+        const element = CoursesProgressPage.progressLink;
+        element.click();
         browser.pause(3000);
     });
-
-    // it('should choose click link Progress', () => {
-    //     const element = CoursesProgressPage.progressLink;
-    //     element.click();
-    //     browser.pause(3000);
-    // });
 
     it('should go to courses progress page', () => {
         browser.pause(3000);
-        expect(CoursesProgressPage.h1.getText()).equal('Course Report');
+        expect(CoursesProgressPage.h1.getText()).not.equal('Progress Report');
     });
+
 
 });
 
