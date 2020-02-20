@@ -3,10 +3,12 @@ import LoginPage from "../../_PageObjects/LoginPage";
 import HomePage from "../../_PageObjects/HomePage";
 import GroupsPage from "../../_PageObjects/GroupsPage";
 import GroupNamePage from "../../_PageObjects/GroupNamePage";
+import {student} from "../../user/login/loginRole_data";
+import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
 
 describe('GROUP LECTURES', () => {
     before(() => {
-        LoginPage.loginAsStudent();
+        LoginPage.loginRole(student);
     });
 
     it ('should click top menu Groups', () => {
@@ -21,8 +23,9 @@ describe('GROUP LECTURES', () => {
     });
 
     it ('should click group name in the list', () => {
-        GroupsPage.clickGroupName();
-        browser.pause(1000);
+        GroupsPage.linkToGroup.scrollIntoView();
+        GroupsPage.linkToGroup.click();
+        browser.pause(10000);
     });
 
     it ('should verify the header on Group Name Page is correct', () => {
@@ -30,6 +33,5 @@ describe('GROUP LECTURES', () => {
         const expected = 'Group QA-7';
         expect(actual).eq(expected);
     });
-
 
 });

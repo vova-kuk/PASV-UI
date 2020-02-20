@@ -8,6 +8,10 @@ class GroupsPage extends AppPage {
     clickGroupName() {
         browser.$('//div[@qa="group-list"]//a').click();
     }
+
+    get linkToGroup() {
+        return browser.$('=QA-7');
+    }
 }
 
 export default new GroupsPage();

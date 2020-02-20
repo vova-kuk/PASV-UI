@@ -30,19 +30,19 @@ class CardsWaitingForApprovalPage extends AppPage{
     }
 
     get lastCreatedCardQuestion() {
-        return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//strong[@class = "d-block mb-2"]');
+        return browser.$('//div[@class = "row"]//strong[@class]');
     }
 
     get lastCreatedCardAnswer() {
-        return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//span[2]');
+        return browser.$('//div[@class = "row"]//span[2]');
     }
 
     get lastCreatedCardCreator() {
-        return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//small[@class]')
+        return browser.$('//div[@class = "row"]//small[@class]')
     }
 
-    get lastCreatedCardSticker(){
-        return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//span[@class="badge badge-secondary"]')
+    get lastCreatedCardStatus(){
+        return browser.$('//div[@class = "row"]//span[contains(@class,"badge")]')
     }
     // Я пытался найти где взять этот селектор, но не нашел. Решил временно свой написать.
     get userName() {

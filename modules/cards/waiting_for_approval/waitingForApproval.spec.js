@@ -6,6 +6,7 @@ import CardsTrainingPage from "../../_PageObjects/CardsTrainingPage";
 import LoginPage from "../../_PageObjects/LoginPage";
 import CardsWaitingForApprovalPage from "../../_PageObjects/CardsWaitingForApprovalPage"
 import {positive} from "../create_new_card/newCard_data";
+import Logout from "../../_PageObjects/Logout";
 
 describe('WAITING FOR APPROVAL', () => {
     before('login as a student', () => {
@@ -41,7 +42,7 @@ describe('WAITING FOR APPROVAL', () => {
     });
 
     it('should click "Create new Card" button', () => {
-        CardsWaitingForApprovalPage.CreateCard.click()
+        CardsWaitingForApprovalPage.CreateCard.click();
         browser.pause(500)
     });
 
@@ -88,14 +89,19 @@ describe('WAITING FOR APPROVAL', () => {
     });
 
     it('should check if the card has right Question', () => {
-        expect(CardsWaitingForApprovalPage.lastCreatedCardQuestion.getText(), positive.questionText);
+        expect(CardsWaitingForApprovalPage.lastCreatedCardQuestion.getText()).eq(positive.questionText);
     });
 
     it('should check if the card has right Answer', () => {
-        expect(CardsWaitingForApprovalPage.lastCreatedCardAnswer.getText(), positive.answerText);
+        expect(CardsWaitingForApprovalPage.lastCreatedCardAnswer.getText()).eq(positive.answerText);
     });
 
     it('should check if the card has right Creator name', () => {
-        expect(CardsWaitingForApprovalPage.lastCreatedCardCreator.getText(), CardsWaitingForApprovalPage.userName.getText());
+        expect(CardsWaitingForApprovalPage.lastCreatedCardCreator.getText()).eq(Logout.logoutDropdown.getText());
+    });
+
+    it('should check if the card has right Status', () => {
+        expect(CardsWaitingForApprovalPage.lastCreatedCardStatus.getText()).eq("new");
     })
+
 });
