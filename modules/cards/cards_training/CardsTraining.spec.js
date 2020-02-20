@@ -51,6 +51,21 @@ describe('CARDS TRAINING', () => {
     browser.pause(1000);
   });
 
+//Yuliya
+
+   it('should check if "Show answer button" is displayed', () => {
+     expect(CardsTrainingPage.showAnswer.isDisplayed()).true;
+   });
+
+   it('should check if "Get random next" button is displayed', () => {
+     expect(CardsTrainingPage.getRandom.isDisplayed()).true;
+   });
+
+   it('should click "Show answer button" button', () => {
+     CardsTrainingPage.showAnswer.click();
+   });
+
+
 //Anna
   /*
   it('should check if answer is displayed', () => {
