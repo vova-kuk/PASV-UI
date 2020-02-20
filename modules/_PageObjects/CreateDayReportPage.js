@@ -10,14 +10,11 @@ class CreateDayReportPage extends AppPage {
     get marks() {
         return browser.$('//div[contains(@class, "mb-2")]//strong');
     }
-    // get version() {
-    //     return browser.$('//span[@qa="app-version"]');
-    // }
     get slogan() {
         return browser.$('//small[@qa="app-slogan"]');
     }
     get saveButton() {
-        return browser.$('//button[contains(text(),"Save")]')
+        return browser.$('//button[contains(text(),"Save")]');
     }
     get newDayReport() {
         return browser.$('//div[@qa="day-report-item-0"]//div[@qa="description"]');
@@ -70,32 +67,41 @@ class CreateDayReportPage extends AppPage {
     get howWasYourDay() {
         return browser.$('//textarea[@name="description"]');
     }
+    get marksRequired() {
+        return browser.$('//form/div[1]/div[1]//span[@innertext="Required"]');
+    }
+    get moraleRequired() {
+        return browser.$('//div[@class="d-flex flex-row"]/span[@innertext="Required"]');
+    }
+    get maxTen() {
+        return browser.$('//div[@innertext="Maximum is 10"]');
+    }
+    get mustBeThirty() {
+        return browser.$('//div[@innertext="Must be 30 characters or more"]');
+    }
     createDayReport() {
         browser.$('//a[@qa="create-day-report-button"]').click();
-        browser.pause(1000);
     }
-    // checkPageElements() {
-    //     expect(this.header.getText()).to.contain('Create day report');
-    //     expect(this.marks.getText()).to.contain('Marks to your daily report');
-    //     expect(this.version.getText()).to.contain('0.1.126');
-    //     expect(this.slogan.getText()).to.contain('© 2020 And what do you do for your career?');
-    //     expect(this.saveButton.getText()).to.contain('Save');
-    // }
     fillOutReport() {
         this.needHelp.click();
         this.understoodEverything.click();
         this.helpedClassmates.click();
         this.watchedLectures.click();
         this.readDocumentation.click();
+        this.codePractice.click();
+        this.quizPractice.click();
+        this.interviewPreparation.click();
+        this.recruiterPhoneCall.click();
+        this.interviewTechScreen.click();
+        this.interviewOnsite.click();
+        this.jobOffer.click();
         this.moraleLevel.selectByVisibleText('9');
         this.howManyHours.setValue('9');
         this.howWasYourDay.setValue('Write what is useful for self-development, learning, or practice you did today.');
-        this.saveButton.click();
-        browser.pause(1000);
     }
-    // verifyNewReport() {
-    //     expect(this.newDayReport.getText()).to.contain('Write what is useful for self-development, learning, or practice you did today.');
-    // }
-
+    fillOutReportNeg() {
+        this.howManyHours.setValue('24');
+        this.howWasYourDay.setValue('ok');
+    }
 }
 export default new CreateDayReportPage();
