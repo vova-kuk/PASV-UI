@@ -4,12 +4,12 @@ import LoginPage from '../../_PageObjects/LoginPage';
 import {negative3} from './newCard_data';
 import {student} from '../../user/login/loginRole_data';
 
-describe('NEW FLASH CARD CREATE WITH 9 CHARS IN QUESTION', () => {
-  before('should login as student', () => {
+describe('CREATE NEW CARD NEGATIVE with 9 characters in question', () => {
+  before('should login as a student', () => {
     LoginPage.loginRole(student);
   });
 
-  it('should open Flash Cards page', () => {
+  it('should open `FlashCards` page', () => {
     FlashCardsPage.open();
   });
 
@@ -18,20 +18,20 @@ describe('NEW FLASH CARD CREATE WITH 9 CHARS IN QUESTION', () => {
     expect(actual).to.exist;
   });
 
-  it('should click the link with Flash Group name', () => {
+  it('should click the link with `FlashCards` group name', () => {
     FlashCardsPage.groupName.click();
   });
 
-  it('should click Waiting for approval link', () => {
+  it('should click `Waiting for approval` link', () => {
     FlashCardsPage.waitingForApproval.click();
   });
 
-  it('should click Create new Card button', () => {
+  it('should click `Create new Card` button', () => {
     FlashCardsPage.createNewCardBtn.click();
     browser.pause(2000);
   });
 
-  it('should check if modal form is open', () => {
+  it('should check if a modal form is opened', () => {
     const element = FlashCardsPage.modalForm;
     expect(element.isDisplayed()).true;
   });
@@ -42,16 +42,16 @@ describe('NEW FLASH CARD CREATE WITH 9 CHARS IN QUESTION', () => {
     expect(actual).equal(expected);
   });
 
-  it('should fill in the Question field', () => {
+  it('should fill in the `Question` text area', () => {
     FlashCardsPage.question.setValue(negative3.questionText);
   });
 
-  it('should fill in the Answer field', () => {
+  it('should fill in the `Answer` text area', () => {
     FlashCardsPage.answer.setValue(negative3.answerText);
     browser.pause(3000);
   });
 
-  it('should check if Create button is disabled', () => {
+  it('should check if `Create` button is disabled', () => {
     const element = FlashCardsPage.createBtn.isEnabled();
     expect(element).be.false;
   });
