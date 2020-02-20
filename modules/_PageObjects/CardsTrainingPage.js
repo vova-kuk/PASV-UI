@@ -1,4 +1,4 @@
-import AppPage from "../AppPage";
+import AppPage from '../AppPage';
 
 class CardsTrainingPage extends AppPage {
 
@@ -42,7 +42,6 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//div[@class="container"]//div[@aria-valuenow="66"]');
   }
 
-
   open(path) {
     super.open('')
   }
@@ -54,7 +53,6 @@ class CardsTrainingPage extends AppPage {
   iKnowClick() {
     this.iKnow.click();
   }
-
 
 }
 
