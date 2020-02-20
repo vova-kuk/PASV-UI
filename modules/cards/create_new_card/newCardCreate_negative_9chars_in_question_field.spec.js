@@ -60,6 +60,6 @@ describe('CREATE NEW CARD NEGATIVE with 9 characters in question', () => {
     browser.$('//button[@class = "close"]').click();
     FlashCardsPage.logout();
     browser.pause(3000);
-  })
+  });
 
 });
