@@ -14,7 +14,7 @@ describe('CARDS TRAINING', () => {
     LoginPage.loginRole(student);
   });
 
-  it('should click `Cards` tab in the main bar', () => {
+  it('should click `Cards` tab in the navigation bar', () => {
     ProfilePage.cardsLink.click();
     browser.pause(500);
   });
