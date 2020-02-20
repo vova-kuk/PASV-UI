@@ -26,6 +26,9 @@ describe('LOGIN PAGE POSITIVE with valid Email and Password', () => {
         browser.pause(1000);
     });
 
+    it('should check bullits on password field', () => {
+        LoginPage.bullits;
+    });
     // it('should check h1 text', () => {
     //     expect(ProfilePage.h1.getText()).eq('Test Testov');
     //h4[@class='notification-title']

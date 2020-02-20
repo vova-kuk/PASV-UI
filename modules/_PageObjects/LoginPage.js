@@ -23,6 +23,10 @@ class LoginPage extends AppPage{
         return browser.$('//button[@type="submit"]');
     }
 
+    get bullits () {
+        return browser.$('//input[@name="password"][@autocomplete="current-password" ]');
+    }
+
     login(){
         this.open();
         this.email.setValue('ooopartner00@mail.ru');
