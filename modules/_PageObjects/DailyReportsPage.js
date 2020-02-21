@@ -10,6 +10,18 @@ class DailyReportsPage extends AppPage{
         return $('//h1');
     }
 
+    get createBtn () {
+        return $('//a[@class=\'btn btn-secondary\']');
+    }
+
+    get studentName () {
+        return $('//a');
+    }
+
+    // get reportListByLabels () {
+    //     return $('//[@qa=labels]')
+    // }
+
 }
 
 export default new DailyReportsPage();
