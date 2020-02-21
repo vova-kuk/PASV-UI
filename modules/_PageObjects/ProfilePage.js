@@ -22,11 +22,11 @@ class ProfilePage extends AppPage{
         return $('//h1');
     }
 
-    get createDayReportButton(){
+    get createDayReportBtn(){
         return $('//a[@class=\'btn btn-secondary\']');
     }
 
-    get likeButton () {
+    get likeBtn () {
         return $('//button[@class=\'btn btn-outline-primary btn-sm\']');
     }
 
@@ -34,7 +34,7 @@ class ProfilePage extends AppPage{
         return $('//h4[@class=\'notification-title\']');
     }
 
-    get updateListButton () {
+    get updateListBtn () {
         return $('//button[@class=\'btn btn-secondary\']');
     }
 

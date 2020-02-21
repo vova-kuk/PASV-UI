@@ -8,14 +8,13 @@ describe('PROFILE PAGE Codewars', () => {
   });
 
   it('should go to profile Page', () => {
-    browser.pause(2000);
     expect(ProfilePage.h1.getText()).equal('Test Testov');
   });
 
-  it('should choose click CodeWars icon', () => {
+  it('should click CodeWars icon', () => {
     const element = ProfilePage.codeWarsIcon;
     element.click();
-    browser.pause(5000);
+    browser.pause(1000)
   });
 
   it('should open CodeWars page', () => {

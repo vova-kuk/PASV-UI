@@ -2,20 +2,19 @@ import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 
-describe('PROFILE PAGE Update list button', () => {
+describe('PROFILE PAGE `Update list` button', () => {
   before(() => {
     LoginPage.login();
   });
 
-  it('should go to profile Page', () => {
-    browser.pause(5000);
+  it('should go to `Profile` page', () => {
     expect(ProfilePage.h1.getText()).equal('Test Testov');
   });
 
-  it('should choose click Update list button', () => {
-    const element = ProfilePage.updateListButton;
+  it('should click `Update list` button', () => {
+    const element = ProfilePage.updateListBtn;
     element.click();
-    browser.pause(5000);
+    browser.pause(3000);
   });
 
   it('should have a correct notification', () => {
