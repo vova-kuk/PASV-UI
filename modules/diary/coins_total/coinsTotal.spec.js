@@ -17,6 +17,7 @@ describe('SAVE COINS AMOUNT BEFORE ', () => {
         DiaryPage.goToDiaryPage();
         CreateDayReportPage.createDayReport();
         CreateDayReportPage.fillOutReport();
+        CreateDayReportPage.saveButton.click();
     });
 
     it('should save current amount of user coins from the Profile page', () => {
@@ -70,6 +71,5 @@ describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
         'of coin under the header on the Profile page', () => {
         expect(topCoinAmount).equal(newCoinAmount);
     });
-
 });
 
