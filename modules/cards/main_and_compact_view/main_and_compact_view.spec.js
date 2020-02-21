@@ -4,7 +4,7 @@ import MainAndCompactViewPage from '../../_PageObjects/MainAndCompactViewPage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import {student} from '../../user/login/loginRole_data';
 import {pageTestData} from './main_and_compact_view_data';
-import {groupNameLink} from '../create_new_card/newCard_data';
+import {groupNameLink} from '../create_new_card/newCardData';
 
 describe('EXIST A MAIN AND COMPACT VIEW OF A FLASH CARD', () => {
     before('login as a student', () => {
