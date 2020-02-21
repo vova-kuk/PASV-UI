@@ -5,6 +5,7 @@ import ChallengePage from '../../_PageObjects/ChallengePage';
 import {courseData} from '../../_PageObjects/CoursesPage';
 import {challengeData} from '../../_PageObjects/ChallengePage';
 import LogoutPage from "../../_PageObjects/LogoutPage";
+import AppPage from "../../AppPage";
 
 
 describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
@@ -21,7 +22,7 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
     it('click on created course', () => {
         CoursesPage.open('https://stage.pasv.us/course');
         browser.pause(1000)
-        const el = ('//ul[@class="list-group"]//a[contains(., "15 Course for adding Challenge")]');
+        const el = (`//ul[@class="list-group"]//a[contains(., "${courseData.name}")]`);
         $(el).click();
         browser.pause(1000)
     });
@@ -29,8 +30,8 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
     it('click EDIT course', () => {
       const el = ('//a[@class="edit"]');
       $(el).click();
+      browser.pause(3000)
     });
-
 
     it('should add created challenge to course', () => {
 
@@ -42,13 +43,15 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
 
 });
 
+
 describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
 
     before('login as Student, open created course', () => {
           LoginPage.loginRole(student);
-          LoginPage.open('https://stage.pasv.us/course');
-        const el = ('//ul[@class="list-group"]//a[contains(., "15 Course for adding Challenge")]');
-        // need help with this selector
+          browser.pause(1000)
+        CoursesPage.open('https://stage.pasv.us/course')
+          browser.pause(1000);
+        const el = (`//ul[@class="list-group"]//a[contains(., "31 Course for adding Challenge")]`); // ${courseData.name}
         $(el).click();
         browser.pause(1000)
     });
@@ -56,6 +59,12 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
     it('confirm h1', () => {
         const el = ('//h1');
         expect($(el).getText()).eq(courseData.name);
+    });
+
+    it('click button "Start course" ', () => {
+      const el = ('//button[contains(., "Start course")]');
+      $(el).click()
+        browser.pause(1000)
     });
 
     it('should fill in correct solution in "Write your solution here" textarea', () => {
