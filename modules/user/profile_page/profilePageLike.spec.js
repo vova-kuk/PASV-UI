@@ -18,7 +18,7 @@ describe('PROFILE PAGE `like` button', () => {
   it('should click `Like` button', () => {
     const element = ProfilePage.likeBtn;
     element.click();
-    browser.pause(1000);
+    browser.pause(3000);
   });
 
   it('should have a correct notification', () => {

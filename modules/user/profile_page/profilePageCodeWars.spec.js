@@ -5,7 +5,7 @@ import LoginPage from '../../_PageObjects/LoginPage';
 describe('PROFILE PAGE Codewars', () => {
   before(() => {
     LoginPage.login();
-    browser.pause(3000)
+    browser.pause(2000)
   });
 
   it('should go to profile Page', () => {
@@ -15,13 +15,13 @@ describe('PROFILE PAGE Codewars', () => {
   it('should click CodeWars icon', () => {
     const element = ProfilePage.codeWarsIcon;
     element.click();
-    browser.pause(1000)
+    browser.pause(1000);
   });
 
-  it('should open CodeWars page', () => {
-    const element = ProfilePage.codeWarsURL;
-    const actual = 'https://www.codewars.com/users/ArtAm';
-    expect(actual).equal(element);
+  it('should check user has been redirected to codewars', () => {
+    browser.switchWindow('codewars.com');
+    const element = browser.getUrl();
+    expect(element).includes('codewars');
   });
 
 });
