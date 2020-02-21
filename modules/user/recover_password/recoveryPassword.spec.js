@@ -20,12 +20,12 @@ describe('PASSWORD RECOVERY', () => {
   });
 
   it('should check if Forgot password link displayed', () => {
-    expect(LoginPage.forgotPassword.getText()).eq('Forgot password?');
+    expect(LoginPage.forgotPasswordLink.getText()).eq('Forgot password?');
     browser.pause(200);
   });
 
   it('should check if Forgot password link is clickable', () => {
-    LoginPage.forgotPassword.click();
+    LoginPage.forgotPasswordLink.click();
     browser.pause(200);
   });
 
