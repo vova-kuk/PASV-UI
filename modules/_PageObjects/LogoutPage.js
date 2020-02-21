@@ -11,7 +11,6 @@ class LogoutPage {
     this.logoutDropdown.click();
     this.logoutBtn.click();
   }
-
 }
 
 export default new LogoutPage();
