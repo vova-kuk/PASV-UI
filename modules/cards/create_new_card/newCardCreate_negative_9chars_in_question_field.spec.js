@@ -1,10 +1,10 @@
 import {expect} from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {negative3} from './newCard_data';
+import {negative3} from './newCardData';
 import {student} from '../../user/login/loginRole_data';
 
-describe('CREATE NEW CARD NEGATIVE with 9 characters in question', () => {
+describe('CREATE NEW CARD -- NEGATIVE WITH 9 CHARS IN QUESTION', () => {
   before('should login as a student', () => {
     LoginPage.loginRole(student);
   });

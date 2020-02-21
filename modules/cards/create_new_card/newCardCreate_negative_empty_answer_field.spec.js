@@ -1,10 +1,10 @@
 import {expect} from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {negative2} from './newCard_data';
+import {negative2} from './newCardData';
 import {student} from '../../user/login/loginRole_data';
 
-describe('CREATE NEW CARD NEGATIVE with empty answer', () => {
+describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
   before('should login as a student', () => {
     LoginPage.loginRole(student);
   });
