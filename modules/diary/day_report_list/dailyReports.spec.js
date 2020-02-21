@@ -7,14 +7,12 @@ describe('DAILY REPORTS PAGE', () => {
         LoginPage.login();
     });
 
-    it('should choose click link Diary', () => {
+    it('should click `Diary` button', () => {
         const element = DailyReportsPage.diaryBtn;
         element.click();
-        browser.pause(3000);
     });
 
-    it('should go to Daily reports page', () => {
-        browser.pause(3000);
+    it('should go to `Daily reports` page', () => {
         expect(DailyReportsPage.h1.getText()).equal('Daily reports');
     });
 

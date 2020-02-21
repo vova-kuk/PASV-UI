@@ -7,37 +7,31 @@ describe('COURSES PROGRESS PAGE', () => {
         LoginPage.login();
     });
 
-    it('should choose click `Courses` link', () => {
+    it('should click `Courses` link', () => {
         const element = CoursesProgressPage.coursesLink;
         element.click();
-        browser.pause(3000);
     });
 
-    it('should choose click link Progress', () => {
+    it('should click `Progress` link', () => {
         const element = CoursesProgressPage.progressLink;
         element.click();
-        browser.pause(3000);
     });
 
-    it('should go to courses progress page', () => {
-        browser.pause(3000);
+    it('should go to `Course Report` page', () => {
         expect(CoursesProgressPage.h1.getText()).equal('Course Report');
     });
 
-    it('should choose click Completed Lessons button', () => {
+    it('should click `Completed Lessons` button', () => {
         const element = CoursesProgressPage.completedLessonsBtn;
         element.click();
-        browser.pause(3000);
     });
 
-    it('should choose click link Profile page', () => {
+    it('should click link `Profile` page', () => {
         const element = CoursesProgressPage.profilePageLink;
         element.click();
-        browser.pause(3000);
     });
 
-    it('should go to profile page', () => {
-        browser.pause(3000);
+    it('should go to `Profile` page', () => {
         expect(CoursesProgressPage.h1.getText()).equal('Test Testov');
     });
 
