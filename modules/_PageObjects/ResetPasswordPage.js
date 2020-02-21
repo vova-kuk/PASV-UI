@@ -14,7 +14,7 @@ class ResetPasswordPage extends AppPage {
     get failedMsg(){
         return $('//h4[@class="notification-title"]');
     }
-    get email(){
+    get emailField(){
         return $('//input[@name="email"]');
     }
     get requiredMsg(){

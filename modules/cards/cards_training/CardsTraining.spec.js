@@ -10,9 +10,9 @@ let progressAfter;
 
 
 describe('CARDS TRAINING', () => {
-  before('login as a student', () => {
-    LoginPage.loginRole(student);
-  });
+    before('login as a student', () => {
+      LoginPage.loginRole(student);
+    });
 
   it('should click `Cards` tab in the navigation bar', () => {
     ProfilePage.cardsLink.click();
@@ -31,7 +31,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check a group title', () => {
-    expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    expect(CardsTrainingPage.groupTitle.getText()).equal('TestGroup');
   });
 
   it('should check if `Training` label is displayed', () => {
@@ -54,7 +54,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `I know` button is displayed', () => {
-    expect(CardsTrainingPage.iKnow.isDisplayed()).true;
+    expect(CardsTrainingPage.iKnowButton.isDisplayed()).true;
   });
 
   it('should check if `Show answer` button is displayed', () => {
@@ -62,7 +62,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `Get random next` button is displayed', () => {
-    expect(CardsTrainingPage.getRandom.isDisplayed()).true;
+    expect(CardsTrainingPage.getRandomButton.isDisplayed()).true;
   });
 
   it('should click `Show answer` button', () => {
@@ -71,33 +71,33 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if an answer is displayed', () => {
-    expect(CardsTrainingPage.answer.isDisplayed()).true;
-    CardsTrainingPage.getRandomClick();
+    expect(CardsTrainingPage.answerText.isDisplayed()).true;
+    CardsTrainingPage.getRandomButtonClick();
     browser.pause(500);
   });
 
   it('should check a progress bar before clicking `I know`', () => {
-    progressBefore = CardsTrainingPage.progress1.getText();
+    progressBefore = CardsTrainingPage.progressBarValue1.getText();
     browser.pause(500);
   });
 
   it('should click `I know`, and check if progress has changed from 0 to 33', () => {
-    CardsTrainingPage.iKnowClick();
-    progressAfter = CardsTrainingPage.progress2.getText();
+    CardsTrainingPage.iKnowButtonClick();
+    progressAfter = CardsTrainingPage.progressBarValue2.getText();
     expect(progressAfter).to.not.equal(progressBefore);
     browser.pause(500);
   });
 
   it('should click `I know`, and check if progress has changed from 33 to 66', () => {
-    CardsTrainingPage.iKnowClick();
-    progressBefore = CardsTrainingPage.progress2.getText();
-    progressAfter = CardsTrainingPage.progress3.getText();
+    CardsTrainingPage.iKnowButtonClick();
+    progressBefore = CardsTrainingPage.progressBarValue2.getText();
+    progressAfter = CardsTrainingPage.progressBarValue3.getText();
     expect(progressAfter).to.not.equal(progressBefore);
     browser.pause(500);
   });
 
   it('should click `I know`, and return to the `Training` page', () => {
-    CardsTrainingPage.iKnowClick();
+    CardsTrainingPage.iKnowButtonClick();
     browser.pause(500);
   });
 
