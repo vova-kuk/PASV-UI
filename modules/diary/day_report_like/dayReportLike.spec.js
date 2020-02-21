@@ -21,8 +21,8 @@ describe('DAY_REPORT_LIKE_PAGE', () => {
         DayReportLikePage.createDayReportBtn.click();
         browser.pause(500);
         CreateDayReportPage.fillOutReport();
+        CreateDayReportPage.saveButton.click();
         browser.pause(500);
-
         expect(DayReportLikePage.submitBtn.getText()).equal("Like 👍");
         DayReportLikePage.submitBtn.click();
         browser.pause(500);
