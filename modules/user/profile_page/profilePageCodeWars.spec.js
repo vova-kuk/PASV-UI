@@ -19,7 +19,7 @@ describe('PROFILE PAGE Codewars', () => {
   });
 
   it('should check user has been redirected to codewars', () => {
-    browser.switchWindow('codewars.com');
+    browser.switchWindow('codewars');
     const element = browser.getUrl();
     expect(element).includes('codewars');
   });
