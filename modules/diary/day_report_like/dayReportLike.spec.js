@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import DayReportLikePage from '../../_PageObjects/DayReportLikePage';
-import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
+import CreateDayReportHelper from "./CreateDayReportHelper";
 
 describe('DAY_REPORT_LIKE_PAGE', () => {
     before(() => {
@@ -19,8 +19,7 @@ describe('DAY_REPORT_LIKE_PAGE', () => {
     it('should click Like button', () => {
         DayReportLikePage.createDayReportBtn.click();
         browser.pause(500);
-        CreateDayReportPage.fillOutReport();
-        CreateDayReportPage.saveButton.click();
+        CreateDayReportHelper.createReport();
         browser.pause(500);
         expect(DayReportLikePage.submitBtn.getText()).equal("Like 👍");
         DayReportLikePage.submitBtn.click();
