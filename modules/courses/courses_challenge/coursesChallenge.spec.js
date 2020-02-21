@@ -1,31 +1,93 @@
 import LoginPage from "../../_PageObjects/LoginPage";
-import {admin} from "../../user/login/loginRole_data";
-import CoursesPage from "../../_PageObjects/CoursesPage";
-import ChallengePage from "../../_PageObjects/ChallengePage";
-import {course} from "../../_PageObjects/CoursesPage";
-import {challenge} from "../../_PageObjects/ChallengePage";
+import {admin, student} from '../../user/login/loginRole_data';
+import CoursesPage from '../../_PageObjects/CoursesPage';
+import ChallengePage from '../../_PageObjects/ChallengePage';
+import {courseData} from '../../_PageObjects/CoursesPage';
+import {challengeData} from '../../_PageObjects/ChallengePage';
+import LogoutPage from "../../_PageObjects/LogoutPage";
 
 
-describe('CREATE A NEW COURSE AND NEW CHALLENGE', () => {
+describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
 
-    it('should login as Admin', function () {
+    before('login as Admin', function () {
         LoginPage.loginRole(admin);
     });
 
-    it('should create COURSE', ()=> {
-        CoursesPage.createNewCourse;
+    it('create Challenge, create Course', () => {
+        CoursesPage.createNewCourseMethod;
+        ChallengePage.createNewChallengeMethod;
     });
 
-    it('should create Challenge', ()=> {
-        ChallengePage.createNewChallenge;
+    it('click on created course', () => {
+        CoursesPage.open('https://stage.pasv.us/course');
+        browser.pause(1000)
+        const el = ('//ul[@class="list-group"]//a[contains(., "15 Course for adding Challenge")]');
+        $(el).click();
+        browser.pause(1000)
+    });
+
+    it('click EDIT course', () => {
+      const el = ('//a[@class="edit"]');
+      $(el).click();
+    });
+
+
+    it('should add created challenge to course', () => {
+
+    });
+
+    it('logout', () => {
+        LogoutPage.logout()
     });
 
 });
 
-describe(' ADD CREATED CHALLENGE TO EXISTING COURSE ', () => {
+describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
 
-    it('', () => {
+    before('login as Student, open created course', () => {
+          LoginPage.loginRole(student);
+          LoginPage.open('https://stage.pasv.us/course');
+        const el = ('//ul[@class="list-group"]//a[contains(., "15 Course for adding Challenge")]');
+        // need help with this selector
+        $(el).click();
+        browser.pause(1000)
+    });
 
+    it('confirm h1', () => {
+        const el = ('//h1');
+        expect($(el).getText()).eq(courseData.name);
+    });
+
+    it('should fill in correct solution in "Write your solution here" textarea', () => {
+        const el = ('//div[@qa="initialSolution"]//textarea');
+        $(el).setValue(challengeData.solution);
+    });
+
+    it('click "Validate solution" ', () => {
+      const el = ('//button[contains(., "Validate solution")]');
+      $(el).click();
+      browser.pause(100)
+    });
+
+    it('confirm all tests passed', () => {
+      const el = ('//div[@class="col-md-6"]//span[contains(., "Pass")]'); // return array
+      console.log($(el).length);// selector "class="col-md-6" -- needs change
+      expect($(el).length).eq(challengeData.testsQuantity); // check if all tests passed
+    });
+
+    it('should click button "Submit solution" ', () => {
+        const el = ('//button[contains(., "Submit solution")]');
+        $(el).click();
+    });
+
+    it('confirm notification wrapper  success ', () => {
+      const el = ('//div[@class="notification notification-success notification-visible"]');
+      $(el).isDisplayed();
+    });
+
+    it('confirm challenge marked as a "Completed"', () => {
+      const el = ('//div[@class="mb-4 h5-"]//span[contains(., "Completed")]');
+      $(el).isDisplayed();
     });
 
 
