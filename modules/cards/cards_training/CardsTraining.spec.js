@@ -27,7 +27,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check a group title', () => {
-    expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    expect(CardsTrainingPage.groupTitle.getText()).equal('TestGroup');
   });
 
   it('should check if `Training` label is displayed', () => {
@@ -50,7 +50,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `I know` button is displayed', () => {
-    expect(CardsTrainingPage.iKnow.isDisplayed()).true;
+    expect(CardsTrainingPage.iKnowButton.isDisplayed()).true;
   });
 
   it('should check if `Show answer` button is displayed', () => {
@@ -58,43 +58,43 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `Get random next` button is displayed', () => {
-    expect(CardsTrainingPage.getRandom.isDisplayed()).true;
+    expect(CardsTrainingPage.getRandomButton.isDisplayed()).true;
   });
 
   it('should click `Show answer` button', () => {
-    CardsTrainingPage.showAnswerClick();
+    CardsTrainingPage.showAnswerButtonClick();
     browser.pause(500);
   });
 
   it('should check if an answer is displayed', () => {
-    expect(CardsTrainingPage.answer.isDisplayed()).true;
+    expect(CardsTrainingPage.answerText.isDisplayed()).true;
     browser.pause(500);
   });
 
   it('should click `Get Random` button', () => {
-    CardsTrainingPage.getRandomClick();
+    CardsTrainingPage.getRandomButtonClick();
     browser.pause(500);
   });
 
   it('should check if a progress bar is 0 from start and click `I know`', () => {
-    expect(CardsTrainingPage.progress.getAttribute('aria-valuenow')).eq('0');
+    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('0');
     browser.pause(1000);
-    CardsTrainingPage.iKnowClick();
+    CardsTrainingPage.iKnowButtonClick();
     browser.pause(500);
 
   });
 
   it('should check if a progress bar is 33 after 1st answer and click `I know`', () => {
-    expect(CardsTrainingPage.progress.getAttribute('aria-valuenow')).eq('33');
+    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('33');
     browser.pause(1000);
-    CardsTrainingPage.iKnowClick();
+    CardsTrainingPage.iKnowButtonClick();
     browser.pause(500);
   });
 
   it('should check if a progress bar is 66 after 2nd answer and click `I know`', () => {
-    expect(CardsTrainingPage.progress.getAttribute('aria-valuenow')).eq('66');
+    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('66');
     browser.pause(1000);
-    CardsTrainingPage.iKnowClick();
+    CardsTrainingPage.iKnowButtonClick();
     browser.pause(500);
   });
 
