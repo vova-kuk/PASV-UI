@@ -1,19 +1,32 @@
-import LoginPage from '../../_PageObjects/LoginPage';
-import {admin} from '../../user/login/loginRole_data';
-import Courses from '../Courses';
-import Challenge from '../../_PageObjects/ChallengePage';
-import {course} from '../Courses';
-import {challenge} from '../../_PageObjects/ChallengePage';
+import LoginPage from "../../_PageObjects/LoginPage";
+import {admin} from "../../user/login/loginRole_data";
+import CoursesPage from "../../_PageObjects/CoursesPage";
+import ChallengePage from "../../_PageObjects/ChallengePage";
+import {course} from "../../_PageObjects/CoursesPage";
+import {challenge} from "../../_PageObjects/ChallengePage";
 
 
-describe('CREATE A NEW COURSE AND CHALLENGE', () => {
+describe('CREATE A NEW COURSE AND NEW CHALLENGE', () => {
+
+    it('should login as Admin', function () {
+        LoginPage.loginRole(admin);
+    });
 
     it('should create COURSE', ()=> {
-       Courses.createNewCourse;
+        CoursesPage.createNewCourse;
     });
 
     it('should create Challenge', ()=> {
-       Challenge.createNewChallenge;
+        ChallengePage.createNewChallenge;
     });
+
+});
+
+describe(' ADD CREATED CHALLENGE TO EXISTING COURSE ', () => {
+
+    it('', () => {
+
+    });
+
 
 });
