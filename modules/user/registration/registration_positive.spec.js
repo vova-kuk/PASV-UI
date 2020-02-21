@@ -3,7 +3,7 @@ import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import {newUser, pageRegister} from './registration_data';
 import LoginPage from '../../_PageObjects/LoginPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
-import Logout from '../../_PageObjects/Logout';
+import Logout from '../../_PageObjects/LogoutPage';
 import HomePage from '../../_PageObjects/HomePage';
 
 describe('REGISTRATION PAGE POSITIVE', () => {

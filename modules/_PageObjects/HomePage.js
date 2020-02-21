@@ -10,11 +10,11 @@ class HomePage extends AppPage {
   }
 
   get loginLink() {
-    return $('//a[@qa="login-link"]')
+    return $('//a[@qa="login-link"]');
   }
 
   open() {
-    super.open('https://stage.pasv.us/')
+    super.open('https://stage.pasv.us/');
   }
 
   clickGroupsBtn() {
@@ -24,7 +24,6 @@ class HomePage extends AppPage {
   get registrationLink() {
     return $('//a[@qa="register-link"]');
   }
-
 
 }
 

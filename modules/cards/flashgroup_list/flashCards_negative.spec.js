@@ -1,15 +1,15 @@
 import { expect } from 'chai';
-import LoginPage from "../../_PageObjects/LoginPage";
-import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
-import {student} from "../../user/login/loginRole_data";
+import LoginPage from '../../_PageObjects/LoginPage';
+import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import {student} from '../../user/login/loginRole_data';
 
-describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
-    before('Login as Student', () => {
+describe('FLASH CARD EXISTS NEGATIVE with a title and description', () => {
+    before('login as a student', () => {
         LoginPage.loginRole(student);
         browser.pause(500);
     });
 
-    it('should check page title', () => {
+    it('should check `FlashCards` page title', () => {
         FlashCardsPage.openCardsMenu().click();
         const actual = FlashCardsPage.h1.getText();
         const expected = 'Flash ards';
@@ -30,62 +30,60 @@ describe('(NEGATIVE): FlashCards: Check Title and Description', () => {
         expect(actual).not.eq(expected);
     });
 
-    it('should check title of the very 1st created card', function (){
+    it('should check the title of the very 1st created card', function (){
         const actual=FlashCardsPage.cardLastInList.getText();
         const expected='Любители агов';
         expect(actual).not.eq(expected);
     });
 
-
-    it('should have `Black Jack` title when clicked on name', function () {
+    it('should have `Black Jack` title when it is clicked', function () {
         FlashCardsPage.firstCreatedCard.click();
         const actual=FlashCardsPage.h1LastCreated.getText();
         const expected='Black ack';
         expect(actual).not.eq(expected);
     });
 
-    it('should check `Main view` title of Navigation Menu link', function () {
+    it('should check `Main view` title in the navigation menu', function () {
         const actual=FlashCardsPage.mainView.getText();
         expect(actual).not.eq('Main View');
     });
 
-    it('should check `Compact view` title of Navigation Menu link', function () {
+    it('should check `Compact view` title in the navigation menu', function () {
         const actual=FlashCardsPage.compactView.getText();
         expect(actual).not.eq('Compact View');
     });
 
-    it('should check `Waiting for approval` title of Navigation Menu link', function () {
+    it('should check `Waiting for approval` title in the navigation menu', function () {
         const actual=FlashCardsPage.waitingForApproval.getText();
         expect(actual).not.eq('Waiting approval');
     });
 
-    it('should check `Training` title of Navigation Menu link', function () {
+    it('should check `Training` title in the navigation menu', function () {
         const actual=FlashCardsPage.training.getText();
         expect(actual).not.eq('raining');
     });
 
-    it('should check link `Main view` be clickable/active', function () {
+    it('should check `Main view` link is clickable', function () {
         const actual=FlashCardsPage.mainView.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
-    it('should check link `Compact view` be clickable/active', function () {
+    it('should check `Compact view` link is clickable', function () {
         const actual=FlashCardsPage.compactView.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
-    it('should check link `Waiting for approval` be clickable/active', function () {
+    it('should check `Waiting for approval` link is clickable', function () {
         const actual=FlashCardsPage.waitingForApproval.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
 
-    it('should check link `Training` be clickable/active', function () {
+    it('should check `Training` link is clickable', function () {
         const actual=FlashCardsPage.training.isClickable();
         const expected=false;
         expect(actual).not.eq(expected);
     });
-
 });

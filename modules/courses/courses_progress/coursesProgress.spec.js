@@ -7,7 +7,7 @@ describe('COURSES PROGRESS PAGE', () => {
         LoginPage.login();
     });
 
-    it('should choose click link Courses', () => {
+    it('should choose click `Courses` link', () => {
         const element = CoursesProgressPage.coursesLink;
         element.click();
         browser.pause(3000);
