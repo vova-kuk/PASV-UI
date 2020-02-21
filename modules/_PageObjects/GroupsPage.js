@@ -1,4 +1,4 @@
-import AppPage from "../AppPage";
+import AppPage from '../AppPage';
 
 class GroupsPage extends AppPage {
     get h1() {
