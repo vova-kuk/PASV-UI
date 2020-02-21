@@ -1,5 +1,5 @@
 import LoginPage from '../../_PageObjects/LoginPage';
-import Logout from '../../_PageObjects/Logout';
+import Logout from '../../_PageObjects/LogoutPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 
 describe('CREATE DAY REPORT', () => {
