@@ -1,11 +1,10 @@
 import {expect} from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {positive, pageTitle} from './newCard_data';
+import {positive, pageTitle} from './newCardData';
 import {student} from '../../user/login/loginRole_data';
 
-
-describe('CREATE NEW CARD POSITIVE', () => {
+describe('CREATE NEW CARD -- POSITIVE', () => {
   before('should login as a student', () => {
     LoginPage.loginRole(student);
   });
