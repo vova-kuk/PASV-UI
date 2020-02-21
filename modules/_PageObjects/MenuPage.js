@@ -4,24 +4,27 @@ class MenuPage {
     }
 
     get notificationSuccess (){
-        return $('//div[@class='notification notification-success notification-visible']');
+        return $('//div[@class="notification notification-success notification-visible"]');
     }
 
     get notificationFail (){
-        return $('//div[@class='notification notification-error notification-visible']');
+        return $('//div[@class="notification notification-error notification-visible"]');
+    }
+
+    get siteName (){
+        return $('//span[@id="site-name"]');
+    }
+
+    get navigationBar (){
+        return $('//div[@id="site-menu"]');
     }
 
     get header () {
         return $('//h1');
     }
 
-    get footer (){
-        return $('');
-
-    }
-
     get mainBar (){
-        return $('//div[@id='main-bar']');
+        return $('//div[@id="main-bar"]');
     }
 }
 
