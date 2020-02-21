@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
-import ProfilePage from '../../_PageObjects/ProfilePage';
-import DayReportLikePage from './DayReportLikePage';
+import DayReportLikePage from '../../_PageObjects/DayReportLikePage';
 import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
 
 describe('DAY_REPORT_LIKE_PAGE', () => {
