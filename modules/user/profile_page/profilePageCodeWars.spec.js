@@ -5,6 +5,7 @@ import LoginPage from '../../_PageObjects/LoginPage';
 describe('PROFILE PAGE Codewars', () => {
   before(() => {
     LoginPage.login();
+    browser.pause(3000)
   });
 
   it('should go to profile Page', () => {
