@@ -2,73 +2,73 @@ import AppPage from '../AppPage';
 
 class ChallengePage extends AppPage {
 
-    get createNewChallenge() {
+    get createNewChallengeMethod() {
         this.open('https://stage.pasv.us/challenge');
         this.createNewChallengeBtn.click();
         browser.pause(500);
-        this.challengeName.setValue(challenge.name);
-        this.challengeDescription.setValue(challenge.description);
-        this.chInstruction.setValue(challenge.instruction);
-        this.chCompletedSolution.setValue(challenge.solution);
-        this.chOpenTest.setValue(challenge.openTest);
-        this.chHiddenTest.setValue(challenge.hiddenTest);
-        this.chProgramingLanguage.selectByAttribute('value', challenge.language );
-        this.chLevel.selectByAttribute('value', challenge.level);
-        this.chChecker.selectByAttribute('value', challenge.checker );
-        this.saveBtn.click();
+        this.challengeNameInput.setValue(challengeData.name);
+        this.challengeDescriptionTextarea.setValue(challengeData.description);
+        this.challengeInstructionTextarea.setValue(challengeData.instruction);
+        this.challengeCompletedSolutionTextarea.setValue(challengeData.solution);
+        this.challengeOpenTestTextarea.setValue(challengeData.openTest);
+        this.challengeHiddenTestTextarea.setValue(challengeData.hiddenTest);
+        this.challengeProgramingLanguageSelect.selectByAttribute('value', challengeData.language );
+        this.challengeLevelSelect.selectByAttribute('value', challengeData.level);
+        this.chalelngeCheckerSelect.selectByAttribute('value', challengeData.checker );
+        this.challengeSaveBtn.click();
         browser.pause(1000);
     }
 
     get createNewChallengeBtn() {
-        return browser.$('//button[@qa="create-challenge-button"]')
+        return $('//button[@qa="create-challenge-button"]')
     };
 
-    get challengeName() {
-        return browser.$('//input[@name="name"]')
+    get challengeNameInput() {
+        return $('//input[@name="name"]')
     }
 
-    get challengeDescription() {
-        return browser.$('//textarea[@name="description"]')
+    get challengeDescriptionTextarea() {
+        return $('//textarea[@name="description"]')
     }
 
-    get chInstruction() {
-        return browser.$('//textarea[@name="instruction"]')
+    get challengeInstructionTextarea() {
+        return $('//textarea[@name="instruction"]')
     }
 
-    get chCompletedSolution() {
-        return browser.$('//div[@qa="completedSolution"]//textarea')
+    get challengeCompletedSolutionTextarea() {
+        return $('//div[@qa="completedSolution"]//textarea')
     }
 
-    get chOpenTest() {
-        return browser.$('//div[@qa="openTest"]//textarea')
+    get challengeOpenTestTextarea() {
+        return $('//div[@qa="openTest"]//textarea')
     }
 
-    get chHiddenTest() {
-        return browser.$('//div[@qa="hiddenTest"]//textarea')
+    get challengeHiddenTestTextarea() {
+        return $('//div[@qa="hiddenTest"]//textarea')
     }
 
-    get chProgramingLanguage() {
-        return browser.$('//select[@name="programmingLang"]')
+    get challengeProgramingLanguageSelect() {
+        return $('//select[@name="programmingLang"]')
     }
 
-    get chLevel() {
-        return browser.$('//select[@name="level"]')
+    get challengeLevelSelect() {
+        return $('//select[@name="level"]')
     }
 
-    get chChecker() {
-        return browser.$('//select[@name="checker"]')
+    get chalelngeCheckerSelect() {
+        return $('//select[@name="checker"]')
     }
 
-    get saveBtn() {
-        return browser.$('//button[@type="submit"]')
+    get challengeSaveBtn() {
+        return $('//button[@type="submit"]')
     }
 
 }
 
-const random99 = Math.trunc(Math.random()*100);
+const challengeRandom99 = Math.trunc(Math.random()*100);
 
-const challenge = {
-    name: `${random99} Количество приседаний`,
+const challengeData = {
+    name: `${challengeRandom99} Количество приседаний`,
     description: 'Каждый день Вася утром делает ровно 50 приседаний, и это количество он никогда не изменяет.\n' +
         'Сколько приседаний сделает Вася за `days` дней?',
     instruction: 'Создайте константу именем `sitUps` (количество приседаний в день) и присвойте ей значение 50.\n' +
@@ -86,6 +86,7 @@ const challenge = {
     solution: 'const sitUps = 50;\n' +
         'const days = 15;\n' +
         'const numberOfSitUps = sitUps * days;\n',
+    testsQuantity: 9,
     openTest: 'it(\'Переменная `sitUps` существует и имеет значение\', () => {\n' +
         '  expect(sitUps).not.undefined;\n' +
         '});\n' +
@@ -127,4 +128,4 @@ const challenge = {
 };
 
 export default new ChallengePage();
-export {challenge};
+export {challengeData};
