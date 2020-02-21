@@ -70,6 +70,10 @@ class ProfilePage extends AppPage{
         return $('//div[@qa="user-achievement"]//span');
     }
 
+    get coinTotalTopRight () {
+        return $('//div[@class="justify-content-end collapse navbar-collapse"]//span');
+    }
+
     goToProfilePage(){
         super.click('//a[@class="dropdown-toggle nav-link"]');
         super.click('//button[contains(text(), "Profile")]');

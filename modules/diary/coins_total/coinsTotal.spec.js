@@ -9,6 +9,7 @@ import ProfilePage from '../../_PageObjects/ProfilePage';
 
 let beforeCoinAmount = 0;
 let newCoinAmount = 0;
+let topCoinAmount = 0;
 
 describe('SAVE COINS AMOUNT BEFORE ', () => {
     before(() => {
@@ -16,11 +17,15 @@ describe('SAVE COINS AMOUNT BEFORE ', () => {
         DiaryPage.goToDiaryPage();
         CreateDayReportPage.createDayReport();
         CreateDayReportPage.fillOutReport();
+        CreateDayReportPage.saveButton.click();
     });
 
-    it('should save current amount of user coins from Profile page', () => {
+    it('should save current amount of user coins from the Profile page', () => {
         ProfilePage.goToProfilePage();
-        beforeCoinAmount = ProfilePage.coinTotal.getText()
+        browser.refresh();
+        beforeCoinAmount = ProfilePage.coinTotal.getText();
+        topCoinAmount = ProfilePage.coinTotalTopRight.getText();
+        expect(topCoinAmount).equal(beforeCoinAmount);
     });
 
     it('should logout as user', () => {
@@ -52,6 +57,8 @@ describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
     });
 
     it('should verify new coin amount not equal coin amount before', () => {
+        browser.refresh();
+        topCoinAmount = ProfilePage.coinTotalTopRight.getText();
         newCoinAmount = ProfilePage.coinTotal.getText();
         expect(newCoinAmount).to.not.equal(beforeCoinAmount);
     });
@@ -60,4 +67,9 @@ describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
         expect(Number.parseInt(newCoinAmount)).equal(Number.parseInt(beforeCoinAmount)+1);
     });
 
+    it('should verify amount of coin from the top left corner is the match to the amount ' +
+        'of coin under the header on the Profile page', () => {
+        expect(topCoinAmount).equal(newCoinAmount);
+    });
 });
+
