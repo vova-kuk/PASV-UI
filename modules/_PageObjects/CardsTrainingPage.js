@@ -43,7 +43,7 @@ class CardsTrainingPage extends AppPage {
   }
 
   open(path) {
-    super.open('')
+    super.open('');
   }
 
   getRandomClick() {
