@@ -2,43 +2,43 @@ import AppPage from '../AppPage';
 
 class ChallengePage extends AppPage {
     get createNewChallengeBtn() {
-        return browser.$('//button[@qa="create-challenge-button"]')
-    };
+        return browser.$('//button[@qa="create-challenge-button"]');
+    }
 
     get challengeName() {
-        return browser.$('//input[@name="name"]')
+        return browser.$('//input[@name="name"]');
     }
 
     get chInstruction() {
-        return browser.$('//textarea[@name="instruction"]')
+        return browser.$('//textarea[@name="instruction"]');
     }
 
     get chCompletedSolution() {
-        return browser.$('//div[@qa="completedSolution"]//textarea')
+        return browser.$('//div[@qa="completedSolution"]//textarea');
     }
 
     get chOpenTest() {
-        return browser.$('//div[@qa="openTest"]//textarea')
+        return browser.$('//div[@qa="openTest"]//textarea');
     }
 
     get chHiddenTest() {
-        return browser.$('//div[@qa="hiddenTest"]//textarea')
+        return browser.$('//div[@qa="hiddenTest"]//textarea');
     }
 
     get chProgramingLanguage() {
-        return browser.$('//select[@name="programmingLang"]')
+        return browser.$('//select[@name="programmingLang"]');
     }
 
     get chLevel() {
-        return browser.$('//select[@name="level"]')
+        return browser.$('//select[@name="level"]');
     }
 
     get chChecker() {
-        return browser.$('//select[@name="checker"]')
+        return browser.$('//select[@name="checker"]');
     }
 
     get saveBtn() {
-        return browser.$('//button[@type="submit"]')
+        return browser.$('//button[@type="submit"]');
     }
 
     get createNewChallenge() {
