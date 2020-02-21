@@ -2,7 +2,7 @@ import AppPage from '../AppPage';
 
 class CardsTrainingPage extends AppPage {
 
-  get title() {
+  get groupTitle() {
     return browser.$('//h1');
   }
 
@@ -18,27 +18,27 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//div//button[contains(text(),"Show")]');
   }
 
-  get iKnow() {
+  get iKnowButton() {
     return browser.$('//button[contains(text(),"I know")]');
   }
 
-  get getRandom() {
+  get getRandomButton() {
     return browser.$('//button[contains(text(),"Get random next")]');
   }
 
-  get answer() {
+  get answerText() {
     return browser.$('//div[@class="result"]//p');
   }
 
-  get progress1() {
+  get progressBarValue1() {
     return browser.$('//div[@class="container"]//div[@aria-valuenow="0"]');
   }
 
-  get progress2() {
+  get progressBarValue2() {
     return browser.$('//div[@class="container"]//div[@aria-valuenow="33"]');
   }
 
-  get progress3() {
+  get progressBarValue3() {
     return browser.$('//div[@class="container"]//div[@aria-valuenow="66"]');
   }
 
@@ -46,12 +46,12 @@ class CardsTrainingPage extends AppPage {
     super.open('');
   }
 
-  getRandomClick() {
-    this.getRandom.click();
+  getRandomButtonClick() {
+    this.getRandomButton.click();
   }
 
-  iKnowClick() {
-    this.iKnow.click();
+  iKnowButtonClick() {
+    this.iKnowButton.click();
   }
 
 }

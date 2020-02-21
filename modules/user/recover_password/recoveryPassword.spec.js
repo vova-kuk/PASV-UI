@@ -3,10 +3,10 @@ import HomePage from '../../_PageObjects/HomePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import ResetPasswordPage from '../../_PageObjects/ResetPasswordPage';
 import CheckEmailPage from '../../_PageObjects/CheckEmailPage';
+import {student} from "../login/loginRole_data";
 
 describe('PASSWORD RECOVERY', () => {
-
-  it('should open the Homepage', () => {
+  before('open Homepage', () => {
     HomePage.open();
   });
 
@@ -39,7 +39,7 @@ describe('PASSWORD RECOVERY', () => {
   });
 
   it('should check if `Required` message is displayed if email field is empty', () => {
-    $(ResetPasswordPage.email).clearValue();
+    $(ResetPasswordPage.emailField).clearValue();
     expect(ResetPasswordPage.requiredMsg.isDisplayed()).to.be.true;
   });
 
@@ -49,24 +49,24 @@ describe('PASSWORD RECOVERY', () => {
   });
 
   it('should check if “Send password reset email” button is not clickable if email in incorrect format is entered', () => {
-    ResetPasswordPage.email.setValue('amcamc@@');
+    ResetPasswordPage.emailField.setValue('amcamc@@');
     expect(ResetPasswordPage.sendButton.isClickable()).to.be.false;
     browser.pause(1000);
   });
 
   it('should check if “Invalid email address” warning is displayed if email in incorrect format is entered', () => {
-    ResetPasswordPage.email.setValue('amcamc@@');
+    ResetPasswordPage.emailField.setValue('amcamc@@');
     expect(ResetPasswordPage.invalidMsg.isDisplayed()).to.be.true;
   });
 
   it('should check if “Send password reset email” button is clickable if email in correct format is entered', () => {
-    ResetPasswordPage.email.setValue('ooopartner00@mail.ru');
+    ResetPasswordPage.emailField.setValue('ooopartner00@mail.ru');
     expect(ResetPasswordPage.sendButton.isClickable()).to.be.true;
      browser.pause(500);
   });
 
   it('should check failed message `User not found` appears if entered email is not found in the database', () => {
-    ResetPasswordPage.email.setValue('asdadfdfs@mail.com');
+    ResetPasswordPage.emailField.setValue('asdadfdfs@mail.com');
     ResetPasswordPage.sendButton.click();
     browser.pause(1000);
     expect(ResetPasswordPage.failedMsg.getText()).eq('User not found');
@@ -77,7 +77,7 @@ describe('PASSWORD RECOVERY', () => {
   });
 
   it('should check that user gets redirected to `CheckMail` page if correct email was entered', () => {
-    ResetPasswordPage.email.setValue('ooopartner00@mail.ru');
+    ResetPasswordPage.emailField.setValue('ooopartner00@mail.ru');
     ResetPasswordPage.sendButton.click();
      browser.pause(2000);
     expect(browser.getUrl()).to.be.equal('https://stage.pasv.us/user/password/reset/mailed');
