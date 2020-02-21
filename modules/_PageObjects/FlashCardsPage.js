@@ -29,7 +29,7 @@ class FlashCardsPage extends AppPage {
     }
 
     get modalForm() {
-        return browser.$('//div[contains(@class, "sidepanel")]')
+        return browser.$('//div[contains(@class, "sidepanel")]');
     }
 
     get modalFormTitle() {
@@ -104,4 +104,4 @@ class FlashCardsPage extends AppPage {
     }
 }
 
-export default new FlashCardsPage()
+export default new FlashCardsPage();
