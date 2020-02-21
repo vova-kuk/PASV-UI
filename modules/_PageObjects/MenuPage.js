@@ -23,6 +23,10 @@ class MenuPage {
         return $('//h1');
     }
 
+    get paragraph () {
+        return $('//p');
+    }
+
     get mainBar (){
         return $('//div[@id="main-bar"]');
     }

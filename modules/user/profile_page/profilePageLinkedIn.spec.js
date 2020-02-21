@@ -18,12 +18,11 @@ describe('PROFILE PAGE `LinkedIn` icon', () => {
     browser.pause(3000);
   });
 
-  /* precondition must be: login to LinkedIn
-  it('should open LinkedIn page', () => {
-    const element = ProfilePage.linkedInURLL;
-    const actual = 'https://www.linkedin.com/in/arthur-aminov-14081b18b/';
-    expect(actual).equal(element);
+//precondition must be: login to LinkedIn
+  it('should check user has been redirected to LinkedIn', () => {
+    browser.switchWindow('linkedin.com');
+    const element = browser.getUrl();
+    expect(element).includes('linkedin');
   });
-*/
 
 });
