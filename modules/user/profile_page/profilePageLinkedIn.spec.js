@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import MenuPage from "../../_PageObjects/MenuPage";
+import MenuPage from "../../_PageObjects/Menu";
 
 describe('PROFILE PAGE LinkedIn icon', () => {
   before(() => {

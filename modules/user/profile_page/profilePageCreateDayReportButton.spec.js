@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import MenuPage from "../../_PageObjects/MenuPage";
+import Menu from "../../_PageObjects/Menu";
 import LogoutPage from "../../_PageObjects/LogoutPage";
 
 describe('PROFILE PAGE Create day report button', () => {
@@ -25,7 +25,7 @@ describe('PROFILE PAGE Create day report button', () => {
     });
 
     it('should have correct header', () => {
-        expect(MenuPage.header.getText()).equal('Create day report');
+        expect(Menu.header.getText()).equal('Create day report');
     });
 
     after('should logout', () => {
