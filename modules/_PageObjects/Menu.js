@@ -20,11 +20,11 @@ class Menu {
         return $('//div[@id="site-menu"]');
     }
 
-    get header () {
+    get h1 () {
         return $('//h1');
     }
 
-    get paragraph () {
+    get p () {
         return $('//p');
     }
 

@@ -1,13 +1,14 @@
 class Notification {
-  get notificationTitle () {
+
+  get title () {
     return $('//h4[@class="notification-title"]');
   }
 
-  get notificationSuccess (){
+  get success (){
     return $('//div[@class="notification notification-success notification-visible"]');
   }
 
-  get notificationFail (){
+  get fail (){
     return $('//div[@class="notification notification-error notification-visible"]');
   }
 }
