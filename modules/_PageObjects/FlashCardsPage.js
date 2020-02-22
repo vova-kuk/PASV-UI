@@ -1,5 +1,5 @@
 import AppPage from '../AppPage';
-import {groupNameLink} from '../cards/create_new_card/newCard_data';
+import {groupNameLink} from "../cards/create_new_card/newCardData";
 
 
 class FlashCardsPage extends AppPage {
@@ -12,7 +12,7 @@ class FlashCardsPage extends AppPage {
         return browser.$('//h1');
     }
 
-    get description(){
+    get pageDescription(){
         return browser.$('//div//p[@qa="flash-description"]');
     }
 
@@ -79,11 +79,11 @@ class FlashCardsPage extends AppPage {
         return browser.$('//h1');
     }
 
-    get mainView() {
+    get mainViewLink() {
         return browser.$('//*[contains(text(),"Main view")]');
     }
 
-    get compactView() {
+    get compactViewLink() {
         return browser.$('//*[contains(text(),"Compact view")]');
     }
 
@@ -91,7 +91,7 @@ class FlashCardsPage extends AppPage {
         return browser.$('//*[contains(text(),"Waiting for approval")]');
     }
 
-    get training() {
+    get trainingLink() {
         return browser.$('//*[contains(text(),"Training")]');
     }
 
