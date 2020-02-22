@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from "../../_PageObjects/LoginPage";
 import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
-import MenuPage from "../../_PageObjects/MenuPage";
+import MenuPage from "../../_PageObjects/Menu";
 
 describe('PROFILE PAGE `like` button', () => {
   before(() => {

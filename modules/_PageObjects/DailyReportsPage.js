@@ -6,10 +6,6 @@ class DailyReportsPage extends AppPage{
         return $('//a[contains(text(),\'Diary\')]');
     }
 
-    get h1(){
-        return $('//h1');
-    }
-
     get createBtn () {
         return $('//a[@class=\'btn btn-secondary\']');
     }

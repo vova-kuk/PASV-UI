@@ -1,15 +1,4 @@
-class MenuPage {
-    get notificationTitle () {
-        return $('//h4[@class="notification-title"]');
-    }
-
-    get notificationSuccess (){
-        return $('//div[@class="notification notification-success notification-visible"]');
-    }
-
-    get notificationFail (){
-        return $('//div[@class="notification notification-error notification-visible"]');
-    }
+class Menu {
 
     get profileDropdown() {
         return $('//a[@class="dropdown-toggle nav-link"]');
@@ -44,4 +33,4 @@ class MenuPage {
     }
 }
 
-export default new MenuPage();
+export default new Menu();

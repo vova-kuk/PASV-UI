@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import MenuPage from "../../_PageObjects/MenuPage";
+import Menu from "../../_PageObjects/Menu";
 import DailyReportsPage from '../../_PageObjects/DailyReportsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 
@@ -14,8 +14,8 @@ describe('DAILY REPORTS PAGE TESTING', () => {
     });
 
     it('should go to Daily reports page', () => {
-        browser.waitUntil(() => DailyReportsPage.h1.isDisplayed());
-        expect(DailyReportsPage.h1.getText()).equal('Daily reports');
+        browser.waitUntil(() => Menu.header.isDisplayed());
+        expect(Menu.header.getText()).equal('Daily reports');
     });
 
     it('should have Create Day Report button', () => {
@@ -23,7 +23,7 @@ describe('DAILY REPORTS PAGE TESTING', () => {
     });
 
     it('should paragraph have right description', () => {
-        const actual = MenuPage.paragraph.getText();
+        const actual = Menu.paragraph.getText();
         expect(actual).eq('This list contains only new day reports.');
     });
 
