@@ -10,13 +10,11 @@ class DailyReportsPage extends AppPage{
         return $('//a[@class=\'btn btn-secondary\']');
     }
 
-    get studentName () {
-        return $('//a');
+    checkLast3Reports () {
+        for (let i = 0; i < 3; i++) {
+            $(`//div[@qa="day-report-item-${i}"]`).isExisting()
+        }
     }
-
-    // get reportListByLabels () {
-    //     return $('//[@qa=labels]')
-    // }
 
 }
 

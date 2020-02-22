@@ -3,8 +3,9 @@ import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import Menu from "../../_PageObjects/Menu";
 import LogoutPage from "../../_PageObjects/LogoutPage";
+import { data } from "../../_data/profilePage.data";
 
-describe('PROFILE PAGE Create day report button', () => {
+describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
     before(() => {
         LoginPage.loginAsStudent();
     });
@@ -25,7 +26,7 @@ describe('PROFILE PAGE Create day report button', () => {
     });
 
     it('should have correct header', () => {
-        expect(Menu.header.getText()).equal('Create day report');
+        expect(Menu.h1.getText()).equal(data.dayReport.h1);
     });
 
     after('should logout', () => {

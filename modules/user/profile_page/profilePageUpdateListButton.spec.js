@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import Menu from "../../_PageObjects/Menu";
 
 describe('PROFILE PAGE `Update list` button', () => {
   before(() => {

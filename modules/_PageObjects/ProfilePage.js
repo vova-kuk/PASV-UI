@@ -10,10 +10,6 @@ class ProfilePage extends AppPage{
         return $('//button[@class=\'btn btn-outline-primary btn-sm\']');
     }
 
-    get likeNotification () {
-        return $('//h4[@class=\'notification-title\']');
-    }
-
     get updateListBtn () {
         return $('//button[@class=\'btn btn-secondary\']');
     }
@@ -23,15 +19,15 @@ class ProfilePage extends AppPage{
     }
 
     get codeWarsIcon () {
-        return $('//a[3]//img[1]');
+        return $('//a[@qa="codewars"]');
     }
 
     get facebookIcon () {
-        return $('//a[1]//img[1]');
+        return $('//a[@qa="facebook"]');
     }
 
     get linkedInIcon () {
-        return $('//a[2]//img[1]');
+        return $('//a[@qa="linkedIn"]');
     }
 
     get coinTotal () {
