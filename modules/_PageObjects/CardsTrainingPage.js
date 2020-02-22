@@ -11,7 +11,7 @@ class CardsTrainingPage extends AppPage {
   }
 
   get startTrainingButton() {
-    return browser.$('//div//button[@class="btn btn-secondary btn-sm"]');
+    return browser.$('//button[contains(text(),"Start training")]');
   }
 
   get showAnswerButton() {
@@ -30,16 +30,8 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//div[@class="result"]//p');
   }
 
-  get progressBarValue1() {
-    return browser.$('//div[@class="container"]//div[@aria-valuenow="0"]');
-  }
-
-  get progressBarValue2() {
-    return browser.$('//div[@class="container"]//div[@aria-valuenow="33"]');
-  }
-
-  get progressBarValue3() {
-    return browser.$('//div[@class="container"]//div[@aria-valuenow="66"]');
+  get progressBar() {
+    return browser.$('//div[@class="progress"]//div[@aria-valuenow]');
   }
 
   open(path) {
@@ -52,6 +44,14 @@ class CardsTrainingPage extends AppPage {
 
   iKnowButtonClick() {
     this.iKnowButton.click();
+  }
+
+  startTrainingClick() {
+    this.startTrainingButton.click();
+  }
+
+  showAnswerButtonClick() {
+    this.showAnswerButton.click();
   }
 
 }
