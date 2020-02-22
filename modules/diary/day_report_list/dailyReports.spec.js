@@ -14,6 +14,7 @@ describe('DAILY REPORTS PAGE TESTING', () => {
     });
 
     it('should go to Daily reports page', () => {
+        browser.waitUntil(() => DailyReportsPage.h1.isDisplayed());
         expect(DailyReportsPage.h1.getText()).equal('Daily reports');
     });
 
@@ -30,7 +31,6 @@ describe('DAILY REPORTS PAGE TESTING', () => {
         const actual = DailyReportsPage.createBtn.isClickable();
         expect(actual).to.be.true;
     });
-
 
 });
 

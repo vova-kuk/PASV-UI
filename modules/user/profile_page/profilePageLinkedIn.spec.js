@@ -1,16 +1,17 @@
 import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import MenuPage from "../../_PageObjects/MenuPage";
 
-describe('PROFILE PAGE `LinkedIn` icon', () => {
+describe('PROFILE PAGE LinkedIn icon', () => {
   before(() => {
     LoginPage.login();
-    browser.pause(3000)
   });
 
-  it('should go to `Profile` page', () => {
-    expect(ProfilePage.h1.getText()).equal('Test Testov');
-  });
+  // it('should go to Profile page', () => {
+  //   browser.waitUntil(() => Me)
+  //   expect(ProfilePage.h1.getText()).equal('Test Testov');
+  // });
 
   it('should click `LinkedIn` icon', () => {
     const element = ProfilePage.linkedInIcon;

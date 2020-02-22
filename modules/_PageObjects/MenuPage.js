@@ -11,6 +11,18 @@ class MenuPage {
         return $('//div[@class="notification notification-error notification-visible"]');
     }
 
+    get profileDropdown() {
+        return $('//a[@class="dropdown-toggle nav-link"]');
+    }
+
+    get profileBtn() {
+        return $('//button[contains(text(),"Profile")]');
+    }
+
+    get cardsLink() {
+        return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
+    }
+
     get siteName (){
         return $('//span[@id="site-name"]');
     }

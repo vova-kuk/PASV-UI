@@ -2,10 +2,11 @@ import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from "../../_PageObjects/LoginPage";
 import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
+import MenuPage from "../../_PageObjects/MenuPage";
 
 describe('PROFILE PAGE `like` button', () => {
   before(() => {
-    LoginPage.login();
+    LoginPage.loginAsStudent();
     CreateDayReportPage.createDayReport();
     CreateDayReportPage.fillOutReport();
     ProfilePage.profile();

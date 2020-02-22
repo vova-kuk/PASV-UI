@@ -1,24 +1,37 @@
 import { expect } from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import MenuPage from "../../_PageObjects/MenuPage";
+import LogoutPage from "../../_PageObjects/LogoutPage";
 
-describe('PROFILE PAGE `Create day report` button', () => {
+describe('PROFILE PAGE Create day report button', () => {
     before(() => {
-        LoginPage.login();
+        LoginPage.loginAsStudent();
     });
 
-    it('should go to `Profile` Page', () => {
-        expect(ProfilePage.h1.getText()).equal('Test Testov');
+    it('should go to Profile Page', () => {
+        ProfilePage.goToProfilePage();
     });
 
-    it('should click `Create day report` button', () => {
+    it('should check Create day report button exists and clickable', () => {
+        browser.waitUntil(() => ProfilePage.createDayReportBtn.isDisplayed());
+        const actual = ProfilePage.createDayReportBtn.isClickable();
+        expect(actual).true;
+    });
+
+    it('should click Create day report button', () => {
         const element = ProfilePage.createDayReportBtn;
         element.click();
     });
 
-    it('should have header `Create day report`', () => {
-        expect(ProfilePage.h1.getText()).equal('Create day report');
+    it('should have correct header', () => {
+        expect(MenuPage.header.getText()).equal('Create day report');
     });
+
+    after('should logout', () => {
+        LogoutPage.logout();
+    });
+
 });
 
 
