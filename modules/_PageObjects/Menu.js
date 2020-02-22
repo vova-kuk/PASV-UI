@@ -12,6 +12,10 @@ class Menu {
         return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
     }
 
+    get groupLink () {
+        return $('li a[href="/group"]');
+    }
+
     get siteName (){
         return $('//span[@id="site-name"]');
     }
