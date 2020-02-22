@@ -1,61 +1,55 @@
-import LoginPage from '../../_PageObjects/LoginPage';
-import Logout from '../../_PageObjects/LogoutPage';
-import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
+import LoginPage from "../../_PageObjects/LoginPage";
+import LogoutPage from "../../_PageObjects/LogoutPage";
+import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
 
-describe('CREATE DAY REPORT NEGATIVE', () => {
-    before('should login as a student', () => {
+describe('CREATE DAY REPORT -- NEGATIVE', () => {
+    before('should login as STUDENT', () => {
         LoginPage.loginAsStudent();
+        CreateDayReportPage.diaryLink.click();
+        CreateDayReportPage.createDayReportBtn.click();
     });
 
-    it('should click on Create Day Report button', () => {
-        CreateDayReportPage.createDayReport();
-    });
-
-    it('should check page Header', () => {
+    it('should verify Create Day Report PAGE HEADER is CORRECT', () => {
         expect(CreateDayReportPage.header.getText()).not.eq('ate day report');
     });
 
-    it('should check page Marks', () => {
-        expect(CreateDayReportPage.marks.getText()).not.eq('rks to your daily report');
+    it('should verify COMMON TITLE TO ALL CHECK MARKS', () => {
+        expect(CreateDayReportPage.checkMarksTitle.getText()).not.eq('What is your morale?');
     });
 
-    it('should check Slogan', () => {
-        expect(CreateDayReportPage.slogan.getText()).not.eq('2020 And what do you do for your career?');
+    it('should display REQUIRED WARNING if NO CHECK MARK SELECTED ', () => {
+        CreateDayReportPage.requiredWarningForCheckMarks.isDisplayed();
     });
 
-    it('should check Save button text', () => {
-        expect(CreateDayReportPage.saveButton.getText()).not.eq('save');
+    it('should display REQUIRED WARNING if USER MORALE NOT SELECTED', () => {
+        CreateDayReportPage.requiredWarningForMorale.isDisplayed();
     });
 
-    it('should fill out Day Report, setting incorrect values', () => {
-        CreateDayReportPage.fillOutReportNeg();
+    it('should verify HOW MANY HOURS USER STUDIED TODAY input', () => {
+        CreateDayReportPage.hoursStudiedInputNeg();
     });
 
-    it('should display Marks to your daily report Required warning', () => {
-        CreateDayReportPage.marksRequired.isDisplayed();
+    it('should display MAX 10 HOURS WARNING', () => {
+        CreateDayReportPage.maxTenWarning.isDisplayed();
     });
 
-    it('should display What is your morale Required warning', () => {
-        CreateDayReportPage.moraleRequired.isDisplayed();
+    it('should display MUST BE 30 CHARACTERS OR MORE WARNING', () => {
+        CreateDayReportPage.mustBeThirtyWarning.isDisplayed();
     });
 
-    it('should display Maximum 10 warning', () => {
-        CreateDayReportPage.maxTen.isDisplayed();
+    it('should verify SAVE BUTTON NOT ACTIVE ', () => {
+        expect(CreateDayReportPage.saveBtn.isEnabled()).be.not.true;
     });
 
-    it('should display Must be 30 characters or more warning', () => {
-        CreateDayReportPage.mustBeThirty.isDisplayed();
+    it('should verify SAVE BUTTON TEXT', () => {
+        expect(CreateDayReportPage.saveBtn.getText()).not.eq('save');
     });
 
-    it('should check that Save button is not active', () => {
-        expect(CreateDayReportPage.saveButton.isEnabled()).be.not.true;
+    it('should verify SAVE BUTTON CLICKABLE', () => {
+        expect(CreateDayReportPage.saveBtn.isClickable()).be.not.true;
     });
 
-    it('should not be able to click Save button', () => {
-        expect(CreateDayReportPage.saveButton.isClickable()).be.not.true;
-    });
-
-    after('should logout', () => {
-        Logout.logout();
+    after('should LOGOUT', () => {
+        LogoutPage.logout();
     });
 });

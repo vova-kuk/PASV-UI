@@ -1,49 +1,81 @@
-import LoginPage from '../../_PageObjects/LoginPage';
-import Logout from '../../_PageObjects/LogoutPage';
-import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
+import LoginPage from "../../_PageObjects/LoginPage";
+import LogoutPage from "../../_PageObjects/LogoutPage";
+import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
+import HomePage from "../../_PageObjects/HomePage";
 
-describe('CREATE DAY REPORT', () => {
-    before('should login as a student', () => {
+describe('CREATE DAY REPORT -- POSITIVE', () => {
+    before('should login as STUDENT', () => {
         LoginPage.loginAsStudent();
     });
 
-    it('should click on `Create day report` button', () => {
-        CreateDayReportPage.createDayReport();
+    it('should click DIARY navigation LINK', () => {
+        CreateDayReportPage.diaryLink.click();
     });
 
-    it('should check page header', () => {
+    it('should click CREATE DAY REPORT BUTTON', () => {
+        CreateDayReportPage.createDayReportBtn.click();
+    });
+
+    it('should verify Create Day Report PAGE HEADER', () => {
         expect(CreateDayReportPage.header.getText()).eq('Create day report');
     });
 
-    it('should check page description', () => {
-        expect(CreateDayReportPage.marks.getText()).eq('Marks to your daily report');
+    it('should verify COMMON TITLE TO ALL CHECK MARKS', () => {
+        expect(CreateDayReportPage.checkMarksTitle.getText()).eq('Marks to your daily report');
     });
 
-    it('should check a slogan', () => {
+    it('should select ALL CHECK MARKS to DAILY REPORT', () => {
+        CreateDayReportPage.allMarksChecked();
+    });
+
+    it('should display & verify INSTRUCTION to NEED HELP check mark', () => {
+        expect(CreateDayReportPage.instructionToNeedHelp1.getText()).eq('Describe what difficulties you have, we will contact you and help');
+        CreateDayReportPage.instructionToNeedHelp2.isDisplayed();
+    });
+
+    it('should display & verify INSTRUCTION to UNDERSTOOD EVERYTHING check mark', () => {
+        expect(CreateDayReportPage.instructionToUnderstoodEverything1.getText()).eq('It means that you are not experiencing difficulties and understand the material that is discussed in the lessons.');
+        CreateDayReportPage.instructionToUnderstoodEverything2.isDisplayed();
+    });
+
+    it('should display & verify INSTRUCTION to HELPED CLASSMATES check mark', () => {
+        expect(CreateDayReportPage.instructionToHelpedClassmates1.getText()).eq('Specify to whom and on what topic you helped');
+        CreateDayReportPage.instructionToHelpedClassmates2.isDisplayed();
+    });
+
+    it('should select USER MORALE dropdown', () => {
+        CreateDayReportPage.selectDropdown();
+    });
+
+    it('should fill out HOW MANY HOURS USER STUDIED TODAY input', () => {
+        CreateDayReportPage.hoursStudiedInput();
+    });
+
+    it('should fill out HOW WAS YOUR DAY input', () => {
+        CreateDayReportPage.howWasYourDayInput();
+    });
+
+    it('should verify FOOTER SLOGAN text', () => {
         expect(CreateDayReportPage.slogan.getText()).eq('© 2020 And what do you do for your career?');
     });
 
-    it('should check `Save` button text', () => {
-        expect(CreateDayReportPage.saveButton.getText()).eq('Save');
+    it('should verify SAVE BUTTON TEXT', () => {
+        expect(CreateDayReportPage.saveBtn.getText()).eq('Save');
     });
 
-    it('should fill out a day report form', () => {
-        CreateDayReportPage.fillOutReport();
+    it('should verify SAVE BUTTON is ACTIVE', () => {
+        expect(CreateDayReportPage.saveBtn.isEnabled()).be.true;
     });
 
-    it('should check that `Save` button is active', () => {
-        expect(CreateDayReportPage.saveButton.isEnabled()).be.true;
+    it('should CLICK SAVE BUTTON ', () => {
+        CreateDayReportPage.saveBtn.click();
     });
 
-    it('should click `Save` button', () => {
-        CreateDayReportPage.saveButton.click();
+    it('should verify DAY REPORT WAS SUBMITTED', () => {
+        expect(CreateDayReportPage.newDayReport.getText()).eq('qwertyuiopasdfghjklzxcvbnmqwer');
     });
 
-    it('should verify that a day report was created', () => {
-        expect(CreateDayReportPage.newDayReport.getText()).eq('Write what is useful for self-development, learning, or practice you did today.');
-    });
-
-    after('should logout', () => {
-        Logout.logout();
+    after('should LOGOUT', () => {
+        LogoutPage.logout();
     });
 });
