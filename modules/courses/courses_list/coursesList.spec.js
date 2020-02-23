@@ -19,7 +19,7 @@ describe('COURSE LIST', () => {
 
     it('should click first item in the course list', () => {
         CoursesList.name1.click();
-        browser.waitUntil(()=> Menu.h1.getText()==='JS');
+        browser.waitUntil(() => Menu.h1.getText()==='JS');
         browser.back();
     });
 
@@ -29,14 +29,14 @@ describe('COURSE LIST', () => {
 
     it('should click Progress of first course', () => {
         CoursesList.progress1.click();
-        browser.waitUntil(()=> Menu.h1.getText()==='Course Report');
+        browser.waitUntil(() => Menu.h1.getText()==='Course Report');
         browser.back();
     });
 
 
     it('should click 50th item in the course list', () => {
         CoursesList.name50.click();
-        browser.waitUntil(()=> Menu.h1.getText()==='JavaScript. Arrays');
+        browser.waitUntil(() => Menu.h1.getText()==='JavaScript. Arrays');
         browser.back();
     });
 
@@ -46,7 +46,7 @@ describe('COURSE LIST', () => {
 
     it('should click Progress of 50th course', () => {
         CoursesList.progress50.click();
-        browser.waitUntil(()=> Menu.h1.getText()==='Course Report');
+        browser.waitUntil(() => Menu.h1.getText()==='Course Report');
         browser.back();
     })
 
