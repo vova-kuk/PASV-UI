@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {student} from '../../_data/user.data';
 import LoginPage from '../../_PageObjects/LoginPage';
-import HomePage from "../../_PageObjects/HomePage";
+import Menu from "../../_PageObjects/Menu";
 import GroupsPage from "../../_PageObjects/GroupsPage";
 import GroupRating from "../../_PageObjects/GroupRating";
 
@@ -11,7 +11,7 @@ describe('GROUP RATING', () => {
     });
 
     it ('should click menu "Groups" link', () => {
-        HomePage.clickGroupsBtn();
+        Menu.groupLink.click();
         browser.waitUntil(() => {
             return GroupsPage.h1.getText() === 'Groups'
         }, 500);
