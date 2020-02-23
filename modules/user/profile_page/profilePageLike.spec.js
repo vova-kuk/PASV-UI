@@ -1,15 +1,17 @@
-import { expect } from 'chai';
-import { data } from "../../_data/profilePage.data";
+import Menu from "../../_PageObjects/Menu";
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from "../../_PageObjects/LoginPage";
-import Menu from "../../_PageObjects/Menu";
-import Notification from "../../_PageObjects/Notification";
 import LogoutPage from "../../_PageObjects/LogoutPage";
+import Notification from "../../_PageObjects/Notification";
+import { data } from "../../_data/profilePage.data";
+import { student } from "../../_data/user.data";
+import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
 
 describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
   before(() => {
-    LoginPage.loginAsStudent();
-    //create one report
+    LoginPage.login(student);
+    CreateDayReportPage.createNewDayReport();
+    ProfilePage.goToProfilePage();
   });
 
   it('should check profile page is loaded and correct', () => {
@@ -20,17 +22,12 @@ describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
 
   it('should click Like button', () => {
     const element = ProfilePage.likeBtn;
-    if (element.isExisting()) {
-      element.click();
-      browser.pause(1500);
-    } else {
-      LogoutPage.logout();
-    }
+    element.click();
+    browser.pause(1200);
   });
 
   it('should have a correct notification', () => {
-    const element = $(Notification.title);
-    const actual = element.getText();
+    const actual = Notification.title.getText();
     const expected = data.notification;
     expect(actual).equal(expected);
   });

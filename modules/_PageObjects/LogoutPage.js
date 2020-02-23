@@ -1,4 +1,5 @@
 class LogoutPage {
+
   get logoutDropdown() {
     return $('//a[@class="dropdown-toggle nav-link"]');
   }
