@@ -193,13 +193,12 @@ class CreateDayReportPage extends AppPage {
         this.howWasYourDay.setValue('qwertyuiopasdfghjklzxcvbnmqwe'); //29-character text entered
     }
     fillOutReportAsStudent() {
-        LoginPage.login(student);
         this.createDayReportBtn.click();
         this.allMarksChecked();
         this.moraleLevel.selectByVisibleText('9');
         this.howManyHours.setValue('5');
         this.howWasYourDayInput();
-        LogoutPage.logout();
+        this.saveBtn.click();
     }
 }
 export default new CreateDayReportPage();
