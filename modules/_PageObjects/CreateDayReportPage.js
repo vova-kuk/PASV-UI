@@ -189,5 +189,13 @@ class CreateDayReportPage extends AppPage {
     howWasYourDayNegative() {
         this.howWasYourDay.setValue('qwertyuiopasdfghjklzxcvbnmqwe'); //29-character text entered
     }
+    createNewDayReport() {
+        this.createDayReportBtn.click();
+        this.allMarksChecked();
+        this.moraleLevel.selectByVisibleText('9');
+        this.howManyHours.setValue('5');
+        this.howWasYourDayInput();
+        this.saveBtn.click();
+    }
 }
 export default new CreateDayReportPage();

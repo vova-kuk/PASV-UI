@@ -1,11 +1,11 @@
 import LoginPage from "../../_PageObjects/LoginPage";
 import LogoutPage from "../../_PageObjects/LogoutPage";
 import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
-import HomePage from "../../_PageObjects/HomePage";
+import {student} from "../../_data/user.data";
 
 describe('CREATE DAY REPORT -- POSITIVE', () => {
     before('should login as STUDENT', () => {
-        LoginPage.loginAsStudent();
+        LoginPage.login(student);
     });
 
     it('should click DIARY navigation LINK', () => {
