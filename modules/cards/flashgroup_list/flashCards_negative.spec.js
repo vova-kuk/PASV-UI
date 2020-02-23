@@ -6,6 +6,7 @@ import {student} from '../../user/login/loginRole_data';
 describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
     before('login as a student', () => {
         LoginPage.loginRole(student);
+        browser.waitUnti();
         browser.pause(500);
     });
 
