@@ -1,13 +1,13 @@
 import {expect} from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import {student} from '../../user/login/loginRole_data';
+import {student} from '../../_data/user.data';
 import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 
 describe('CARDS TRAINING', () => {
   before('login as a student', () => {
-    LoginPage.loginRole(student);
+    LoginPage.login(student);
   });
 
   it('should click `Cards` tab in the navigation bar', () => {

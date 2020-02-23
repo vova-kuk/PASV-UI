@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import {student} from '../../user/login/loginRole_data';
+import {student} from '../../_data/user.data';
 
 describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
     before('login as a student', () => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         browser.pause(500);
     });
 

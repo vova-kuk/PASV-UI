@@ -3,12 +3,12 @@ import LoginPage from "../../_PageObjects/LoginPage";
 import HomePage from "../../_PageObjects/HomePage";
 import GroupsPage from "../../_PageObjects/GroupsPage";
 import GroupNamePage from "../../_PageObjects/GroupNamePage";
-import {student} from "../../user/login/loginRole_data";
+import {student} from "../../_data/user.data";
 import FlashCardsPage from "../../_PageObjects/FlashCardsPage";
 
 describe('GROUP LECTURES', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
     });
 
     it ('should click top menu Groups', () => {

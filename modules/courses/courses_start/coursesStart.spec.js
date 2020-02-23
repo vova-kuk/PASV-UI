@@ -4,14 +4,14 @@ import Logout from '../../_PageObjects/LogoutPage';
 
 import NewCourseCreatePage from './NewCourseCreatePage';
 import CourseStartPage from '../../courses/courses_start/CourseStartPage';
-import {courseCreate} from '../../courses/courses_start/courseStartData';
-import {admin, student} from '../../user/login/loginRole_data';
+import {courseCreate} from '../../_data/courseStart.data';
+import {admin, student} from '../../_data/user.data';
 
 
 
 describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
     before(() => {
-        LoginPage.loginRole(admin);
+        LoginPage.login(admin);
     });
 
     it('should create a new course', () => {
@@ -33,7 +33,7 @@ describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
 
 describe('START THE COURSE (AS A STUDENT)', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
     });
 
     it('should go to courses page', () => {

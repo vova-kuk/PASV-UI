@@ -1,13 +1,14 @@
-import { expect } from 'chai';
 import Menu from "../../_PageObjects/Menu";
 import DailyReportsPage from '../../_PageObjects/DailyReportsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import Notification from "../../_PageObjects/Notification";
 import { data } from "../../_data/dailyReportsList.data";
+import { student } from "../../_data/user.data";
+
 
 describe('DAILY REPORTS PAGE TESTING', () => {
     before(() => {
-        LoginPage.loginAsStudent();
+        LoginPage.login(student);
     });
 
     it('should click Diary button', () => {
