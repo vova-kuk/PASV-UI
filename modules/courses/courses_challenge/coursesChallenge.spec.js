@@ -1,5 +1,5 @@
 import LoginPage from "../../_PageObjects/LoginPage";
-import {admin, student} from '../../user/login/loginRole_data';
+import {admin, student} from '../../_data/user.data';
 import CoursesPage from '../../_PageObjects/CoursesPage';
 import ChallengePage from '../../_PageObjects/ChallengePage';
 import {courseData} from '../../_PageObjects/CoursesPage';
@@ -11,7 +11,7 @@ import AppPage from "../../AppPage";
 describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
 
     before('login as Admin', function () {
-        LoginPage.loginRole(admin);
+        LoginPage.login(admin);
     });
 
     it('create Challenge, create Course', () => {
@@ -47,7 +47,7 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
 describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
 
     before('login as Student, open created course', () => {
-          LoginPage.loginRole(student);
+          LoginPage.login(student);
           browser.pause(1000)
         CoursesPage.open('https://stage.pasv.us/course')
           browser.pause(1000);

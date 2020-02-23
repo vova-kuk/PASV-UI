@@ -1,12 +1,12 @@
 import {expect} from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {negative2} from './newCardData';
-import {student} from '../../user/login/loginRole_data';
+import {negative2} from '../../_data/newCard.data';
+import {student} from '../../_data/user.data';
 
 describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
   before('should login as a student', () => {
-    LoginPage.loginRole(student);
+    LoginPage.login(student);
   });
 
   it('should open `FlashCards` page', () => {

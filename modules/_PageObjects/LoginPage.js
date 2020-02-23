@@ -27,29 +27,12 @@ class LoginPage extends AppPage{
         return browser.$('//input[@name="password"][@autocomplete="current-password" ]');
     }
 
-    login(){
-        this.open();
-        this.email.setValue('ooopartner00@mail.ru');
-        this.password.setValue('123456');
-        this.submitBtn.click();
-        browser.pause(2000);
-    }
-
-    // loginAsStudent is not relevant. See below loginRole(role)
-    loginAsStudent(){
-        this.open();
-        this.email.setValue('studentofpasv@gmail.com');
-        this.password.setValue('98765ytrewq$');
-        this.submitBtn.click();
-        browser.pause(2000);
-    }
-
-    loginRole(role) {
+    login(role) {
         this.open();
         this.email.setValue(role.email);
         this.password.setValue(role.password);
         this.submitBtn.click();
-        browser.pause(2000);
+        browser.waitUntil(() => this.h1.isDisplayed());
     }
 
     open(){
