@@ -1,7 +1,4 @@
 import AppPage from "../AppPage";
-import LoginPage from "./LoginPage";
-import LogoutPage from "./LogoutPage";
-import {student} from "../_data/user.data";
 
 class CreateDayReportPage extends AppPage {
 
