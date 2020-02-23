@@ -3,7 +3,7 @@ import HomePage from '../../_PageObjects/HomePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import ResetPasswordPage from '../../_PageObjects/ResetPasswordPage';
 import CheckEmailPage from '../../_PageObjects/CheckEmailPage';
-import {student} from "../login/loginRole_data";
+import {student} from "../../_data/user.data";
 
 describe('PASSWORD RECOVERY', () => {
   before('open Homepage', () => {

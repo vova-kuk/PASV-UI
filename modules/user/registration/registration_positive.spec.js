@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import RegistrationPage from '../../_PageObjects/RegistrationPage';
-import {newUser, pageRegister} from './registration_data';
+import {newUser, pageRegister} from '../../_data/registration.data';
 import LoginPage from '../../_PageObjects/LoginPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import Logout from '../../_PageObjects/LogoutPage';

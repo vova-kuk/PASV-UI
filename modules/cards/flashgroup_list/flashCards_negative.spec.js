@@ -1,5 +1,6 @@
 import LoginPage from '../../_PageObjects/LoginPage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+<<<<<<< HEAD
 import {student} from '../../user/login/loginRole_data';
 import Menu from "../../_PageObjects/Menu";
 
@@ -7,6 +8,14 @@ describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
     before('login as a student', () => {
         LoginPage.loginRole(student);
         browser.waitUntil(()=>Menu.h1.getText()==='Student PASV')
+=======
+import {student} from '../../_data/user.data';
+
+describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
+    before('login as a student', () => {
+        LoginPage.login(student);
+        browser.pause(500);
+>>>>>>> master
     });
 
     it('should check `FlashCards` page title', () => {

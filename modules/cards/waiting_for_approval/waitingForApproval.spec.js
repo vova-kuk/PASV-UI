@@ -1,16 +1,16 @@
 import {expect} from 'chai';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import {student} from '../../user/login/loginRole_data';
+import {student} from '../../_data/user.data';
 import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import CardsWaitingForApprovalPage from '../../_PageObjects/CardsWaitingForApprovalPage';
-import {positive} from '../create_new_card/newCardData';
+import {positive} from '../../_data/newCard.data';
 import Logout from '../../_PageObjects/LogoutPage';
 
 describe('WAITING FOR APPROVAL', () => {
     before('login as a student', () => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
     });
 
     it('should click `Cards` in the navigation bar', () => {

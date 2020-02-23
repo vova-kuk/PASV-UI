@@ -1,17 +1,20 @@
+import { expect } from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {student} from '../../user/login/loginRole_data';
-import Menu from "../../_PageObjects/Menu";
+import {student} from '../../_data/user.data';
 
 describe('CARDS/FLASHCARDS --POSITIVE', () => {
     before('login as a student', () => {
-        LoginPage.loginRole(student);
-        browser.waitUntil(()=>Menu.h1.getText()==='Student PASV');
+        LoginPage.login(student);
+        browser.pause(500);
     });
 
     it('should check a `FlashCards` page title', () => {
         FlashCardsPage.openCardsMenu().click();
-        browser.waitUntil(()=>FlashCardsPage.h1.getText()==='FlashCards');
+        const actual = FlashCardsPage.h1.getText();
+        const expected = 'FlashCards';
+        expect(actual).eq(expected);
+        browser.pause(200);
     });
 
     it('should check a description', function () {
@@ -42,8 +45,7 @@ describe('CARDS/FLASHCARDS --POSITIVE', () => {
     });
 
     it('should check `Main view` title in the navigation menu link', function () {
-        FlashCardsPage.cardLastInList.click();
-        browser.waitUntil(()=>FlashCardsPage.h1LastCreated.getText()==='Любители багов');
+        FlashCardsPage.firstCreatedCard.click();
         const actual=FlashCardsPage.mainViewLink.getText();
         expect(actual).eq('Main view');
     });

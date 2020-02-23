@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
-import {admin, student} from '../../user/login/loginRole_data';
+import {admin, student} from '../../_data/user.data';
 import Logout from '../../_PageObjects/LogoutPage';
 import DiaryPage from '../../_PageObjects/DiaryPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
@@ -13,7 +13,7 @@ let topCoinAmount = 0;
 
 describe('SAVE COINS AMOUNT BEFORE ', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         DiaryPage.goToDiaryPage();
         CreateDayReportPage.createDayReport();
         CreateDayReportPage.fillOutReport();
@@ -36,7 +36,7 @@ describe('SAVE COINS AMOUNT BEFORE ', () => {
 describe('APPROVE DAY REPORT BY ADMIN', () => {
 
     before(() => {
-        LoginPage.loginRole(admin);
+        LoginPage.login(admin);
         DiaryPage.goToDiaryPage();
     });
 
@@ -52,7 +52,7 @@ describe('APPROVE DAY REPORT BY ADMIN', () => {
 
 describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         ProfilePage.goToProfilePage();
     });
 
