@@ -1,6 +1,6 @@
 export default class AppPage {
-    async open(path) {
-        await browser.url(path);
+    open(path){
+        browser.url(path);
     }
 
     click(element){
