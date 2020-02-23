@@ -1,13 +1,12 @@
-import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import {student} from '../../user/login/loginRole_data';
+import Menu from "../../_PageObjects/Menu";
 
 describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
     before('login as a student', () => {
         LoginPage.loginRole(student);
-        browser.waitUnti();
-        browser.pause(500);
+        browser.waitUntil(()=>Menu.h1.getText()==='Student PASV')
     });
 
     it('should check `FlashCards` page title', () => {
@@ -15,7 +14,6 @@ describe('CARDS/FLASHCARD PAGE --NEGATIVE', () => {
         const actual = FlashCardsPage.h1.getText();
         const expected = 'Flash Cards';
         expect(actual).not.eq(expected);
-        browser.pause(200);
     });
 
     // it('should check description', function () {

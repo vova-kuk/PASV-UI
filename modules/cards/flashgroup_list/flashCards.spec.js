@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import {student} from '../../user/login/loginRole_data';
@@ -7,7 +6,7 @@ import Menu from "../../_PageObjects/Menu";
 describe('CARDS/FLASHCARDS --POSITIVE', () => {
     before('login as a student', () => {
         LoginPage.loginRole(student);
-        browser.waitUntil(()=>Menu.h1.getText()==='Stu dent PASV');
+        browser.waitUntil(()=>Menu.h1.getText()==='Student PASV');
     });
 
     it('should check a `FlashCards` page title', () => {
