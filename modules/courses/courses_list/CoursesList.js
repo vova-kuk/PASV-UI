@@ -1,9 +1,6 @@
 import AppPage from "../../AppPage";
 
 class CoursesList extends AppPage{
-    get h1(){
-        return browser.$('//h1');
-    }
 
     get name1(){
         return browser.$('//ul[@class="list-group"]//h4/a');
