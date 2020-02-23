@@ -8,6 +8,10 @@ class Menu {
         return $('//button[contains(text(),"Profile")]');
     }
 
+    get coursesLink(){
+        return $('//div[@id="site-menu"]//a[@qa="courses-link"]');
+    }
+
     get cardsLink() {
         return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
     }
