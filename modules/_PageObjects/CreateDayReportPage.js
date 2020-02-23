@@ -1,4 +1,7 @@
 import AppPage from "../AppPage";
+import LoginPage from "./LoginPage";
+import LogoutPage from "./LogoutPage";
+import {student} from "../_data/user.data";
 
 class CreateDayReportPage extends AppPage {
 
@@ -188,6 +191,15 @@ class CreateDayReportPage extends AppPage {
 
     howWasYourDayNegative() {
         this.howWasYourDay.setValue('qwertyuiopasdfghjklzxcvbnmqwe'); //29-character text entered
+    }
+    fillOutReportAsStudent() {
+        LoginPage.login(student);
+        this.createDayReportBtn.click();
+        this.allMarksChecked();
+        this.moraleLevel.selectByVisibleText('9');
+        this.howManyHours.setValue('5');
+        this.howWasYourDayInput();
+        LogoutPage.logout();
     }
 }
 export default new CreateDayReportPage();
