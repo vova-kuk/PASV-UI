@@ -22,12 +22,27 @@ describe ('GROUPS QUIZ TAB', () => {
         browser.waitUntil(() => Menu.h1.getText() === 'Groups');
     });
 
-    // it('should open last Created Group', function () {
-    //     GroupsPage.lastCreatedGroup.click();
-    // });
+    it('should open Existed Group "Group 6 Test" link',  () => {
+        GroupsPage.linkToGroupGroup6Test.click();
+        browser.waitUntil(() =>  Menu.h1.getText() === 'Group GROUP6 TEST');
+    });
 
-    // it('should click quiz Tab Btn', function () {
-    //     GroupsPage.quizTabBtn.click();
-    // });
+    it('should check if quiz tab exist',  () => {
+        expect(GroupsPage.quizTabBtn.isDisplayed()).true
+    });
 
+    it('should click quiz Tab Btn',  () => {
+        GroupsPage.quizTabBtn.click();
+        browser.pause(1000);
+    });
+
+    it('should check redirection to quiz page',  () =>{
+      const element = browser.getUrl();
+        expect(element.includes('quiz')).true;
+    });
+
+    after('should log out', () => {
+        LogoutPage.logout();
+        browser.pause(1000)
+    })
 });
