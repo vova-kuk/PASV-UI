@@ -1,4 +1,3 @@
-import {expect} from 'chai';
 import LoginPage from "../../_PageObjects/LoginPage";
 import GroupsPage from "../../_PageObjects/GroupsPage";
 import GroupNamePage from "../../_PageObjects/GroupNamePage";
@@ -23,8 +22,8 @@ describe('GROUPS LECTURES', () => {
     });
 
     it ('should click group name in the list', () => {
-        GroupsPage.linkToGroup.scrollIntoView();
-        GroupsPage.linkToGroup.click();
+        GroupsPage.groupLink.scrollIntoView();
+        GroupsPage.groupLink.click();
         browser.pause(1000);
     });
 

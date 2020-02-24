@@ -15,10 +15,6 @@ class Notification {
     );
   }
 
-  get failedMsg(){
-    return $('//h4[@class="notification-title"]');
-  }
-
   get invalidMsg() {
     return $('//div[contains(@class, "form")]//div[contains(text(), "Invalid")]');
   }
