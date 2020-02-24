@@ -1,11 +1,11 @@
-import Menu from "../../_PageObjects/Menu";
+import Menu from '../../_PageObjects/Menu';
 import ProfilePage from '../../_PageObjects/ProfilePage';
-import LoginPage from "../../_PageObjects/LoginPage";
-import LogoutPage from "../../_PageObjects/LogoutPage";
-import Notification from "../../_PageObjects/Notification";
-import { data } from "../../_data/profilePage.data";
-import { student } from "../../_data/user.data";
-import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
+import LoginPage from '../../_PageObjects/LoginPage';
+import LogoutPage from '../../_PageObjects/LogoutPage';
+import Notification from '../../_PageObjects/Notification';
+import { data } from '../../_data/profilePage.data';
+import { student } from '../../_data/user.data';
+import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 
 describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
   before(() => {
@@ -34,5 +34,5 @@ describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
 
   it('should logout', () => {
     LogoutPage.logout();
-  })
+  });
 });
