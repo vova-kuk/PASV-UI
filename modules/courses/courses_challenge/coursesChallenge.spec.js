@@ -1,36 +1,31 @@
 import LoginPage from "../../_PageObjects/LoginPage";
+import LogoutPage from "../../_PageObjects/LogoutPage";
 import {admin, student} from '../../_data/user.data';
 import CoursesPage from '../../_PageObjects/CoursesPage';
 import ChallengePage from '../../_PageObjects/ChallengePage';
 import {courseData} from '../../_PageObjects/CoursesPage';
 import {challengeData} from '../../_PageObjects/ChallengePage';
-import LogoutPage from "../../_PageObjects/LogoutPage";
 import AppPage from "../../AppPage";
+import Notification from "../../_PageObjects/Notification";
 
+/*
+describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
 
-describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
-
-    before('login as Admin', function () {
+    before('login as Admin, create Course, create Challenge', () => {
         LoginPage.login(admin);
-    });
-
-    it('create Challenge, create Course', () => {
         CoursesPage.createNewCourseMethod;
         ChallengePage.createNewChallengeMethod;
     });
 
-    it('click on created course', () => {
+    it('find and click on created course', () => {
         CoursesPage.open('https://stage.pasv.us/course');
-        browser.pause(1000)
-        const el = (`//ul[@class="list-group"]//a[contains(., "${courseData.name}")]`);
-        $(el).click();
+        $(CoursesPage.listOfCourses).click();
         browser.pause(1000)
     });
 
     it('click EDIT course', () => {
-      const el = ('//a[@class="edit"]');
-      $(el).click();
-      browser.pause(3000)
+        $(CoursesPage.editBtn).click();
+        browser.pause(1000)
     });
 
     it('should add created challenge to course', () => {
@@ -38,65 +33,67 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE --- POSITIVE ', () => {
     });
 
     it('logout', () => {
-        LogoutPage.logout()
+        LogoutPage.logout();
     });
 
 });
 
-
+*/
 describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
 
     before('login as Student, open created course', () => {
-          LoginPage.login(student);
-          browser.pause(1000)
-        CoursesPage.open('https://stage.pasv.us/course')
-          browser.pause(1000);
-        const el = (`//ul[@class="list-group"]//a[contains(., "31 Course for adding Challenge")]`); // ${courseData.name}
-        $(el).click();
+        LoginPage.login(student);
+        CoursesPage.open('https://stage.pasv.us/course');
+        browser.pause(1000)
+
+    });
+
+    it('should click on created course ', () => {
+        $(CoursesPage.findCourse).click();
         browser.pause(1000)
     });
 
+
     it('confirm h1', () => {
-        const el = ('//h1');
-        expect($(el).getText()).eq(courseData.name);
+        expect($(AppPage.h1).getText()).eq(courseData.name);
+    });
+
+    it('confirm describe', () => {
+        expect($(CoursesPage.courseDescription).getText()).eq(courseData.description);
     });
 
     it('click button "Start course" ', () => {
-      const el = ('//button[contains(., "Start course")]');
-      $(el).click()
-        browser.pause(1000)
+        $(CoursesPage.startCourseBtn).click();
+        browser.pause(1000);
+    });
+
+    it('confirm challenge exist on the page and has same name as created', () => {
+        expect(ChallengePage.challengeInsideCourseName.getText()).eq(challengeData.name);
     });
 
     it('should fill in correct solution in "Write your solution here" textarea', () => {
-        const el = ('//div[@qa="initialSolution"]//textarea');
-        $(el).setValue(challengeData.solution);
+        $(ChallengePage.challengeInsideCourseTextarea).setValue(challengeData.solution);
     });
 
     it('click "Validate solution" ', () => {
-      const el = ('//button[contains(., "Validate solution")]');
-      $(el).click();
-      browser.pause(100)
+        $(ChallengePage.challengeInsideCourseValidateBtn).click();
+        browser.pause(1000)
     });
 
     it('confirm all tests passed', () => {
-      const el = ('//div[@class="col-md-6"]//span[contains(., "Pass")]'); // return array
-      console.log($(el).length);// selector "class="col-md-6" -- needs change
-      expect($(el).length).eq(challengeData.testsQuantity); // check if all tests passed
+        expect($(ChallengePage.challengePassArray).length).eq(challengeData.testsQuantity);
     });
 
     it('should click button "Submit solution" ', () => {
-        const el = ('//button[contains(., "Submit solution")]');
-        $(el).click();
+        $(ChallengePage.challengeSubmitSolutionBtn).click();
     });
 
-    it('confirm notification wrapper  success ', () => {
-      const el = ('//div[@class="notification notification-success notification-visible"]');
-      $(el).isDisplayed();
+    it('confirm notification wrapper success ', () => {
+        $(Notification.success).isDisplayed();
     });
 
     it('confirm challenge marked as a "Completed"', () => {
-      const el = ('//div[@class="mb-4 h5-"]//span[contains(., "Completed")]');
-      $(el).isDisplayed();
+        $(ChallengePage.challengeCompleteMark).isDisplayed();
     });
 
 
