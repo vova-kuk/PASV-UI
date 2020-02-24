@@ -39,8 +39,8 @@ class ProfilePage extends AppPage{
     }
 
     goToProfilePage(){
-        super.click('//a[@class="dropdown-toggle nav-link"]');
-        super.click('//button[contains(text(), "Profile")]');
+       $('//a[@class="dropdown-toggle nav-link"]').click();
+       $('//button[contains(text(), "Profile")]').click();
     }
 
 }

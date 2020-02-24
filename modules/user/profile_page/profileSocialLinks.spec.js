@@ -4,10 +4,11 @@ import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import LogoutPage from '../../_PageObjects/LogoutPage';
 import Menu from '../../_PageObjects/Menu';
+import {student} from "../../_data/user.data";
 
 describe('SOCIAL NETWORKS INTEGRATION', () => {
   before(() => {
-    LoginPage.loginAsStudent();
+    LoginPage.login(student);
     browser.pause(2000);
   });
 

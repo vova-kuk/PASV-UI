@@ -2,11 +2,12 @@ import LoginPage from '../../_PageObjects/LoginPage';
 import GroupDescriptionPage from '../../_PageObjects/GroupDescriptionPage';
 import { expect } from "chai";
 import Menu from "../../_PageObjects/Menu";
+import {student} from "../../_data/user.data";
 
 
 describe('Group description', () => {
     before(() => {
-        LoginPage.login();
+        LoginPage.login(student);
     });
 
     it('should click group button',  () =>{
