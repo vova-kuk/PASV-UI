@@ -42,9 +42,8 @@ describe('LOGIN PAGE --POSITIVE', () => {
 
     it('should get positive login notification', () => {
         const actual = LoginPage.notification.getText();
-        console.log(actual);
         const expected = 'Auth success';
-        expect(actual).eq(expected);
+        expect(actual).eq(expected, 'Why "Completed challenges" ?');
     });
 
 });
