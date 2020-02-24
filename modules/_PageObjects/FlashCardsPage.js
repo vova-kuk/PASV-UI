@@ -12,6 +12,7 @@ class FlashCardsPage extends AppPage {
         return browser.$('//h1');
     }
 
+
     get pageDescription(){
         return browser.$('//div//p[@qa="flash-description"]');
     }

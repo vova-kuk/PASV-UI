@@ -1,14 +1,19 @@
 import Menu from "../../_PageObjects/Menu";
-import DailyReportsPage from '../../_PageObjects/DailyReportsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import CreateDayReportPage from "../../_PageObjects/CreateDayReportPage";
+import DailyReportsPage from '../../_PageObjects/DailyReportsPageList';
 import Notification from "../../_PageObjects/Notification";
 import { data } from "../../_data/dailyReportsList.data";
 import { student } from "../../_data/user.data";
+import LogoutPage from "../../_PageObjects/LogoutPage";
 
 
 describe('DAILY REPORTS PAGE TESTING', () => {
     before(() => {
         LoginPage.login(student);
+        for (let i = 0; i < 3; i++){
+            CreateDayReportPage.createNewDayReport();
+        }
     });
 
     it('should click Diary button', () => {
@@ -17,6 +22,7 @@ describe('DAILY REPORTS PAGE TESTING', () => {
     });
 
     it('should show success notification', () => {
+        browser.waitUntil(() => Notification.title.isDisplayed());
         const element = Notification.success;
         expect(element.isDisplayed()).true;
     });
@@ -26,27 +32,30 @@ describe('DAILY REPORTS PAGE TESTING', () => {
         expect(element.includes(data.notificationText));
     });
 
-    it('should go to Daily reports page', () => {
-        browser.waitUntil(() => Menu.h1.isDisplayed());
+    it('should check that page has correct description', () => {
         expect(Menu.h1.getText()).equal(data.h1);
     });
 
-    it('should have Create Day Report button', () => {
-        expect(DailyReportsPage.createBtn).exist;
+    it('should check Create Day Report button is displayed', () => {
+        expect(DailyReportsPage.createBtn.isDisplayed()).true;
     });
 
-    it('should paragraph have right description', () => {
+    it('should check paragraph contains correct description', () => {
         const actual = Menu.p.getText();
         expect(actual).eq(data.p);
     });
 
     it('should Create Day Report button be clickable', () => {
         const actual = DailyReportsPage.createBtn.isClickable();
-        expect(actual).to.be.true;
+        expect(actual).true;
     });
 
-    it('should check 3 reports in the list exist', () => {
+    it('should check 3 most recent reports exist in the list', () => {
         DailyReportsPage.checkLast3Reports();
+    });
+
+    after('should logout', () => {
+        LogoutPage.logout();
     });
 
 });

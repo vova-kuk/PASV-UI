@@ -6,7 +6,7 @@ class CheckEmailPage extends AppPage {
         return $('//h1');
     }
 
-    get successMessage() {
+    get successMsg() {
         return $('//h4[@class="notification-title"]');
     }
 

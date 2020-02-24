@@ -10,4 +10,6 @@
 |5| buttons |  submitBtn  |
 |6| label |  firstNameLbl  |
 |7| checkbox |  activityChk  |
-|8| initial steps in the test scenario | use **before()** |  
+|8| text |  answerTxt  |
+|9| messages | failedMsg, invalidMsg, requiredMsg |  
+|10| initial steps in the test scenario | use **before()** |  

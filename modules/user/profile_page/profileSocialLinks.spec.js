@@ -1,9 +1,9 @@
 import { expect } from 'chai';
-import { data } from "../../_data/profilePage.data";
+import { data } from '../../_data/profilePage.data';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from "../../_PageObjects/LogoutPage";
-import Menu from "../../_PageObjects/Menu";
+import LogoutPage from '../../_PageObjects/LogoutPage';
+import Menu from '../../_PageObjects/Menu';
 
 describe('SOCIAL NETWORKS INTEGRATION', () => {
   before(() => {
@@ -56,6 +56,5 @@ describe('SOCIAL NETWORKS INTEGRATION', () => {
   it('should logout', () => {
     browser.switchWindow(data.partialUrl.pasv);
     LogoutPage.logout();
-  })
-
+  });
 });

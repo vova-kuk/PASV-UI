@@ -5,16 +5,10 @@ class ResetPasswordPage extends AppPage {
     get h1() {
         return $('//h1');
     }
-    get invalidMsg() {
-        return $('//div[contains(@class, "form")]//div[contains(text(), "Invalid")]');
-    }
-    get sendButton() {
+    get sendBtn() {
         return $('//button[contains(text(),"Send password reset email")]');
     }
-    get failedMsg(){
-        return $('//h4[@class="notification-title"]');
-    }
-    get emailField(){
+    get emailInput(){
         return $('//input[@name="email"]');
     }
     get requiredMsg(){

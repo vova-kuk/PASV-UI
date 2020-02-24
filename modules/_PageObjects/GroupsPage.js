@@ -12,6 +12,14 @@ class GroupsPage extends AppPage {
     get linkToGroup() {
         return browser.$('=QA-7');
     }
+
+    get linkToGroupGroup6Test() {
+        return $('//a[contains(text(),"GROUP6 TEST")]');
+    }
+
+    get quizTabBtn(){
+        return $('//a[contains(text(),"Quiz")]');
+    }
 }
 
 export default new GroupsPage();

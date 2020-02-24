@@ -1,6 +1,6 @@
 import AppPage from '../AppPage';
 
-class DailyReportsPage extends AppPage{
+class DailyReportsPageList extends AppPage{
 
     get diaryBtn(){
         return $('//a[contains(text(),\'Diary\')]');
@@ -12,10 +12,11 @@ class DailyReportsPage extends AppPage{
 
     checkLast3Reports () {
         for (let i = 0; i < 3; i++) {
-            $(`//div[@qa="day-report-item-${i}"]`).isExisting()
+            $(`//div[@qa="day-report-item-${i}"]`).isExisting();
+
         }
     }
 
 }
 
-export default new DailyReportsPage();
+export default new DailyReportsPageList();

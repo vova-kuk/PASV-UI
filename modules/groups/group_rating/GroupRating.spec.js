@@ -1,33 +1,27 @@
-import {expect} from "chai";
-import GroupRatingPage from "../../_PageObjects/GroupRatingPage";
-import LoginPage from "../../_PageObjects/LoginPage";
-import {student} from "../../_data/user.data";
+import {expect} from 'chai';
+import {student} from '../../_data/user.data';
+import LoginPage from '../../_PageObjects/LoginPage';
 import Menu from "../../_PageObjects/Menu";
+import GroupsPage from "../../_PageObjects/GroupsPage";
+import GroupRating from "../../_PageObjects/GroupRating";
 
 describe('GROUP RATING', () => {
-    before('ligin as student', () => {
+    before('login as a student', () => {
         LoginPage.login(student);
     });
 
-    it('should click menu "Groups" link', () => {
+    it ('should click menu "Groups" link', () => {
         Menu.groupLink.click();
+        browser.waitUntil(() => {
+            return GroupsPage.h1.getText() === 'Groups'
+        }, 500);
     });
 
-    it('should click "Group4Test" link', () => {
-        GroupRatingPage.group4Test.scrollIntoView();
-        GroupRatingPage.group4Test.click();
-    });
+    it ('should click "Group4Test" link', () => {
+        GroupRating.linkToGroup.scrollIntoView();
+        GroupRating.linkToGroup.click();
 
-    it('should verify h1 is Group --Group4Test', () => {
-       browser.waitUntil(() =>{
-           return GroupRatingPage.h1.getText() === 'Group Group4Test';
-       },5000)
-
-    });
-
-    it('should click "Rating" link', () => {
-        GroupRatingPage.ratingLink.click();
-    });
+    })
 
     it('facebook', () => {
         expect(GroupRatingPage.facebookLink.getAttribute('href')).eq('https://www.facebook.com/');
@@ -52,5 +46,6 @@ describe('GROUP RATING', () => {
         expect(GroupRatingPage.codewarsLink.getAttribute('target')).eq('_blank');
         browser.pause(1000)
     });
+
 
 });
