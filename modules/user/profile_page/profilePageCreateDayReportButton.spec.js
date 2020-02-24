@@ -4,10 +4,12 @@ import LoginPage from '../../_PageObjects/LoginPage';
 import Menu from '../../_PageObjects/Menu';
 import LogoutPage from '../../_PageObjects/LogoutPage';
 import { data } from '../../_data/profilePage.data';
+import {student} from "../../_data/user.data";
+
 
 describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
   before(() => {
-    LoginPage.loginAsStudent();
+    LoginPage.login(student);
   });
 
   it('should go to Profile Page', () => {

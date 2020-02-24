@@ -1,10 +1,13 @@
-import { expect } from 'chai';
 import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import {student} from "../../_data/user.data";
+import ProfilePage from "../../_PageObjects/ProfilePage";
+import Menu from "../../_PageObjects/Menu";
+import {data} from "../../_data/profilePage.data";
 
 describe('COURSES PROGRESS PAGE', () => {
     before(() => {
-        LoginPage.login();
+        LoginPage.login(student);
     });
 
     it('should click `Courses` link', () => {
@@ -27,12 +30,12 @@ describe('COURSES PROGRESS PAGE', () => {
     });
 
     it('should click link `Profile` page', () => {
-        const element = CoursesProgressPage.profilePageLink;
-        element.click();
+        ProfilePage.goToProfilePage();
+        browser.pause(1000);
     });
 
     it('should go to `Profile` page', () => {
-        expect(CoursesProgressPage.h1.getText()).equal('Test Testov');
+        expect(Menu.h1.getText()).equal(data.student.name);
     });
 
 });

@@ -11,7 +11,9 @@ describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
   before(() => {
     LoginPage.login(student);
     CreateDayReportPage.createNewDayReport();
+    browser.pause(1000);
     ProfilePage.goToProfilePage();
+
   });
 
   it('should check profile page is loaded and correct', () => {
@@ -25,13 +27,11 @@ describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
     element.click();
     browser.pause(1200);
   });
-
   it('should have a correct notification', () => {
     const actual = Notification.title.getText();
     const expected = data.notification;
     expect(actual).equal(expected);
   });
-
   it('should logout', () => {
     LogoutPage.logout();
   });
