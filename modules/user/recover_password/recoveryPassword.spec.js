@@ -70,6 +70,7 @@ describe('PASSWORD RECOVERY', () => {
 
   it('should check that user is left on the same page if entered email is not found in the database', () => {
     expect(ResetPasswordPage.h1.getText()).eq(pagePswRecovery.h1);
+    browser.pause(500);
   });
 
   it('should check that user gets redirected to `CheckMail` page if correct email was entered', () => {
