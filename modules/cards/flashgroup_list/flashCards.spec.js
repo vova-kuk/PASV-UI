@@ -1,27 +1,22 @@
-import { expect } from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import {student} from '../../_data/user.data';
+import Menu from "../../_PageObjects/Menu";
 
 describe('CARDS/FLASHCARDS --POSITIVE', () => {
     before('login as a student', () => {
         LoginPage.login(student);
-        browser.pause(500);
     });
 
     it('should check a `FlashCards` page title', () => {
         FlashCardsPage.openCardsMenu().click();
-        const actual = FlashCardsPage.h1.getText();
-        const expected = 'FlashCards';
-        expect(actual).eq(expected);
-        browser.pause(200);
+        browser.waitUntil(()=>Menu.h1.getText()==='FlashCards');
     });
 
     it('should check a description', function () {
         const actual = FlashCardsPage.pageDescription.getText();
         const expected = 'Now the stage of filling content cards. Create cards. After there will be enough cards training will be opened for memorization.';
         expect(actual).eq(expected);
-        browser.pause(400);
     });
 
     //Эти тесты через раз падают, так как постоянно создаются новые и сравнение сделать сложнее по имени.
