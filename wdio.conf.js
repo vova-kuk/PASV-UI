@@ -20,7 +20,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './modules/**/*.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -163,6 +163,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
+    before: function (capabilities, specs) {
+        require('@babel/register');
+        expect = require('chai').expect;
+    },
     // before: function (capabilities, specs) {
     // },
     /**
