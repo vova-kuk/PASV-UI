@@ -1,4 +1,5 @@
 import AppPage from '../AppPage';
+import {lectureName} from "../groups/group_lectures/groupLecturesMarkAsUnderstoodBtn.spec";
 
 class GroupsPage extends AppPage {
 
@@ -10,9 +11,13 @@ class GroupsPage extends AppPage {
         return browser.$('//h1');
     }
 
-    get linkToGroup() {
+    get groupLink() {
         return browser.$('=QA 5 new Group');
     }
+
+    // get lectureLink() {
+    //     return browser.$();
+    // }
 
     get group4TestLink() {
         return $('//a[text()="Group4Test"]');
@@ -25,6 +30,7 @@ class GroupsPage extends AppPage {
     get quizTabBtn(){
         return $('//a[contains(text(),"Quiz")]');
     }
+
 }
 
 export default new GroupsPage();

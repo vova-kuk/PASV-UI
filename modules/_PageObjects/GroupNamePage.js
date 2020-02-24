@@ -42,6 +42,10 @@ class GroupNamePage extends AppPage {
         return browser.$('//button[text()="Send homework to review"]');
     }
 
+    get createLectureBtn() {
+        return browser.$('//a[@qa="create-lecture-button"]');
+    }
+
 }
 
 export default new GroupNamePage();
