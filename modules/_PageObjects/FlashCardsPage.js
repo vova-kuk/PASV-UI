@@ -88,13 +88,32 @@ class FlashCardsPage extends AppPage {
         return browser.$('//*[contains(text(),"Compact view")]');
     }
 
+
+    /*get compactViewLink() {
+        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]');
+    }
+
+     */
+
+
+
+
     get waitingForApproval() {
         return browser.$('//*[contains(text(),"Waiting for approval")]');
     }
 
-    get trainingLink() {
+    /*get trainingLink() {
         return browser.$('//*[contains(text(),"Training")]');
-    }
+   }
+
+     */
+
+
+   get trainingLink() {
+    return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
+}
+
+
 
     get cardLastInList() {
         return browser.$('//div[@qa="flash-group-list "]//div[@qa="flash-group-item"][last()]//a');

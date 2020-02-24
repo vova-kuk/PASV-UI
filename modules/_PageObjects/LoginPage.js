@@ -7,11 +7,11 @@ class LoginPage extends AppPage{
         return browser.$('//h1');
     }
 
-    get emailInput () {
+    get emailField () {
         return browser.$('//input[@name="email"]');
     }
 
-    get passwordInput () {
+    get passwordField () {
         return browser.$('//input[@name="password"]');
     }
 
@@ -33,10 +33,10 @@ class LoginPage extends AppPage{
 
     login(role) {
         this.open();
-        this.emailInput.setValue(role.email);
-        this.passwordInput.setValue(role.password);
+        this.emailField.setValue(role.email);
+        this.passwordField.setValue(role.password);
         this.submitBtn.click();
-        browser.pause(2000);
+        browser.waitUntil(() => this.h1.isDisplayed());
     }
 
     open(){

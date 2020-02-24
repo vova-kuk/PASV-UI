@@ -1,4 +1,3 @@
-
 import AppPage from '../AppPage';
 
 class CardsTrainingPage extends AppPage {
@@ -62,3 +61,6 @@ class CardsTrainingPage extends AppPage {
 }
 
 export default new CardsTrainingPage();
+
+
+
