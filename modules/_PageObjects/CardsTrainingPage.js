@@ -1,3 +1,4 @@
+
 import AppPage from '../AppPage';
 
 class CardsTrainingPage extends AppPage {
@@ -8,6 +9,10 @@ class CardsTrainingPage extends AppPage {
 
   get trainingLbl() {
     return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
+  }
+
+  get compactViewLbl() {
+    return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]');
   }
 
   get startTrainingBtn() {
