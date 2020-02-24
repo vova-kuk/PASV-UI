@@ -72,26 +72,19 @@ describe('CARDS TRAINING', () => {
     browser.pause(500);
   });
 
-  it('should check if a progress bar is 0 from start and click `I know`', () => {
-    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('0');
-    browser.pause(500);
-    CardsTrainingPage.iKnowBtnClick();
+  it('should check progress bar value and click `I know`', () => {
+    CardsTrainingPage.compactViewLbl.click();
     browser.pause(1000);
-
-  });
-
-  it('should check if a progress bar is 33 after 1st answer and click `I know`', () => {
-    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('33');
-    browser.pause(500);
-    CardsTrainingPage.iKnowBtnClick();
+    const nrOfCards = $$('//div[@class="pb-1 mb-1 border-bottom"]').length;
     browser.pause(1000);
-  });
-
-  it('should check if a progress bar is 66 after 2nd answer and click `I know`', () => {
-    expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq('66');
-    browser.pause(500);
-    CardsTrainingPage.iKnowBtnClick();
+    CardsTrainingPage.trainingLbl.click();
     browser.pause(1000);
+    for (let i = 0; i < nrOfCards; i++) {
+      expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq((Math.floor(100 / nrOfCards * i)).toString());
+      browser.pause(1000);
+      CardsTrainingPage.iKnowBtnClick();
+      browser.pause(1000);
+    }
   });
 
   it('should check if `Start training` button is enabled', () => {

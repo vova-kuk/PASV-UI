@@ -10,6 +10,10 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
   }
 
+  get compactViewLbl() {
+    return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]');
+  }
+
   get startTrainingBtn() {
     return browser.$('//button[contains(text(),"Start training")]');
   }
