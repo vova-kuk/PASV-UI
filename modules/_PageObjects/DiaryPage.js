@@ -1,6 +1,5 @@
 import AppPage from '../AppPage';
 
-
 class DiaryPage extends AppPage{
 
     goToDiaryPage() {
