@@ -6,27 +6,27 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//h1');
   }
 
-  get trainingLabel() {
+  get trainingLbl() {
     return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
   }
 
-  get startTrainingButton() {
+  get startTrainingBtn() {
     return browser.$('//button[contains(text(),"Start training")]');
   }
 
-  get showAnswerButton() {
+  get showAnswerBtn() {
     return browser.$('//div//button[contains(text(),"Show")]');
   }
 
-  get iKnowButton() {
+  get iKnowBtn() {
     return browser.$('//button[contains(text(),"I know")]');
   }
 
-  get getRandomButton() {
+  get getRandomBtn() {
     return browser.$('//button[contains(text(),"Get random next")]');
   }
 
-  get answerText() {
+  get answerTxt() {
     return browser.$('//div[@class="result"]//p');
   }
 
@@ -38,20 +38,20 @@ class CardsTrainingPage extends AppPage {
     super.open('');
   }
 
-  getRandomButtonClick() {
-    this.getRandomButton.click();
+  getRandomBtnClick() {
+    this.getRandomBtn.click();
   }
 
-  iKnowButtonClick() {
-    this.iKnowButton.click();
+  iKnowBtnClick() {
+    this.iKnowBtn.click();
   }
 
   startTrainingClick() {
-    this.startTrainingButton.click();
+    this.startTrainingBtn.click();
   }
 
-  showAnswerButtonClick() {
-    this.showAnswerButton.click();
+  showAnswerBtnClick() {
+    this.showAnswerBtn.click();
   }
 
 }
