@@ -1,16 +1,17 @@
 import AppPage from '../AppPage';
 
 class GroupsPage extends AppPage {
+
+    get groupsLink() {
+        return browser.$('//a[@qa="groups-link"]');
+    }
+
     get h1() {
         return browser.$('//h1');
     }
 
-    clickGroupName() {
-        browser.$('//div[@qa="group-list"]//a').click();
-    }
-
     get linkToGroup() {
-        return browser.$('=QA-7');
+        return browser.$('=QA 5 new Group');
     }
 
     get group4TestLink() {
