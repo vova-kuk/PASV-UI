@@ -13,6 +13,10 @@ class GroupsPage extends AppPage {
         return browser.$('=QA-7');
     }
 
+    get group4TestLink() {
+        return $('//a[text()="Group4Test"]');
+    }
+
     get linkToGroupGroup6Test() {
         return $('//a[contains(text(),"GROUP6 TEST")]');
     }

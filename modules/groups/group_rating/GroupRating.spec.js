@@ -18,34 +18,111 @@ describe('GROUP RATING', () => {
     });
 
     it ('should click "Group4Test" link', () => {
-        GroupRating.linkToGroup.scrollIntoView();
-        GroupRating.linkToGroup.click();
+        GroupsPage.group4TestLink.scrollIntoView();
+        GroupsPage.group4TestLink.click();
+        browser.waitUntil(() => {
+            return GroupRating.h1.getText() === 'Group Group4Test'
+        }, 500);
+    });
 
-    })
+    it ('should click Rating link', () => {
+        GroupRating.ratingLink.click();
+        GroupRating.ratingTable.waitForDisplayed(5000);
+    });
 
-    it('facebook', () => {
-        expect(GroupRatingPage.facebookLink.getAttribute('href')).eq('https://www.facebook.com/');
-        expect(GroupRatingPage.facebookLink.getAttribute('target')).eq('_blank');
+    it('should have `facebook` icon', () => {
+        expect(GroupRating.facebookLink.getAttribute('href')).include('facebook');
+        expect(GroupRating.facebookLink.getAttribute('target')).eq('_blank');
         browser.pause(1000)
     });
 
-    it('LinkedIn', () => {
-        expect(GroupRatingPage.LinkedInLink.getAttribute('href')).eq('https://www.linkedin.com/in/volodymyr-kuk-b789b61a0/');
-        expect(GroupRatingPage.LinkedInLink.getAttribute('target')).eq('_blank');
+    it('should have `LinkedIn` icon', () => {
+        expect(GroupRating.LinkedInLink.getAttribute('href')).include('linkedin');
+        expect(GroupRating.LinkedInLink.getAttribute('target')).eq('_blank');
         browser.pause(1000)
     });
 
-    it('LinkedIn', () => {
-        expect(GroupRatingPage.gitHubLink.getAttribute('href')).eq('https://github.com/');
-        expect(GroupRatingPage.gitHubLink.getAttribute('target')).eq('_blank');
+    it('should have `GitHub` icon', () => {
+        expect(GroupRating.gitHubLink.getAttribute('href')).include('github');
+        expect(GroupRating.gitHubLink.getAttribute('target')).eq('_blank');
         browser.pause(1000)
     });
 
-    it('Codewars', () => {
-        expect(GroupRatingPage.codewarsLink.getAttribute('href')).eq('https://www.codewars.com/users/Vova%20Kuk');
-        expect(GroupRatingPage.codewarsLink.getAttribute('target')).eq('_blank');
+    it('should have `Codewars` icon', () => {
+        expect(GroupRating.codewarsLink.getAttribute('href')).include('codewars');
+        expect(GroupRating.codewarsLink.getAttribute('target')).eq('_blank');
         browser.pause(1000)
     });
 
+    it('should click `Name` columnheader and check order is ascending', () => {
+        GroupRating.nameColumnHeader.click();
+        expect(GroupRating.nameColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
 
+    it('should click `Name` columnheader and check order is descending', () => {
+        GroupRating.nameColumnHeader.click();
+        expect(GroupRating.nameColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
+
+    it('should click `D` columnheader and check order is ascending', () => {
+        GroupRating.dColumnHeader.click();
+        expect(GroupRating.dColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
+
+    it('should click `D` columnheader and check order is descending', () => {
+        GroupRating.dColumnHeader.click();
+        expect(GroupRating.dColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
+
+    it('should click `Honor` columnheader and check order is ascending', () => {
+        GroupRating.honorColumnHeader.click();
+        expect(GroupRating.honorColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
+
+    it('should click `Honor` columnheader and check order is descending', () => {
+        GroupRating.honorColumnHeader.click();
+        expect(GroupRating.honorColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
+
+    it('should click `Tasks` columnheader and check order is ascending', () => {
+        GroupRating.tasksColumnHeader.click();
+        expect(GroupRating.tasksColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
+
+    it('should click `Tasks` columnheader and check order is descending', () => {
+        GroupRating.tasksColumnHeader.click();
+        expect(GroupRating.tasksColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
+
+    it('should click `Trend` columnheader and check order is ascending', () => {
+        GroupRating.trendColumnHeader.click();
+        expect(GroupRating.trendColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
+
+    it('should click `Tasks` columnheader and check order is descending', () => {
+        GroupRating.trendColumnHeader.click();
+        expect(GroupRating.trendColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
+
+    it('should click `Pulse` columnheader and check order is ascending', () => {
+        GroupRating.pulseColumnHeader.click();
+        expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-asc');
+        browser.pause(1000);
+    });
+
+    it('should click `Pulse` columnheader and check order is descending', () => {
+        GroupRating.pulseColumnHeader.click();
+        expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-desc');
+        browser.pause(1000);
+    });
 });
