@@ -2,12 +2,8 @@ import AppPage from '../AppPage';
 
 class GroupRating extends AppPage {
 
-    get linkToGroup() {
-        return $('=Group4Test');
-    }
-
-    get ratingLink() {
-        return $('=Rating');
+    get ratingLink(){
+        return $('//a[contains(text(),"Rating")]');
     }
 
     get h1 () {
@@ -16,6 +12,46 @@ class GroupRating extends AppPage {
 
     get ratingTable() {
         return $('.rt-table');
+    }
+
+    get facebookLink(){
+        return  $('//a[@qa="facebook"]');
+    }
+
+    get LinkedInLink(){
+        return $('//a[@qa="linkedIn"]');
+    }
+
+    get gitHubLink(){
+        return $('//a[@qa="github"]');
+    }
+
+    get codewarsLink(){
+        return $('//a[@qa="codewars"]');
+    }
+
+    get nameColumnHeader() {
+        return $('//div[text()="Name"]/..');
+    }
+
+    get dColumnHeader() {
+        return $('//div[text()="D"]/..');
+    }
+
+    get honorColumnHeader() {
+        return $('//div[text()="Honor"]/..');
+    }
+
+    get tasksColumnHeader() {
+        return $('//div[text()="Tasks"]/..');
+    }
+
+    get trendColumnHeader() {
+        return $('//div[text()="Trend"]/..');
+    }
+
+    get pulseColumnHeader() {
+        return $('//div[text()="Pulse (7 days)"]/..');
     }
 
 }
