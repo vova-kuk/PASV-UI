@@ -1,3 +1,4 @@
+
 import AppPage from '../AppPage';
 
 class CardsTrainingPage extends AppPage {

@@ -1,9 +1,9 @@
 import {expect} from 'chai';
 import Menu from '../../_PageObjects/Menu';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import LoginPage from '../../_PageObjects/LoginPage';
 import {student} from '../../_data/user.data';
 import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
-import LoginPage from '../../_PageObjects/LoginPage';
 import { groupName } from "../../_data/cardsTraining.data";
 
 describe('CARDS TRAINING', () => {
