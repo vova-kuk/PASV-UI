@@ -123,6 +123,6 @@ describe('GROUP RATING', () => {
     it('should click `Pulse` columnheader and check order is descending', () => {
         GroupRating.pulseColumnHeader.click();
         expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-desc');
-        browser.pause(1000);
+        browser.pause(500);
     });
 });
