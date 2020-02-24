@@ -20,7 +20,14 @@ describe('GROUP RATING', () => {
     it ('should click "Group4Test" link', () => {
         GroupRating.linkToGroup.scrollIntoView();
         GroupRating.linkToGroup.click();
+        browser.waitUntil(() => {
+            return GroupRating.h1.getText() === 'Group Group4Test'
+        }, 500);
+    });
 
+    it ('should click Rating link', () => {
+        GroupRating.ratingLink.click();
+        GroupRating.ratingTable.waitForDisplayed(5000);
     })
 
 });
