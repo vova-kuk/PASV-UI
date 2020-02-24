@@ -5,8 +5,6 @@ import {positive, pageTitle} from '../../_data/newCard.data';
 import {student} from '../../_data/user.data';
 
 describe('CREATE NEW CARD -- POSITIVE', () => {
-
-describe('CREATE NEW CARD -- POSITIVE', () => {
   before('should login as a student', () => {
     LoginPage.login(student);
   });
