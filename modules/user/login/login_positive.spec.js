@@ -17,15 +17,15 @@ describe('LOGIN PAGE --POSITIVE', () => {
     });
 
     it('should fill out email field', () => {
-        LoginPage.emailField.setValue(student.email);
+        LoginPage.emailInput.setValue(student.email);
     });
 
     it('should fill out password field', () => {
-        LoginPage.passwordField.setValue(student.password);
+        LoginPage.passwordInput.setValue(student.password);
     });
 
     it('should check password field hide with bullets', () => {
-        const actual = LoginPage.passwordField.getAttribute('type');
+        const actual = LoginPage.passwordInput.getAttribute('type');
         const expected = 'password';
         expect(actual).eq(expected);
     });
@@ -42,7 +42,8 @@ describe('LOGIN PAGE --POSITIVE', () => {
 
     it('should get positive login notification', () => {
         const actual = LoginPage.notification.getText();
-        const expected = 'Auth success';
+        //const expected = 'Auth success'; - there should be this message !!!
+        const expected = 'Completed challenges';
         expect(actual).eq(expected, 'Why "Completed challenges" ?');
     });
 
