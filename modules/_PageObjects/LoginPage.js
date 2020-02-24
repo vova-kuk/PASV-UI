@@ -7,11 +7,11 @@ class LoginPage extends AppPage{
         return browser.$('//h1');
     }
 
-    get email () {
+    get emailField () {
         return browser.$('//input[@name="email"]');
     }
 
-    get password () {
+    get passwordField () {
         return browser.$('//input[@name="password"]');
     }
 
@@ -23,8 +23,12 @@ class LoginPage extends AppPage{
         return browser.$('//button[@type="submit"]');
     }
 
-    get bullits () {
+    get bullets () {
         return browser.$('//input[@name="password"][@autocomplete="current-password" ]');
+    }
+
+    get notification() {
+        return browser.$('//h4[@class="notification-title"]');
     }
 
     login(role) {

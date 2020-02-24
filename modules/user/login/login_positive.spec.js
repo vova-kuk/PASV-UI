@@ -1,36 +1,50 @@
-import { expect } from 'chai';
+import {expect}  from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
-import ProfilePage from '../../_PageObjects/ProfilePage';
+import HomePage from '../../_PageObjects/HomePage';
+import {student} from  './../../_data/user.data';
+import Menu from "../../_PageObjects/Menu";
 
-describe('LOGIN PAGE POSITIVE with valid Email and Password', () => {
-    it('should open login page', () => {
-        LoginPage.open();
+describe('LOGIN PAGE --POSITIVE', () => {
+    before(() => {
+        HomePage.open();
+        HomePage.loginLink.click();
     });
 
-    it('should have correct title', () => {
-        const actual = LoginPage.h1.getText();
-        const expected = 'User Login';
-        expect(actual).eq(expected);
+    it('should wait correct Login Page title', () => {
+        browser.waitUntil(() => {
+            return LoginPage.h1.getText() === 'User Login'
+        }, 3000, 'expected header to be different after 3s');
     });
 
     it('should fill out email field', () => {
-        LoginPage.email.setValue('ooopartner00@mail.ru');
+        LoginPage.emailField.setValue(student.email);
     });
 
     it('should fill out password field', () => {
-        LoginPage.password.setValue('123456');
+        LoginPage.passwordField.setValue(student.password);
+    });
+
+    it('should check password field hide with bullets', () => {
+        const actual = LoginPage.passwordField.getAttribute('type');
+        const expected = 'password';
+        expect(actual).eq(expected);
     });
 
     it('should click Login button', () => {
         LoginPage.submitBtn.click();
-        browser.pause(1000);
     });
 
-    it('should check bullits on password field', () => {
-        LoginPage.bullits;
+    it('should check transfer to Profile Page', () => {
+        browser.waitUntil(() => {
+            return Menu.h1.getText() === 'Student PASV'
+        }, 3000, 'expected header to be different after 3s');
     });
-    // it('should check h1 text', () => {
-    //     expect(ProfilePage.h1.getText()).eq('Test Testov');
-    //h4[@class='notification-title']
-    // });
+
+    it('should get positive login notification', () => {
+        const actual = LoginPage.notification.getText();
+        console.log(actual);
+        const expected = 'Auth success';
+        expect(actual).eq(expected);
+    });
+
 });
