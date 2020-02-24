@@ -1,52 +1,47 @@
 import AppPage from '../AppPage';
+import {newUserData} from "../_data/registration.data";
+import {userRegisteredData} from "../_data/userAlreadyRegistered.data";
+import Notification from "./Notification";
 
 class RegistrationPage extends AppPage {
-
-  open() {
-    super.open('https://stage.pasv.us/user/register');
-  }
-
-  get title() {
-    return $('//span[@id="site-name"]');
-  }
 
   get h1() {
     return $('//h1');
   }
 
-  get dummyText() {
+  get warningAboutFictitiousProfile() {
     return $('//p');
   }
 
-  get firstName() {
+  get firstNameInput() {
     return $('//form//input[@name="firstName"]');
   }
 
-  get lastName() {
+  get lastNameInput() {
     return $('//form//input[@name="lastName"]');
   }
 
-  get cellPhoneNumber() {
+  get cellPhoneNumberInput() {
     return $('//form//input[@name="phone"]');
   }
 
-  get email() {
+  get emailInput() {
     return $('//form//input[@name="email"]');
   }
 
-  get password() {
+  get passwordInput() {
     return $('//form//input[@name="password"]');
   }
 
-  get about() {
+  get aboutInput() {
     return $('//form//textarea[@name="about"]');
   }
 
-  get myGoals() {
+  get myGoalsInput() {
     return $('//form//textarea[@name="goals"]');
   }
 
-  get englishLevel() {
+  get englishLevelOption() {
     return $('//form//select[@name="englishLevel"]');
   }
 
@@ -54,8 +49,30 @@ class RegistrationPage extends AppPage {
     return $('//form//button[@type="submit"]');
   }
 
-  get userAlreadyExistNotification() {
-    return $('//h4[@class="notification-title"]');
+  registrationNewUser() {
+    this.firstNameInput.setValue(newUserData.firstName);
+    this.lastNameInput.setValue(newUserData.lastName);
+    this.cellPhoneNumberInput.setValue(newUserData.phone);
+    this.emailInput.setValue(newUserData.email);
+    this.passwordInput.setValue(newUserData.password);
+    this.aboutInput.setValue(newUserData.about);
+    this.myGoalsInput.setValue(newUserData.goals);
+    this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
+    this.submitBtn.click();
+    browser.waitUntil(() => this.h1.isDisplayed());
+  }
+
+  registrationUserAlreadyExist() {
+    this.firstNameInput.setValue(newUserData.firstName);
+    this.lastNameInput.setValue(newUserData.lastName);
+    this.cellPhoneNumberInput.setValue(newUserData.phone);
+    this.emailInput.setValue(userRegisteredData.email);
+    this.passwordInput.setValue(newUserData.password);
+    this.aboutInput.setValue(newUserData.about);
+    this.myGoalsInput.setValue(newUserData.goals);
+    this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
+    this.submitBtn.click();
+    browser.waitUntil(() => { return Notification.title.getText() === userRegisteredData.notification}, 3000);
   }
 
 }
