@@ -9,7 +9,7 @@ class CreateDayReportHelper extends AppPage {
         return browser.$('//h1');
     }
 
-    get saveButton() {
+    get saveBtn() {
         return browser.$('//button[contains(text(),"Save")]');
     }
 
@@ -88,7 +88,7 @@ class CreateDayReportHelper extends AppPage {
         this.moraleLevel.selectByVisibleText('9');
         this.howManyHours.setValue('9');
         this.howWasYourDay.setValue('Today you are definitely closer to your dreamjob then you were yesterday.');
-        this.saveButton.click();
+        this.saveBtn.click();
     }
 
 }
