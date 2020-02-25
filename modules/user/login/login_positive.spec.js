@@ -38,15 +38,18 @@ describe('LOGIN PAGE --POSITIVE', () => {
     it('should check transfer to Profile Page', () => {
         browser.waitUntil(() => {
             return Menu.h1.getText() === 'Student PASV'
-        }, 3000, 'expected header to be different after 3s');
+        }, 5000, 'expected header to be different after 3s');
     });
 
     it('should get positive login notification', () => {
         $(Notification.success).isDisplayed();
-        //const actual = LoginPage.notification.getText();
-        //const expected = 'Auth success'; - there should be this message !!!
-        //const expected = 'Completed challenges';
-        //expect(actual).eq(expected, 'Why "Completed challenges" ?');
     });
+
+    //Wait until "Completed challenge" notification bug fixing
+    //it('should get correct text in notification', () => {
+        //const actual = LoginPage.notification.getText();
+        //const expected = 'Auth success';
+        //expect(actual).eq(expected);
+    //});
 
 });
