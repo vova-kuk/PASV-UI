@@ -1,22 +1,23 @@
 import AppPage from '../AppPage';
+import {courseData} from "./CoursesPage";
 
 class ChallengePage extends AppPage {
 
-    get createNewChallengeMethod() {
+    get createNewChallengeGlobal() {
         this.open('https://stage.pasv.us/challenge');
         this.createNewChallengeBtn.click();
-        browser.pause(500);
+        browser.pause(1000)
         this.challengeNameInput.setValue(challengeData.name);
         this.challengeDescriptionTextarea.setValue(challengeData.description);
         this.challengeInstructionTextarea.setValue(challengeData.instruction);
         this.challengeCompletedSolutionTextarea.setValue(challengeData.solution);
         this.challengeOpenTestTextarea.setValue(challengeData.openTest);
         this.challengeHiddenTestTextarea.setValue(challengeData.hiddenTest);
-        this.challengeProgramingLanguageSelect.selectByAttribute('value', challengeData.language );
+        this.challengeProgramingLanguageSelect.selectByAttribute('value', challengeData.language);
         this.challengeLevelSelect.selectByAttribute('value', challengeData.level);
-        this.chalelngeCheckerSelect.selectByAttribute('value', challengeData.checker );
+        this.chalelngeCheckerSelect.selectByAttribute('value', challengeData.checker);
         this.challengeSaveBtn.click();
-        browser.pause(1000);
+        browser.waitUntil(() => $('//h1').isDisplayed());
     }
 
     get createNewChallengeBtn() {
@@ -63,9 +64,35 @@ class ChallengePage extends AppPage {
         return $('//button[@type="submit"]')
     }
 
+    // Challenge selectors Inside Courses Student
+    get challengeInsideCourseName() {
+        return $(`//strong[text() ="${courseData.name}"]`)
+    }
+
+    get challengeInsideCourseTextarea() {
+        return $('//div[@qa="initialSolution"]//textarea')
+    }
+
+    get challengeInsideCourseValidateBtn() {
+        return $('//button[text() ="Validate solution")]')
+    }
+
+    get challengePassArray() {  // check if all tests passed
+        return $('//div[@class="col-md-6"]//span[contains(., "Pass")]')  // return array
+    }   // selector "class="col-md-6" -- needs change
+
+    get challengeSubmitSolutionBtn() {
+        return $('//button[text() = "Submit solution")]')
+    }
+
+    get challengeCompleteMark() {
+        return $('//div[@class="mb-4 h5-"]//span[text() ="Completed")]')
+    }   // @class="mb-4 h5-" -- not strong selector
+
+
 }
 
-const challengeRandom99 = Math.trunc(Math.random()*100);
+const challengeRandom99 = Math.trunc(Math.random() * 100);
 
 const challengeData = {
     name: `${challengeRandom99} Количество приседаний`,
