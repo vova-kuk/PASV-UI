@@ -8,13 +8,13 @@ import {challengeData} from '../../_PageObjects/ChallengePage';
 import Notification from "../../_PageObjects/Notification";
 import Menu from "../../_PageObjects/Menu";
 
-
 describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
 
     before('should login as Admin, create Course, create Challenge', () => {
         LoginPage.login(admin);
         CoursesPage.createNewCourseGlobal;
         ChallengePage.createNewChallengeGlobal;
+        browser.pause(1000);
     });
 
     it('should find and click on created course', () => {
