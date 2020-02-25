@@ -17,10 +17,6 @@ class HomePage extends AppPage {
     super.open('https://stage.pasv.us/');
   }
 
-  clickGroupsBtn() {
-    browser.$('//a[@qa="groups-link"]').click();
-  }
-
   get registrationLink() {
     return $('//a[@qa="register-link"]');
   }

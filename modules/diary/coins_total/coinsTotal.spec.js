@@ -1,8 +1,8 @@
 import {expect} from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
-import {admin, student} from '../../user/login/loginRole_data';
-import Logout from '../../_PageObjects/LogoutPage';
+import {admin, student} from '../../_data/user.data';
+import LogoutPage from '../../_PageObjects/LogoutPage';
 import DiaryPage from '../../_PageObjects/DiaryPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 
@@ -13,11 +13,9 @@ let topCoinAmount = 0;
 
 describe('SAVE COINS AMOUNT BEFORE ', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         DiaryPage.goToDiaryPage();
-        CreateDayReportPage.createDayReport();
-        CreateDayReportPage.fillOutReport();
-        CreateDayReportPage.saveButton.click();
+        CreateDayReportPage.createNewDayReport();
     });
 
     it('should save current amount of user coins from the Profile page', () => {
@@ -29,14 +27,14 @@ describe('SAVE COINS AMOUNT BEFORE ', () => {
     });
 
     it('should logout as user', () => {
-        Logout.logout();
+        LogoutPage.logout();
     });
 });
 
 describe('APPROVE DAY REPORT BY ADMIN', () => {
 
     before(() => {
-        LoginPage.loginRole(admin);
+        LoginPage.login(admin);
         DiaryPage.goToDiaryPage();
     });
 
@@ -45,14 +43,14 @@ describe('APPROVE DAY REPORT BY ADMIN', () => {
     });
 
     it('should logout as admin', () => {
-        Logout.logout();
+        LogoutPage.logout();
     });
 
 });
 
 describe('VERIFY TOTAL COINS AMOUNT AFTER ADMIN APPROVED REPORT', () => {
     before(() => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         ProfilePage.goToProfilePage();
     });
 

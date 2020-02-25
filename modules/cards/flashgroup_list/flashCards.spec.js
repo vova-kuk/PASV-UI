@@ -1,27 +1,22 @@
-import { expect } from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {student} from '../../user/login/loginRole_data';
+import {student} from '../../_data/user.data';
+import Menu from "../../_PageObjects/Menu";
 
-describe('FLASH CARD EXISTS POSITIVE with a title and description', () => {
+describe('CARDS/FLASHCARDS --POSITIVE', () => {
     before('login as a student', () => {
-        LoginPage.loginRole(student);
-        browser.pause(500);
+        LoginPage.login(student);
     });
 
     it('should check a `FlashCards` page title', () => {
         FlashCardsPage.openCardsMenu().click();
-        const actual = FlashCardsPage.h1.getText();
-        const expected = 'FlashCards';
-        expect(actual).eq(expected);
-        browser.pause(200);
+        browser.waitUntil(()=>Menu.h1.getText()==='FlashCards');
     });
 
     it('should check a description', function () {
-        const actual = FlashCardsPage.description.getText();
+        const actual = FlashCardsPage.pageDescription.getText();
         const expected = 'Now the stage of filling content cards. Create cards. After there will be enough cards training will be opened for memorization.';
         expect(actual).eq(expected);
-        browser.pause(400);
     });
 
     //Эти тесты через раз падают, так как постоянно создаются новые и сравнение сделать сложнее по имени.
@@ -46,12 +41,12 @@ describe('FLASH CARD EXISTS POSITIVE with a title and description', () => {
 
     it('should check `Main view` title in the navigation menu link', function () {
         FlashCardsPage.firstCreatedCard.click();
-        const actual=FlashCardsPage.mainView.getText();
+        const actual=FlashCardsPage.mainViewLink.getText();
         expect(actual).eq('Main view');
     });
 
     it('should check `Compact view` title in the navigation menu', function () {
-        const actual=FlashCardsPage.compactView.getText();
+        const actual=FlashCardsPage.compactViewLink.getText();
         expect(actual).eq('Compact view');
     });
 
@@ -61,17 +56,17 @@ describe('FLASH CARD EXISTS POSITIVE with a title and description', () => {
     });
 
     it('should check `Training` title of Navigation Menu link', function () {
-        const actual=FlashCardsPage.training.getText();
+        const actual=FlashCardsPage.trainingLink.getText();
         expect(actual).eq('Training');
     });
 
     it('should check `Main view` link is clickable', function () {
-        const actual=FlashCardsPage.mainView.isClickable();
+        const actual=FlashCardsPage.mainViewLink.isClickable();
         expect(actual).be.true;
     });
 
     it('should check `Compact view` link is clickable', function () {
-        const actual=FlashCardsPage.compactView.isClickable();
+        const actual=FlashCardsPage.compactViewLink.isClickable();
         expect(actual).be.true;
     });
 
@@ -81,7 +76,7 @@ describe('FLASH CARD EXISTS POSITIVE with a title and description', () => {
     });
 
     it('should check `Training` link is clickable', function () {
-        const actual=FlashCardsPage.training.isClickable();
+        const actual=FlashCardsPage.trainingLink.isClickable();
         expect(actual).be.true;
     });
 

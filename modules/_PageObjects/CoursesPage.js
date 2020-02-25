@@ -2,8 +2,9 @@ import AppPage from '../AppPage';
 
 class CoursesPage extends AppPage {
 
-    get createNewCourseMethod() {
+    get createNewCourseGlobal() {
         this.open('https://stage.pasv.us/course');
+        browser.pause(1000)
         this.createNewCourseBtn.click();
         browser.pause(1000);
         this.courseNameInput.setValue(courseData.name);
@@ -14,40 +15,52 @@ class CoursesPage extends AppPage {
     }
 
     get createNewCourseBtn() {
-        return $('//a[contains(text(), "Create new Course")]')
+        return $('//a[contains(., "Create new Course")]')
     }
 
-    get courseNameInput(){
+    get courseNameInput() {
         return $('//input[@name="name"]')
     }
 
-    get courseDescriptionInput(){
+    get courseDescriptionInput() {
         return $('//input[@name="description"]')
     }
 
-    get accessTypeSelect(){
+    get accessTypeSelect() {
         return $('//select[@name="accessType"]')
     }
 
-    get createBtn(){
+    get createBtn() {
         return $('//button[@type="submit"]')
     }
 
-    get listOfCoursesList() {
-        return browser.$('//ul[@class="list-group"]//h4//a[]')
-        //ul[@class="list-group"]//div[all]h4/a'
-// return browser.$(//div[@qa="group-list"]//h4[@qa="group-name"]//a[contains(text(), "...")] )
+    get findCourse() {
+        return $(`//ul[@class="list-group"]//a[text() ="${courseData.name}"]`)
+    }
+
+    get editBtn() {
+        return $('//a[@class="edit"]');
+    }
+
+    get courseDescription() {
+        return $(`//div[text() ="${courseData.description}"]`);
+    }
+
+    get startCourseBtn() {
+        return $('//button[text() ="Start course"]');
     }
 
 }
 
-const courseRandom99 = Math.trunc(Math.random()*100);
+const courseRandom99 = Math.trunc(Math.random() * 100);
 
-const courseData = {
-    name: courseRandom99 + " Course for adding Challenge",
-    description: 'description',
-    type: 'all',
-};
+const
+    courseData = {
+        name: courseRandom99 + " Course for adding Challenge",
+        description: 'description, description',
+        type: 'all',
+    };
 
 export default new CoursesPage();
+
 export {courseData};

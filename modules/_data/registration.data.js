@@ -1,7 +1,7 @@
 const email = Math.random() + 'rtuewwk@gmail.com';
 const password = 'password';
 
-const newUser = {
+const newUserData = {
   firstName: 'John',
   lastName: 'Morgan',
   password: password,
@@ -12,11 +12,13 @@ const newUser = {
   englishLevel: 'Upper intermediate'
 };
 
-const pageRegister = {
-  title: 'Progress Monitor',
+const pageRegisterData = {
   h1: 'User Register',
-  dummyText: 'Profiles with fictitious or dummy data will be deleted.',
+  warningText: 'Profiles with fictitious or dummy data will be deleted.',
   buttonText: 'Submit'
 };
 
-export {newUser, pageRegister};
+const successfulNotificationData =  {
+  successfulNotification: 'User created successfully. Please check your email and verify it'
+}
+export {newUserData, pageRegisterData, successfulNotificationData};

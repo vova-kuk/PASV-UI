@@ -3,15 +3,13 @@ import AppPage from '../AppPage';
 
 class LoginPage extends AppPage{
 
-    get h1 () {
-        return browser.$('//h1');
-    }
 
-    get email () {
+
+    get emailInput () {
         return browser.$('//input[@name="email"]');
     }
 
-    get password () {
+    get passwordInput () {
         return browser.$('//input[@name="password"]');
     }
 
@@ -23,31 +21,18 @@ class LoginPage extends AppPage{
         return browser.$('//button[@type="submit"]');
     }
 
-    get bullits () {
+    get bullets () {
         return browser.$('//input[@name="password"][@autocomplete="current-password" ]');
     }
 
-    login(){
-        this.open();
-        this.email.setValue('ooopartner00@mail.ru');
-        this.password.setValue('123456');
-        this.submitBtn.click();
-        browser.pause(2000);
+    get notification() {
+        return browser.$('//h4[@class="notification-title"]');
     }
 
-    // loginAsStudent is not relevant. See below loginRole(role)
-    loginAsStudent(){
+    login(role) {
         this.open();
-        this.email.setValue('studentofpasv@gmail.com');
-        this.password.setValue('98765ytrewq$');
-        this.submitBtn.click();
-        browser.pause(2000);
-    }
-
-    loginRole(role) {
-        this.open();
-        this.email.setValue(role.email);
-        this.password.setValue(role.password);
+        this.emailInput.setValue(role.email);
+        this.passwordInput.setValue(role.password);
         this.submitBtn.click();
         browser.pause(2000);
     }

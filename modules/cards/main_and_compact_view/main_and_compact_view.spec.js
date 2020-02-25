@@ -2,13 +2,13 @@ import {expect} from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import MainAndCompactViewPage from '../../_PageObjects/MainAndCompactViewPage';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import {student} from '../../user/login/loginRole_data';
-import {pageTestData} from './main_and_compact_view_data';
-import {groupNameLink} from '../create_new_card/newCard_data';
+import {student} from '../../_data/user.data';
+import {pageTestData} from '../../_data/mainAndCompact.data';
+import {groupNameLink} from '../../_data/newCard.data';
 
 describe('EXIST A MAIN AND COMPACT VIEW OF A FLASH CARD', () => {
     before('login as a student', () => {
-        LoginPage.loginRole(student);
+        LoginPage.login(student);
         browser.pause(500);
     });
 

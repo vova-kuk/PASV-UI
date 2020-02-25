@@ -1,12 +1,11 @@
-import {expect} from 'chai';
 import RegistrationPage from '../../_PageObjects/RegistrationPage';
-import {newUser, pageRegister} from './registration_data';
-import LoginPage from '../../_PageObjects/LoginPage';
-import ProfilePage from '../../_PageObjects/ProfilePage';
-import Logout from '../../_PageObjects/LogoutPage';
 import HomePage from '../../_PageObjects/HomePage';
+import Notification from "../../_PageObjects/Notification";
+import {urlData} from "../../_data/url.data";
+import {newUserData, pageRegisterData, successfulNotificationData} from '../../_data/registration.data';
 
-describe('REGISTRATION PAGE POSITIVE', () => {
+
+describe('REGISTRATION PAGE -- POSITIVE', () => {
   before('should open Home Page, click button `Registration` ' +
     'and redirect to Registration Page',() => {
     HomePage.open();
@@ -14,103 +13,85 @@ describe('REGISTRATION PAGE POSITIVE', () => {
     browser.pause(1000);
   });
 
-  it('should registration page has correct title', () => {
-    const actual = RegistrationPage.title.getText();
-    const expected = pageRegister.title;
-    expect(actual).eq(expected);
-  });
-
   it('should registration page has correct heading', () => {
     const actual = RegistrationPage.h1.getText();
-    const expected = pageRegister.h1;
+    const expected = pageRegisterData.h1;
     expect(actual).eq(expected);
   });
 
-  it('should have correct description', () => {
-    const actual = RegistrationPage.dummyText.getText();
-    const expected = pageRegister.dummyText;
+  it('should have correct warning text', () => {
+    const actual = RegistrationPage.warningAboutFictitiousProfile.getText();
+    const expected = pageRegisterData.warningText;
     expect(actual).eq(expected);
   });
 
-  it('should button `Submit` will be disable by default', () => {
+  it('should button `Submit` will be disabled by default', () => {
     const element = RegistrationPage.submitBtn;
     expect(element.isEnabled()).to.be.false;
   });
 
-  it('should fill out First Name Field', () => {
-    RegistrationPage.firstName.setValue(newUser.firstName);
+  it('should fill out `First Name` Field', () => {
+    RegistrationPage.firstNameInput.setValue(newUserData.firstName);
   });
 
-
-  it('should fill out Last Name Field', () => {
-    RegistrationPage.lastName.setValue(newUser.lastName);
+  it('should fill out `Last Name` Field', () => {
+    RegistrationPage.lastNameInput.setValue(newUserData.lastName);
   });
 
-  it('should fill out Cell Phone Number Field', () => {
-    RegistrationPage.cellPhoneNumber.setValue(newUser.phone);
+  it('should fill out `Cell Phone Number` Field', () => {
+    RegistrationPage.cellPhoneNumberInput.setValue(newUserData.phone);
   });
 
-  it('should fill out Email field', () => {
-    RegistrationPage.email.setValue(newUser.email);
+  it('should fill out `Email` field', () => {
+    RegistrationPage.emailInput.setValue(newUserData.email);
+  });
+
+  it('should button `Submit` will be disabled without filling out all required fields', () => {
+    const element = RegistrationPage.submitBtn;
+    expect(element.isEnabled()).to.be.false;
   });
 
   it('should fill out Password field', () => {
-    RegistrationPage.password.setValue(newUser.password);
+    RegistrationPage.passwordInput.setValue(newUserData.password);
   });
 
   it('should fill out About field', () => {
-    RegistrationPage.about.setValue(newUser.about);
+    RegistrationPage.aboutInput.setValue(newUserData.about);
   });
 
   it('should fill out My goals field', () => {
-    RegistrationPage.myGoals.setValue(newUser.goals);
+    RegistrationPage.myGoalsInput.setValue(newUserData.goals);
+  });
+
+  it('should button `Submit` will be disabled without filling out last required field', () => {
+    const element = RegistrationPage.submitBtn;
+    expect(element.isEnabled()).to.be.false;
   });
 
   it('should choose English level from dropdown menu', () => {
-    RegistrationPage.englishLevel.selectByVisibleText(newUser.englishLevel);
+    RegistrationPage.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
+  });
+
+  it('should button `Submit` will be enabled when filling out all required fields', () => {
+    const element = RegistrationPage.submitBtn;
+    expect(element.isEnabled()).to.be.true;
   });
 
   it('should click button Submit after filling all fields', () => {
     RegistrationPage.submitBtn.click();
-    browser.pause(1000);
   });
+
+  it('should wait until redirect to login page after submitting form', () => {
+    browser.waitUntil(() => {
+      return browser.getUrl() === urlData.loginUrl}, 3000);
+  });
+
+  it('should get successful notification about user registration in the system', () => {
+    const actual = Notification.title.getText();
+    const expected = successfulNotificationData.successfulNotification;
+    expect(actual).eq(expected);
+  });
+
 });
 
-describe('CREATING USER CONFIRMATION', () => {
-  it('should redirect to login page after submitting form', () => {
-    const actual = browser.getUrl();
-    const expected = 'https://stage.pasv.us/user/login';
-    expect(actual).eq(expected);
-    browser.pause(1000);
-  });
 
-  it('should login to the user account', () => {
-    LoginPage.email.setValue(newUser.email);
-    LoginPage.password.setValue(newUser.password);
-    LoginPage.submitBtn.click();
-    browser.pause(1000);
-  });
-
-  it('should verify heading of New User page', () => {
-    const actual = ProfilePage.h1.getText();
-    const expected = 'You are a new user';
-    expect(actual).eq(expected);
-  });
-
-  it('should verify First and Last name of New User', () => {
-    const actual = $('//li[@class="dropdown nav-item"]/a').getText();
-    const expected = newUser.firstName + ' ' + newUser.lastName;
-    expect(actual).eq(expected);
-  });
-
-  it('should verify text about confirmation email', () => {
-    const actual = $('//span[@class="text-danger"]').getText();
-    const expected = 'Also please confirm your email ' + newUser.email;
-    expect(actual).eq(expected);
-  });
-
-  after('should user logout', () => {
-    Logout.logout();
-    browser.pause(1000);
-  });
-});

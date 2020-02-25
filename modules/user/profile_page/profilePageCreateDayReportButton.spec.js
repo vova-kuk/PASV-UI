@@ -1,24 +1,35 @@
-import { expect } from 'chai';
+import Menu from '../../_PageObjects/Menu';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
+import LogoutPage from '../../_PageObjects/LogoutPage';
+import { data } from '../../_data/profilePage.data';
+import { student } from '../../_data/user.data';
 
-describe('PROFILE PAGE `Create day report` button', () => {
-    before(() => {
-        LoginPage.login();
-    });
+describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
+  before(() => {
+    LoginPage.login(student);
+  });
 
-    it('should go to `Profile` Page', () => {
-        expect(ProfilePage.h1.getText()).equal('Test Testov');
-    });
+  it('should go to Profile Page', () => {
+    ProfilePage.goToProfilePage();
+  });
 
-    it('should click `Create day report` button', () => {
-        const element = ProfilePage.createDayReportBtn;
-        element.click();
-    });
+  it('should check Create day report button exists and clickable', () => {
+    browser.waitUntil(() => ProfilePage.createDayReportBtn.isDisplayed());
+    const actual = ProfilePage.createDayReportBtn.isClickable();
+    expect(actual).true;
+  });
 
-    it('should have header `Create day report`', () => {
-        expect(ProfilePage.h1.getText()).equal('Create day report');
-    });
+  it('should click Create day report button', () => {
+    const element = ProfilePage.createDayReportBtn;
+    element.click();
+  });
+
+  it('should have correct header', () => {
+    expect(Menu.h1.getText()).equal(data.dayReport.h1);
+  });
+
+  after('should logout', () => {
+    LogoutPage.logout();
+  });
 });
-
-
