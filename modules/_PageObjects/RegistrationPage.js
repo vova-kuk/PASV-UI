@@ -1,17 +1,8 @@
 import AppPage from '../AppPage';
 import {newUserData} from "../_data/registration.data";
 import {userRegisteredData} from "../_data/userAlreadyRegistered.data";
-import Notification from "./Notification";
 
 class RegistrationPage extends AppPage {
-
-  get h1() {
-    return $('//h1');
-  }
-
-  get warningAboutFictitiousProfile() {
-    return $('//p');
-  }
 
   get firstNameInput() {
     return $('//form//input[@name="firstName"]');
@@ -59,7 +50,6 @@ class RegistrationPage extends AppPage {
     this.myGoalsInput.setValue(newUserData.goals);
     this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
     this.submitBtn.click();
-    browser.waitUntil(() => this.h1.isDisplayed());
   }
 
   registrationUserAlreadyExist() {
@@ -72,7 +62,6 @@ class RegistrationPage extends AppPage {
     this.myGoalsInput.setValue(newUserData.goals);
     this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
     this.submitBtn.click();
-    browser.waitUntil(() => { return Notification.title.getText() === userRegisteredData.notification}, 3000);
   }
 
 }

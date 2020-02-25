@@ -1,26 +1,26 @@
 import RegistrationPage from '../../_PageObjects/RegistrationPage';
 import HomePage from '../../_PageObjects/HomePage';
+import Menu from '../../_PageObjects/Menu';
 import Notification from "../../_PageObjects/Notification";
 import {urlData} from "../../_data/url.data";
 import {newUserData, pageRegisterData, successfulNotificationData} from '../../_data/registration.data';
 
 
 describe('REGISTRATION PAGE -- POSITIVE', () => {
-  before('should open Home Page, click button `Registration` ' +
-    'and redirect to Registration Page',() => {
+  before('should open Home Page, click button `Registration` and redirect to Registration Page',() => {
     HomePage.open();
     HomePage.registrationLink.click();
     browser.pause(1000);
   });
 
   it('should registration page has correct heading', () => {
-    const actual = RegistrationPage.h1.getText();
+    const actual = Menu.h1.getText();
     const expected = pageRegisterData.h1;
     expect(actual).eq(expected);
   });
 
   it('should have correct warning text', () => {
-    const actual = RegistrationPage.warningAboutFictitiousProfile.getText();
+    const actual = Menu.p.getText();
     const expected = pageRegisterData.warningText;
     expect(actual).eq(expected);
   });
