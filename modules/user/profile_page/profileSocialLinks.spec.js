@@ -1,15 +1,14 @@
-import { expect } from 'chai';
-import { data } from '../../_data/profilePage.data';
+import Menu from '../../_PageObjects/Menu';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import LogoutPage from '../../_PageObjects/LogoutPage';
-import Menu from '../../_PageObjects/Menu';
-import {student} from "../../_data/user.data";
+import { data } from '../../_data/profilePage.data';
+import { student } from '../../_data/user.data';
 
 describe('SOCIAL NETWORKS INTEGRATION', () => {
   before(() => {
     LoginPage.login(student);
-    browser.pause(2000);
+    browser.pause(1500);
   });
 
   it('should check that page is correct', () => {
@@ -56,6 +55,9 @@ describe('SOCIAL NETWORKS INTEGRATION', () => {
 
   it('should logout', () => {
     browser.switchWindow(data.partialUrl.pasv);
+  });
+
+  after('should logout', () => {
     LogoutPage.logout();
   });
 });

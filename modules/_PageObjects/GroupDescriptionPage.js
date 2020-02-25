@@ -2,18 +2,17 @@ import AppPage from '../AppPage';
 
 class GroupDescriptionPage extends AppPage {
 
-    get h1GroupPage () {
-        return browser.$('//h1');
+    get recentlyCreatedGroup (){
+        return $('//a[contains(text(),"GROUP FOR TEST")]');
     }
 
-    get groupQa7 () {
-        return browser.$('[href="/group/5e4aaec4ecdfb5003c383a0e/lecture"]');
-    };
+    get descriptionTabBtn () {
+        return $('//a[contains(text(),"Description")]')
+    }
 
-    get qa7Description () {
-        return browser.$('[href="/group/5e4aaec4ecdfb5003c383a0e/description"]');
-    };
-
+    get navigationBar (){
+        return $('//ul[@class="mb-4 tabs nav"]')
+    }
 
 };
 
