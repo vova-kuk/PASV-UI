@@ -2,10 +2,11 @@ import { expect } from 'chai';
 import LoginPage from '../../_PageObjects/LoginPage';
 import DayReportLikePage from '../../_PageObjects/DayReportLikePage';
 import CreateDayReportHelper from "./CreateDayReportHelper";
+import {student} from '../../_data/user.data';
 
 describe('DAY_REPORT_LIKE_PAGE', () => {
     before(() => {
-        LoginPage.login();
+        LoginPage.login(student);
         DayReportLikePage.diaryLink.click();
         browser.pause(500);
     });
