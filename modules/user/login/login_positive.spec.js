@@ -14,7 +14,7 @@ describe('LOGIN PAGE --POSITIVE', () => {
     it('should wait correct Login Page title', () => {
         browser.waitUntil(() => {
             return Menu.h1.getText() === 'User Login'
-        }, 3000, 'expected header to be different after 3s');
+        }, 5000, 'expected header to be different after 3s');
     });
 
     it('should fill out email field', () => {
