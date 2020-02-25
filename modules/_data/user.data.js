@@ -1,6 +1,6 @@
 const admin = {
-    email: 'ooopartner00@mail.ru',
-    password: '123456'
+    email: 'admin@pasv.com',
+    password: 'admin'
 };
 
 const student = {
