@@ -3,8 +3,9 @@ import LoginPage from "./LoginPage";
 import {admin} from "../_data/user.data";
 import GroupsPage from "./GroupsPage";
 import GroupNamePage from "./GroupNamePage";
-import {lectureName} from "../groups/group_lectures/groupLecturesMarkAsUnderstoodBtn.spec";
+//import {lectureName} from "../groups/group_lectures/groupLecturesMarkAsUnderstoodBtn.spec";
 import LogoutPage from "./LogoutPage";
+const lectureName = Math.random() + 'lecture';
 
 class CreateLecturePage extends AppPage {
 
@@ -16,12 +17,20 @@ class CreateLecturePage extends AppPage {
         return browser.$('//input[@name="name"]');
     }
 
+    get videoLink() {
+        return browser.$('//input[@name="video"]');
+    }
+
     get dateField() {
         return browser.$('//input[@placeholder="Date"]');
     }
 
     get saveBtn() {
         return browser.$('//button[@type="submit"]');
+    }
+
+    get homeworkField() {
+        return browser.$('//textarea[@name="homework"]');
     }
 
     createNewLecture() {
@@ -33,7 +42,12 @@ class CreateLecturePage extends AppPage {
         browser.pause(500);
         GroupNamePage.createLectureBtn.click();
         this.lectureNameField.setValue(lectureName);
-        this.dateField.setValue('02.24.2020');
+        browser.pause(1000);
+        this.videoLink.setValue('https://youtu.be/mHNng3hb4co');
+        browser.pause(500);
+        this.dateField.setValue('02.25.2020');
+        this.homeworkField.setValue('abcdefg');
+        browser.pause(500);
         this.saveBtn.click();
         browser.pause(500);
         LogoutPage.logout();
@@ -41,3 +55,4 @@ class CreateLecturePage extends AppPage {
 }
 
 export default new CreateLecturePage();
+export {lectureName};
