@@ -1,9 +1,9 @@
-const courseName = "PASV-UI TEST" + Math.random();
+const courseName = 'PASV-UI TEST' + Math.trunc(Math.random() * 100);
 
-const courseCreate = {
+const newCourseCreate = {
   courseName: courseName,
-  description: "Test Test Test Test Test",
-  accessType: "All"
+  description: 'Test Test Test Test Test',
+  accessType: 'All',
 };
 
-export { courseCreate };
+export { newCourseCreate };
