@@ -22,12 +22,18 @@ class MainAndCompactViewPage extends AppPage {
     return browser.$('//strong[contains(text(),"What is the difference between the first test and the second one?")]');
   }
 
+  get cardQuestion() {
+    return browser.$('//strong[@class="d-block mb-2"][@qa="question"]')
+  }
+
   get answerText() {
     return browser.$('//div[@class="answer mb-4 mt-1 img-shadow"]');
   }
 
+  get cardAnswer() {
+    return browser.$('//span[@qa="answer"]')
+  }
 }
-
 export default new MainAndCompactViewPage();
 
 
