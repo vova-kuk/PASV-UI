@@ -7,7 +7,4 @@ export default class AppPage {
         $(element).click()
     };
 
-    get h1() {
-        return $('//h1')
-    };
 }

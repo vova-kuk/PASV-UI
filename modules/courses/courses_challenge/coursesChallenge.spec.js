@@ -5,25 +5,25 @@ import CoursesPage from '../../_PageObjects/CoursesPage';
 import ChallengePage from '../../_PageObjects/ChallengePage';
 import {courseData} from '../../_PageObjects/CoursesPage';
 import {challengeData} from '../../_PageObjects/ChallengePage';
-import AppPage from "../../AppPage";
 import Notification from "../../_PageObjects/Notification";
+import Menu from "../../_PageObjects/Menu";
 
-/*
+
 describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
 
-    before('login as Admin, create Course, create Challenge', () => {
+    before('should login as Admin, create Course, create Challenge', () => {
         LoginPage.login(admin);
-        CoursesPage.createNewCourseMethod;
-        ChallengePage.createNewChallengeMethod;
+        CoursesPage.createNewCourseGlobal;
+        ChallengePage.createNewChallengeGlobal;
     });
 
-    it('find and click on created course', () => {
+    it('should find and click on created course', () => {
         CoursesPage.open('https://stage.pasv.us/course');
         $(CoursesPage.listOfCourses).click();
         browser.pause(1000)
     });
 
-    it('click EDIT course', () => {
+    it('should click EDIT course', () => {
         $(CoursesPage.editBtn).click();
         browser.pause(1000)
     });
@@ -32,16 +32,16 @@ describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
 
     });
 
-    it('logout', () => {
+    it('should logout', () => {
         LogoutPage.logout();
     });
 
 });
 
-*/
+
 describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
 
-    before('login as Student, open created course', () => {
+    before('should login as Student, open created course', () => {
         LoginPage.login(student);
         CoursesPage.open('https://stage.pasv.us/course');
         browser.pause(1000)
@@ -54,20 +54,20 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
     });
 
 
-    it('confirm h1', () => {
-        expect($(AppPage.h1).getText()).eq(courseData.name);
+    it('should confirm h1', () => {
+        expect($(Menu.h1).getText()).eq(courseData.name);
     });
 
-    it('confirm describe', () => {
+    it('should confirm describe', () => {
         expect($(CoursesPage.courseDescription).getText()).eq(courseData.description);
     });
 
-    it('click button "Start course" ', () => {
+    it('should click button "Start course" ', () => {
         $(CoursesPage.startCourseBtn).click();
         browser.pause(1000);
     });
 
-    it('confirm challenge exist on the page and has same name as created', () => {
+    it('should confirm challenge exist on the page and has same name as created', () => {
         expect(ChallengePage.challengeInsideCourseName.getText()).eq(challengeData.name);
     });
 
@@ -75,12 +75,12 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
         $(ChallengePage.challengeInsideCourseTextarea).setValue(challengeData.solution);
     });
 
-    it('click "Validate solution" ', () => {
+    it('should click "Validate solution" ', () => {
         $(ChallengePage.challengeInsideCourseValidateBtn).click();
         browser.pause(1000)
     });
 
-    it('confirm all tests passed', () => {
+    it('should confirm all tests passed', () => {
         expect($(ChallengePage.challengePassArray).length).eq(challengeData.testsQuantity);
     });
 
@@ -88,11 +88,11 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
         $(ChallengePage.challengeSubmitSolutionBtn).click();
     });
 
-    it('confirm notification wrapper success ', () => {
+    it('should confirm success notification wrapper is Displayed', () => {
         $(Notification.success).isDisplayed();
     });
 
-    it('confirm challenge marked as a "Completed"', () => {
+    it('should confirm challenge marked as a "Completed"', () => {
         $(ChallengePage.challengeCompleteMark).isDisplayed();
     });
 

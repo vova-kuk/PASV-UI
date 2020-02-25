@@ -2,7 +2,7 @@ import AppPage from '../AppPage';
 
 class CoursesPage extends AppPage {
 
-    get createNewCourseMethod() {
+    get createNewCourseGlobal() {
         this.open('https://stage.pasv.us/course');
         browser.pause(1000)
         this.createNewCourseBtn.click();
@@ -49,9 +49,6 @@ class CoursesPage extends AppPage {
     get startCourseBtn() {
         return $('//button[text() ="Start course"]');
     }
-
-
-
 
 }
 

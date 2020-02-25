@@ -3,10 +3,6 @@ import AppPage from '../AppPage';
 
 class LoginPage extends AppPage{
 
-    get h1 () {
-        return browser.$('//h1');
-    }
-
     get email () {
         return browser.$('//input[@name="email"]');
     }

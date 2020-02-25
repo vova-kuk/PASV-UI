@@ -1,11 +1,9 @@
 import AppPage from '../AppPage';
-import ProfilePage from "./ProfilePage";
-import LoginPage from "./LoginPage";
 import {courseData} from "./CoursesPage";
 
 class ChallengePage extends AppPage {
 
-    get createNewChallengeMethod() {
+    get createNewChallengeGlobal() {
         this.open('https://stage.pasv.us/challenge');
         this.createNewChallengeBtn.click();
         browser.pause(1000)
@@ -65,7 +63,8 @@ class ChallengePage extends AppPage {
     get challengeSaveBtn() {
         return $('//button[@type="submit"]')
     }
-  // Challenge selectors Inside Courses Student
+
+    // Challenge selectors Inside Courses Student
     get challengeInsideCourseName() {
         return $(`//strong[text() ="${courseData.name}"]`)
     }
@@ -89,8 +88,6 @@ class ChallengePage extends AppPage {
     get challengeCompleteMark() {
         return $('//div[@class="mb-4 h5-"]//span[text() ="Completed")]')
     }   // @class="mb-4 h5-" -- not strong selector
-
-
 
 
 }
