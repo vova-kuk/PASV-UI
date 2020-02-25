@@ -1,6 +1,5 @@
 import AppPage from '../AppPage';
-import LoginPage from "./LoginPage";
-import Menu from "./Menu";
+
 
 class CoursesProgressPage extends AppPage {
   get progressLink() {

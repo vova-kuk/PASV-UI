@@ -1,11 +1,11 @@
 import Menu from '../../_PageObjects/Menu';
+import Notification from '../../_PageObjects/Notification';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import LoginPage from '../../_PageObjects/LoginPage';
 import LogoutPage from '../../_PageObjects/LogoutPage';
-import Notification from '../../_PageObjects/Notification';
+import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 import { data } from '../../_data/profilePage.data';
 import { student } from '../../_data/user.data';
-import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 
 describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
   before(() => {
@@ -13,7 +13,6 @@ describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
     CreateDayReportPage.createNewDayReport();
     browser.pause(1000);
     ProfilePage.goToProfilePage();
-
   });
 
   it('should check profile page is loaded and correct', () => {
