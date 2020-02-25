@@ -1,37 +1,45 @@
 import Menu from '../../_PageObjects/Menu';
 import LoginPage from '../../_PageObjects/LoginPage';
+import LogoutPage from '../../_PageObjects/LogoutPage';
 import ProfilePage from '../../_PageObjects/ProfilePage';
 import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
 import { data } from '../../_data/profilePage.data';
 import { admin, student } from '../../_data/user.data';
-import LogoutPage from '../../_PageObjects/LogoutPage';
+import CoursesPage from '../../_PageObjects/CoursesPage';
+import { course } from '../../_data/courseProgress.data';
 
 // this test will be refactored once Create New Course method is proper
 describe('COURSES PROGRESS PAGE', () => {
   before(() => {
+    CoursesPage.createNewCourse(admin, course.name);
+    LogoutPage.logout();
     LoginPage.login(student);
-    browser.pause(1000);
   });
 
   it('should click Courses link', () => {
     Menu.coursesLink.click();
   });
 
-  it('should click Progress link', () => {
-    const element = CoursesProgressPage.progressLink;
-    element.click();
+  it('should find and open recently created course', () => {
+    $(`//a[contains(text(),${course.name})]`).click();  browser.pause(4000);
+
   });
 
-  it('should go to `Course Report` page', () => {
+  it('should click Progress link', () => {
+    Menu.coursesLink.click();
+    CoursesProgressPage.progressLink.click();
+  });
+
+  it('should check Course Report page is open', () => {
     expect(Menu.h1.getText()).equal('Course Report');
   });
 
-  it('should click `Completed Lessons` button', () => {
+  it('should click Completed Lessons button', () => {
     const element = CoursesProgressPage.completedLessonsBtn;
     element.click();
   });
 
-  it('should click link `Profile` page', () => {
+  it('should click link Profile page', () => {
     ProfilePage.goToProfilePage();
     browser.pause(1000);
   });

@@ -1,4 +1,6 @@
 import AppPage from '../AppPage';
+import LoginPage from "./LoginPage";
+import Menu from "./Menu";
 
 class CoursesPage extends AppPage {
 
@@ -48,6 +50,17 @@ class CoursesPage extends AppPage {
 
     get startCourseBtn() {
         return $('//button[text() ="Start course"]');
+    }
+
+    createNewCourse(role, name) {
+        LoginPage.login(role);
+        super.click(Menu.coursesLink);
+        super.click(this.createNewCourseBtn);
+        this.courseNameInput.setValue(name);
+        this.courseDescriptionInput.setValue('TEST PURPOSES ONLY');
+        this.accessTypeSelect.selectByVisibleText('All');
+        this.createBtn.click();
+        browser.waitUntil(()=> Menu.h1.getText() === 'Courses');
     }
 
 }

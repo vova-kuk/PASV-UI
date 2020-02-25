@@ -1,13 +1,13 @@
 const admin = {
-    email: 'admin@pasv.com',
-    password: 'admin'
+  email: 'admin@pasv.com',
+  password: 'admin',
 };
 
 const student = {
-    email: 'studentofpasv@gmail.com',
-    password: '98765ytrewq$'
+  email: 'studentofpasv@gmail.com',
+  password: '98765ytrewq$',
 };
 
-export {admin, student};
+export { admin, student };
 
 // This data is used by all groups!!! Don't modify existing data!!!
