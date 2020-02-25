@@ -101,7 +101,8 @@ class FlashCardsPage extends AppPage {
     }
 
     get linkToGroup() {
-        return browser.$('=TestGroup');
+        // return browser.$('=TestGroup');  - looks cool, but we decided to use other standard in thr whole project
+        return browser.$('//h4[@qa="name"]//a[text()="TestGroup"]');
     }
 }
 
