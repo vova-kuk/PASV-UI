@@ -15,9 +15,9 @@ class GroupsPage extends AppPage {
         return browser.$('=QA 5 new Group');
     }
 
-    // get lectureLink() {
-    //     return browser.$();
-    // }
+    lectureLink(lectureName) {
+        return browser.$(`//span[text() = "${lectureName}"]`);
+    }
 
     get group4TestLink() {
         return $('//a[text()="Group4Test"]');

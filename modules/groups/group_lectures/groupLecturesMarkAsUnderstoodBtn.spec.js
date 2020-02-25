@@ -91,13 +91,15 @@ describe('CLICK MARK AS UNDERSTOOD BUTTON AS A STUDENT', () => {
         expect(actual).eq(expected);
     });
 
-    // it ('should choose lecture in the list', () => {
-    //     GroupsPage.lectureLink.scrollIntoView();
-    //     GroupsPage.lectureLink.click();
-    //     browser.pause(1000);
-    // });
+    it ('should choose lecture in the list', () => {
+        GroupsPage.lectureLink(lectureName).scrollIntoView();
+        GroupsPage.lectureLink(lectureName).click();
+        browser.pause(1000);
+    });
 
-
+    it('should click Mark as understood button', () => {
+        GroupNamePage.markAsUnderstoodBtn.click();
+    });
 });
 
 export {lectureName};
