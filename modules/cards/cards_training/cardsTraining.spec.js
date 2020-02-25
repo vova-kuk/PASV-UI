@@ -1,9 +1,9 @@
 import {expect} from 'chai';
 import Menu from '../../_PageObjects/Menu';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import LoginPage from '../../_PageObjects/LoginPage';
 import {student} from '../../_data/user.data';
 import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
-import LoginPage from '../../_PageObjects/LoginPage';
 import { groupName } from "../../_data/cardsTraining.data";
 
 describe('CARDS TRAINING', () => {
@@ -19,21 +19,19 @@ describe('CARDS TRAINING', () => {
   it('should find `Test Group` group and click', () => {
     FlashCardsPage.linkToGroup.scrollIntoView();
     FlashCardsPage.linkToGroup.click();
-    browser.pause(2000);
+    browser.pause(500);
   });
 
   it('should check a group title', () => {
     expect(CardsTrainingPage.groupTitle.getText()).eq(groupName);
-    browser.pause(1000);
   });
 
   it('should check if `Training` label is displayed', () => {
-    expect(FlashCardsPage.trainingLink.isDisplayed()).true;
-    browser.pause(1000);
+    expect(CardsTrainingPage.trainingLbl.isDisplayed()).true;
   });
 
   it('should click `Training` link', () => {
-    FlashCardsPage.trainingLink.click();
+    CardsTrainingPage.trainingLbl.click();
     browser.pause(1000);
   });
 
@@ -75,11 +73,11 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check progress bar value and click `I know`', () => {
-    FlashCardsPage.compactViewLink.click();
+    CardsTrainingPage.compactViewLbl.click();
     browser.pause(1000);
     const nrOfCards = $$('//div[@class="pb-1 mb-1 border-bottom"]').length;
     browser.pause(1000);
-    FlashCardsPage.trainingLink.click();
+    CardsTrainingPage.trainingLbl.click();
     browser.pause(1000);
     for (let i = 0; i < nrOfCards; i++) {
       expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq((Math.floor(100 / nrOfCards * i)).toString());
