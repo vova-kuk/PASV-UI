@@ -2,10 +2,6 @@ import AppPage from '../AppPage';
 
 class DayReportLikePage extends AppPage{
 
-    get h1ProfilePage () { // to get h1 from ProfilePage
-        return browser.$('//h1');
-    }
-
     get diaryLink () {
         return browser.$('//a[@qa="diary-link"]');
     }

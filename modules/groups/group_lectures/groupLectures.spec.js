@@ -3,11 +3,14 @@ import GroupsPage from "../../_PageObjects/GroupsPage";
 import GroupNamePage from "../../_PageObjects/GroupNamePage";
 import {student} from "../../_data/user.data";
 import {groupsLectures} from '../../_data/groupsLectures.data.js';
-
+import CreateLecturePage from "../../_PageObjects/CreateLecturePage";
+import {lectureName} from "../../_PageObjects/CreateLecturePage";
 
 describe('GROUPS LECTURES', () => {
     before(() => {
+        CreateLecturePage.createNewLecture();
         LoginPage.login(student);
+        browser.pause(500);
     });
 
     it ('should click top menu Groups', () => {
@@ -34,8 +37,9 @@ describe('GROUPS LECTURES', () => {
     });
 
     it ('should choose lecture in the list', () => {
-        GroupNamePage.lectureInTheList.click();
-        browser.pause(1000);
+        GroupsPage.lectureLink(lectureName).scrollIntoView();
+        GroupsPage.lectureLink(lectureName).click();
+        browser.pause(3000);
     });
 
     it('should verify video is displaying', () => {
@@ -63,10 +67,21 @@ describe('GROUPS LECTURES', () => {
 
     it ('should fill out Send your Homework to review field', () => {
         GroupNamePage.sendYourHomeworkToReviewField.setValue(groupsLectures.homeworkInput);
+        browser.pause(1000);
     });
 
     it ('should click Send homework to review', () => {
         GroupNamePage.sendHomeworkToReviewBtn.click();
+        browser.pause(1000);
+    });
+
+    it ('should fill out Comment field', () => {
+        GroupNamePage.commentField.setValue('abcdefg');
+        browser.pause(500);
+    });
+
+    it ('should click Add comment button', () => {
+        GroupNamePage.addCommentBtn.click();
     });
 
 });

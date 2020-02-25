@@ -1,43 +1,54 @@
-import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
+import Menu from '../../_PageObjects/Menu';
 import LoginPage from '../../_PageObjects/LoginPage';
-import {student} from "../../_data/user.data";
-import ProfilePage from "../../_PageObjects/ProfilePage";
-import Menu from "../../_PageObjects/Menu";
-import {data} from "../../_data/profilePage.data";
+import LogoutPage from '../../_PageObjects/LogoutPage';
+import ProfilePage from '../../_PageObjects/ProfilePage';
+import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
+import { data } from '../../_data/profilePage.data';
+import { admin, student } from '../../_data/user.data';
+import CoursesPage from '../../_PageObjects/CoursesPage';
+import { course } from '../../_data/courseProgress.data';
 
+// this test will be refactored once Create New Course method is proper
 describe('COURSES PROGRESS PAGE', () => {
-    before(() => {
-        LoginPage.login(student);
-    });
+  before(() => {
+    CoursesPage.createNewCourse(admin, course.name);
+    LogoutPage.logout();
+    LoginPage.login(student);
+  });
 
-    it('should click `Courses` link', () => {
-        const element = CoursesProgressPage.coursesLink;
-        element.click();
-    });
+  it('should click Courses link', () => {
+    Menu.coursesLink.click();
+  });
 
-    it('should click `Progress` link', () => {
-        const element = CoursesProgressPage.progressLink;
-        element.click();
-    });
+  it('should find and open recently created course', () => {
+    $(`//a[contains(text(),${course.name})]`).click();  browser.pause(4000);
 
-    it('should go to `Course Report` page', () => {
-        expect(CoursesProgressPage.h1.getText()).equal('Course Report');
-    });
+  });
 
-    it('should click `Completed Lessons` button', () => {
-        const element = CoursesProgressPage.completedLessonsBtn;
-        element.click();
-    });
+  it('should click Progress link', () => {
+    Menu.coursesLink.click();
+    CoursesProgressPage.progressLink.click();
+  });
 
-    it('should click link `Profile` page', () => {
-        ProfilePage.goToProfilePage();
-        browser.pause(1000);
-    });
+  it('should check Course Report page is open', () => {
+    expect(Menu.h1.getText()).equal('Course Report');
+  });
 
-    it('should go to `Profile` page', () => {
-        expect(Menu.h1.getText()).equal(data.student.name);
-    });
+  it('should click Completed Lessons button', () => {
+    const element = CoursesProgressPage.completedLessonsBtn;
+    element.click();
+  });
 
+  it('should click link Profile page', () => {
+    ProfilePage.goToProfilePage();
+    browser.pause(1000);
+  });
+
+  it('should go to `Profile` page', () => {
+    expect(Menu.h1.getText()).equal(data.student.name);
+  });
+
+  after('should logout', () => {
+    LogoutPage.logout();
+  });
 });
-
-
