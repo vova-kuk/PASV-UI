@@ -17,7 +17,7 @@ class Menu {
     }
 
     get groupLink () {
-        return $('li a[href="/group"]');
+        return $('//div[@id="site-menu"]//a[@qa="groups-link"]');
     }
 
     get siteName (){

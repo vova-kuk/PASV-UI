@@ -65,7 +65,7 @@ describe('PASSWORD RECOVERY', () => {
     ResetPasswordPage.emailInput.setValue(testEmails.notRegistered);
     ResetPasswordPage.sendBtn.click();
     browser.pause(1000);
-    expect(Notification.failedMsg.getText()).eq(pagePswRecovery.failedMsgTxt);
+    expect(Notification.title.getText()).eq(pagePswRecovery.failedMsgTxt);
   });
 
   it('should check that user is left on the same page if entered email is not found in the database', () => {

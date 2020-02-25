@@ -85,7 +85,7 @@ class FlashCardsPage extends AppPage {
     }
 
     get compactViewLink() {
-        return browser.$('//*[contains(text(),"Compact view")]');
+        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]');
     }
 
     get waitingForApproval() {
@@ -93,7 +93,7 @@ class FlashCardsPage extends AppPage {
     }
 
     get trainingLink() {
-        return browser.$('//*[contains(text(),"Training")]');
+        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
     }
 
     get cardLastInList() {
