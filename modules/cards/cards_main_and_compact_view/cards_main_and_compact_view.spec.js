@@ -49,4 +49,5 @@ describe('CARDS MAIN VIEW AND COMPACT VIEW', () => {
         expect(MainAndCompactViewPage.answerText.isExisting()).equals(true);
     });
 
+
 });
