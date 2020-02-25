@@ -9,15 +9,7 @@ class CreateDayReportHelper extends AppPage {
         return browser.$('//h1');
     }
 
-    get marks() {
-        return browser.$('//div[contains(@class, "mb-2")]//strong');
-    }
-
-    get slogan() {
-        return browser.$('//small[@qa="app-slogan"]');
-    }
-
-    get saveButton() {
+    get saveBtn() {
         return browser.$('//button[contains(text(),"Save")]');
     }
 
@@ -61,22 +53,6 @@ class CreateDayReportHelper extends AppPage {
         return browser.$('//input[@id="input-7"]');
     }
 
-    get recruiterPhoneCall() {
-        return browser.$('//input[@id="input-8"]');
-    }
-
-    get interviewTechScreen() {
-        return browser.$('//input[@id="input-9"]');
-    }
-
-    get interviewOnsite() {
-        return browser.$('//input[@id="input-10"]');
-    }
-
-    get jobOffer() {
-        return browser.$('//input[@id="input-11"]');
-    }
-
     get moraleLevel() {
         return browser.$('//select[@name="morale"]');
     }
@@ -97,14 +73,6 @@ class CreateDayReportHelper extends AppPage {
         return browser.$('//div[@class="d-flex flex-row"]/span[@innertext="Required"]');
     }
 
-    get maxTen() {
-        return browser.$('//div[@innertext="Maximum is 10"]');
-    }
-
-    get mustBeThirty() {
-        return browser.$('//div[@innertext="Must be 30 characters or more"]');
-    }
-
     createDayReport() {
         browser.$('//a[@qa="create-day-report-button"]').click();
     }
@@ -120,7 +88,7 @@ class CreateDayReportHelper extends AppPage {
         this.moraleLevel.selectByVisibleText('9');
         this.howManyHours.setValue('9');
         this.howWasYourDay.setValue('Today you are definitely closer to your dreamjob then you were yesterday.');
-        this.saveButton.click();
+        this.saveBtn.click();
     }
 
 }
