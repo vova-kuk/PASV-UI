@@ -11,7 +11,7 @@ class GroupNamePage extends AppPage {
     }
 
     get video() {
-        return browser.$('//div[@class="ytp-cued-thumbnail-overlay-image"]');
+        return browser.$('//iframe[@title="YouTube video player"]');
     }
 
     get dislikeBtn() {
@@ -45,6 +45,18 @@ class GroupNamePage extends AppPage {
     get createLectureBtn() {
         return browser.$('//a[@qa="create-lecture-button"]');
     }
+
+    get commentField() {
+        return browser.$('//textarea[@name="content"]');
+    }
+
+    get addCommentBtn() {
+        return browser.$('//button[text()="Add comment"]');
+    }
+
+
+
+
 
 }
 

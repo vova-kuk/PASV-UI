@@ -4,7 +4,7 @@ import GroupNamePage from "../../_PageObjects/GroupNamePage";
 import {student} from "../../_data/user.data";
 import {groupsLectures} from '../../_data/groupsLectures.data.js';
 import CreateLecturePage from "../../_PageObjects/CreateLecturePage";
-const lectureName = Math.random() + 'lecture';
+import {lectureName} from "../../_PageObjects/CreateLecturePage";
 
 describe('CLICK MARK AS UNDERSTOOD BUTTON AS A STUDENT', () => {
     before('should create new lecture and login as Student',() => {
@@ -48,4 +48,3 @@ describe('CLICK MARK AS UNDERSTOOD BUTTON AS A STUDENT', () => {
     });
 });
 
-export {lectureName};
