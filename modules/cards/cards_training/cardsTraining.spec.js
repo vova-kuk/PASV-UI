@@ -27,11 +27,11 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `Training` label is displayed', () => {
-    expect(CardsTrainingPage.trainingLbl.isDisplayed()).true;
+    expect(FlashCardsPage.trainingLink.isDisplayed()).true;
   });
 
   it('should click `Training` link', () => {
-    CardsTrainingPage.trainingLbl.click();
+    FlashCardsPage.trainingLink.click();
     browser.pause(1000);
   });
 
@@ -73,11 +73,11 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check progress bar value and click `I know`', () => {
-    CardsTrainingPage.compactViewLbl.click();
+    FlashCardsPage.compactViewLink.click();
     browser.pause(1000);
     const nrOfCards = $$('//div[@class="pb-1 mb-1 border-bottom"]').length;
     browser.pause(1000);
-    CardsTrainingPage.trainingLbl.click();
+    FlashCardsPage.trainingLink.click();
     browser.pause(1000);
     for (let i = 0; i < nrOfCards; i++) {
       expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq((Math.floor(100 / nrOfCards * i)).toString());

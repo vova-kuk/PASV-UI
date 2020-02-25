@@ -22,7 +22,7 @@ class GroupsPage extends AppPage {
     }
 
     get group4TestLink() {
-        return $('//a[text()="Group4Test"]');
+        return $('//h4[@qa="group-name"]//a[text()="Group4Test"]');
     }
 
     get linkToGroupGroup6Test() {
