@@ -1,6 +1,5 @@
 const admin = {
-  email: '' +
-      '',
+  email: 'admin@pasv.com',
   password: 'admin',
 };
 
