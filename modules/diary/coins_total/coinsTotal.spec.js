@@ -3,7 +3,7 @@ import LoginPage from '../../user/_page/LoginPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 import { admin, student } from '../../user/_data/user.data';
 import LogoutPage from '../../user/_page/LogoutPage';
-import DiaryPage from '../../_PageObjects/DiaryPage';
+import DiaryPage from '../_page/DiaryPage';
 import ProfilePage from '../../user/_page/ProfilePage';
 
 let beforeCoinAmount = 0;
