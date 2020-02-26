@@ -1,11 +1,11 @@
 import Menu from '../../_PageObjects/Menu';
 import Notification from '../../_PageObjects/Notification';
-import ProfilePage from '../../_PageObjects/ProfilePage';
-import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from '../../_PageObjects/LogoutPage';
+import ProfilePage from '../_page/ProfilePage';
+import LoginPage from '../_page/LoginPage';
+import LogoutPage from '../_page/LogoutPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
-import { data } from '../../_data/profilePage.data';
-import { student } from '../../_data/user.data';
+import { data } from '../_data/profilePage.data';
+import { student } from '../_data/user.data';
 
 describe('PROFILE PAGE DAILY REPORTS LIKE BUTTON TESTING', () => {
   before(() => {

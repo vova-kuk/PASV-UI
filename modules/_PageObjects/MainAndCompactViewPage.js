@@ -1,13 +1,14 @@
-import AppPage from '../AppPage';
+import AppPage from './AppPage';
 
 class MainAndCompactViewPage extends AppPage {
-
   get mainView() {
     return browser.$('//a[contains(text(),"Main view")]');
   }
 
   get mainViewActive() {
-    return browser.$('//a[contains(text(),"Main view")][contains(@class,"nav-link active")]');
+    return browser.$(
+      '//a[contains(text(),"Main view")][contains(@class,"nav-link active")]',
+    );
   }
 
   get compactView() {
@@ -15,15 +16,19 @@ class MainAndCompactViewPage extends AppPage {
   }
 
   get compactViewActive() {
-    return browser.$('//a[contains(text(),"Compact view")][contains(@class,"nav-link active")]');
+    return browser.$(
+      '//a[contains(text(),"Compact view")][contains(@class,"nav-link active")]',
+    );
   }
 
   get questionText() {
-    return browser.$('//strong[contains(text(),"What is the difference between the first test and the second one?")]');
+    return browser.$(
+      '//strong[contains(text(),"What is the difference between the first test and the second one?")]',
+    );
   }
 
   get cardQuestion() {
-    return browser.$('//strong[@class="d-block mb-2"][@qa="question"]')
+    return browser.$('//strong[@class="d-block mb-2"][@qa="question"]');
   }
 
   get answerText() {
@@ -31,12 +36,7 @@ class MainAndCompactViewPage extends AppPage {
   }
 
   get cardAnswer() {
-    return browser.$('//span[@qa="answer"]')
+    return browser.$('//span[@qa="answer"]');
   }
 }
 export default new MainAndCompactViewPage();
-
-
-
-
-

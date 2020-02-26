@@ -10,4 +10,4 @@ const student = {
 
 export { admin, student };
 
-// This data is used by all groups!!! Don't modify existing data!!!
+// This data is used by all education groups!!! Don't modify existing data!!!

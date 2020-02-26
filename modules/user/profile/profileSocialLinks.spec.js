@@ -1,9 +1,9 @@
 import Menu from '../../_PageObjects/Menu';
-import ProfilePage from '../../_PageObjects/ProfilePage';
-import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from '../../_PageObjects/LogoutPage';
-import { data } from '../../_data/profilePage.data';
-import { student } from '../../_data/user.data';
+import ProfilePage from '../_page/ProfilePage';
+import LoginPage from '../_page/LoginPage';
+import LogoutPage from '../_page/LogoutPage';
+import { data } from '../_data/profilePage.data';
+import { student } from '../_data/user.data';
 
 describe('SOCIAL NETWORKS INTEGRATION', () => {
   before(() => {

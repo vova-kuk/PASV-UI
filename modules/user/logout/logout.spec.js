@@ -1,6 +1,6 @@
-import LoginPage from '../../_PageObjects/LoginPage'
-import { student } from '../../_data/user.data'
-import Logout from '../../_PageObjects/LogoutPage'
+import LoginPage from '../_page/LoginPage';
+import { student } from '../_data/user.data';
+import Logout from '../_page/LogoutPage';
 
 describe('LOGOUT', () => {
   before(() => {

@@ -1,7 +1,6 @@
-import AppPage from '../AppPage';
+import AppPage from '../../_PageObjects/AppPage';
 
 class CardsTrainingPage extends AppPage {
-
   get groupTitle() {
     return browser.$('//h1');
   }
@@ -49,10 +48,6 @@ class CardsTrainingPage extends AppPage {
   showAnswerBtnClick() {
     this.showAnswerBtn.click();
   }
-
 }
 
 export default new CardsTrainingPage();
-
-
-

@@ -1,17 +1,14 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import Menu from '../../_PageObjects/Menu';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import LoginPage from '../../_PageObjects/LoginPage';
-import {student} from '../../_data/user.data';
-import CardsTrainingPage from '../../_PageObjects/CardsTrainingPage';
-import { groupName } from "../../_data/cardsTraining.data";
+import LoginPage from '../../user/_page/LoginPage';
+import { student } from '../../user/_data/user.data';
+import CardsTrainingPage from '../_page/CardsTrainingPage';
+import { groupName } from '../_data/cardsTraining.data';
 
 describe('CARDS TRAINING', () => {
-  before('login as a student', () => {
+  before('login as a student and go to Cards menu', () => {
     LoginPage.login(student);
-  });
-
-  it('should click `Cards` tab in the navigation bar', () => {
     Menu.cardsLink.click();
     browser.pause(500);
   });
@@ -76,11 +73,15 @@ describe('CARDS TRAINING', () => {
     FlashCardsPage.compactViewLink.click();
     browser.pause(1000);
     const nrOfCards = $$('//div[@class="pb-1 mb-1 border-bottom"]').length;
+
     browser.pause(1000);
     FlashCardsPage.trainingLink.click();
     browser.pause(1000);
+
     for (let i = 0; i < nrOfCards; i++) {
-      expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq((Math.floor(100 / nrOfCards * i)).toString());
+      expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq(
+        Math.floor((100 / nrOfCards) * i).toString(),
+      );
       browser.pause(1000);
       CardsTrainingPage.iKnowBtnClick();
       browser.pause(1000);

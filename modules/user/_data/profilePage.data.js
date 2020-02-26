@@ -1,19 +1,17 @@
 const data = {
-  partialUrl : {
+  partialUrl: {
     codewars: 'codewars',
     facebook: 'facebook',
     linkedin: 'linkedin',
-    pasv: 'pasv'
+    pasv: 'pasv',
   },
   student: {
-    name: 'Student PASV'
+    name: 'Student PASV',
   },
   notification: 'Diary Like. Success',
   dayReport: {
-    h1: 'Create day report'
-  }
+    h1: 'Create day report',
+  },
 };
 
-
 export { data };
-
