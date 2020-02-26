@@ -1,10 +1,9 @@
+import Menu from '../../_page/Menu';
 import ProfilePage from '../_page/ProfilePage';
 import LoginPage from '../_page/LoginPage';
 import LogoutPage from '../_page/LogoutPage';
 import { text } from '../_data/profilePage.data';
 import { student } from '../_data/user.data';
-import Menu from "../../_PageObjects/Menu";
-
 
 describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
   before(() => {
@@ -27,7 +26,7 @@ describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
   });
 
   it('should have correct header', () => {
-    browser.waitUntil(()=> Menu.h1.isDisplayed());
+    browser.waitUntil(() => Menu.h1.isDisplayed());
     expect(Menu.h1.getText()).equal(text.createDayReportH1);
   });
 

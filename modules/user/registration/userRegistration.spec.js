@@ -1,13 +1,13 @@
 import RegistrationPage from '../_page/RegistrationPage';
-import HomePage from '../../_PageObjects/HomePage';
-import Notification from '../../_PageObjects/Notification';
+import HomePage from '../../_page/HomePage';
+import Notification from '../../_page/Notification';
 import { urlData } from '../../_data/url.data';
 import {
   newUserData,
   pageRegisterData,
   successfulNotificationData,
 } from '../_data/registration.data';
-import AppPage from '../../_PageObjects/AppPage';
+import AppPage from '../../_page/AppPage';
 
 describe('USER REGISTRATION', () => {
   before(

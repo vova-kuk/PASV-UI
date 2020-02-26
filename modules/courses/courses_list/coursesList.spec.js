@@ -1,7 +1,7 @@
 import LoginPage from '../../user/_page/LoginPage';
 import CoursesList from './CoursesList';
 import { student } from '../../user/_data/user.data';
-import Menu from '../../_PageObjects/Menu';
+import Menu from '../../_page/Menu';
 
 describe('COURSE LIST', () => {
   before('loginAsStudent', () => {

@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../user/_page/LoginPage';
-import MainAndCompactViewPage from '../../_PageObjects/MainAndCompactViewPage';
-import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import MainAndCompactViewPage from '../../_page/MainAndCompactViewPage';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import { student } from '../../user/_data/user.data';
 import { pageTestData } from '../_data/cardsMainAndCompact.data';
 import { groupNameLink } from '../../_data/newCard.data';

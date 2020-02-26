@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
 import { positive, pageTitle } from '../../_data/newCard.data';
 import { student } from '../../user/_data/user.data';

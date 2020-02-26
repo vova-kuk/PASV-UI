@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import HomePage from '../../_PageObjects/HomePage';
+import HomePage from '../../_page/HomePage';
 import LoginPage from '../_page/LoginPage';
-import Notification from '../../_PageObjects/Notification';
+import Notification from '../../_page/Notification';
 import ResetPasswordPage from '../_page/ResetPasswordPage';
-import CheckEmailPage from '../../_PageObjects/CheckEmailPage';
+import CheckEmailPage from '../../_page/CheckEmailPage';
 import { testEmails, pagePswRecovery } from '../_data/recoveryPassword.data';
-import AppPage from '../../_PageObjects/AppPage';
+import AppPage from '../../_page/AppPage';
 
 describe('USER PASSWORD RECOVERY', () => {
   before('open Login page from Homepage', () => {

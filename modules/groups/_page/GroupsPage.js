@@ -1,7 +1,7 @@
-import AppPage from './AppPage';
-import LoginPage from '../user/_page/LoginPage';
-import Menu from './Menu';
-import LogoutPage from '../user/_page/LogoutPage';
+import AppPage from '../../_page/AppPage';
+import LoginPage from '../../user/_page/LoginPage';
+import Menu from '../../_page/Menu';
+import LogoutPage from '../../user/_page/LogoutPage';
 
 class GroupsPage extends AppPage {
   get groupsLink() {

@@ -1,10 +1,10 @@
-import Menu from '../../_PageObjects/Menu';
+import Menu from '../../_page/Menu';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import GroupsPage from '../../_PageObjects/GroupsPage';
-import GroupDescriptionPage from '../../_PageObjects/GroupDescriptionPage';
+import GroupsPage from '../_page/GroupsPage';
+import GroupDescriptionPage from '../_page/GroupDescriptionPage';
 import { admin, student } from '../../user/_data/user.data';
-import { data } from '../../_data/groupDescription.data';
+import { data } from '../_data/groupDescription.data';
 
 describe('GROUP DESCRIPTION TAB', () => {
   before(() => {

@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import { student } from '../../user/_data/user.data';
 import LoginPage from '../../user/_page/LoginPage';
-import Menu from '../../_PageObjects/Menu';
-import GroupsPage from '../../_PageObjects/GroupsPage';
-import GroupRating from '../../_PageObjects/GroupRating';
+import Menu from '../../_page/Menu';
+import GroupsPage from '../_page/GroupsPage';
+import GroupRating from '../_page/GroupRating';
 
 describe('GROUP RATING', () => {
   before('login as a student', () => {

@@ -1,4 +1,4 @@
-import AppPage from '../../_PageObjects/AppPage';
+import AppPage from '../../_page/AppPage';
 
 class CreateDayReportHelper extends AppPage {
   open() {

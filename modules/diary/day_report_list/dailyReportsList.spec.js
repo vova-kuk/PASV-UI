@@ -1,8 +1,8 @@
-import Menu from '../../_PageObjects/Menu';
-import Notification from '../../_PageObjects/Notification';
+import Menu from '../../_page/Menu';
+import Notification from '../../_page/Notification';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
+import CreateDayReportPage from '../../_page/CreateDayReportPage';
 import DailyReportsPage from '../_page/DailyReportsPageList';
 import { dailyReportList } from '../_data/dailyReportsList.data';
 import { student } from '../../user/_data/user.data';
