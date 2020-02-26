@@ -24,8 +24,8 @@ class GroupsPage extends AppPage {
     return $('//h4[@qa="group-name"]//a[text()="Group4Test"]');
   }
 
-  get linkToGroupGroup6Test() {
-    return $('//a[contains(text(),"GROUP6 TEST")]');
+  get testGroup() {
+    return $('//a[contains(text(),"GROUP FOR TEST")]');
   }
 
   get quizTabBtn() {

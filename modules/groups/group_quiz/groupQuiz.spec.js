@@ -2,12 +2,12 @@ import Menu from '../../_page/Menu';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
 import GroupsPage from '../_page/GroupsPage';
-import { student } from '../../user/_data/user.data';
+import { student, admin } from '../../user/_data/user.data';
 
 describe('GROUPS QUIZ TAB', () => {
-  before('should login as student', () => {
+  before(() => {
+    GroupsPage.createNewGroup(admin);
     LoginPage.login(student);
-    browser.pause(1000);
   });
 
   it('should check header is student name', () => {
@@ -22,9 +22,9 @@ describe('GROUPS QUIZ TAB', () => {
     browser.waitUntil(() => Menu.h1.getText() === 'Groups');
   });
 
-  it('should open Existed Group "Group 6 Test" link', () => {
-    GroupsPage.linkToGroupGroup6Test.click();
-    browser.waitUntil(() => Menu.h1.getText() === 'Group GROUP6 TEST');
+  it('should open Existed Group "GROUP FOR TEST" link', () => {
+    GroupsPage.testGroup.click();
+    browser.waitUntil(() => Menu.h1.getText() === 'Group GROUP FOR TEST');
   });
 
   it('should check if quiz tab exist', () => {
@@ -43,6 +43,5 @@ describe('GROUPS QUIZ TAB', () => {
 
   after('should log out', () => {
     LogoutPage.logout();
-    browser.pause(1000);
   });
 });
