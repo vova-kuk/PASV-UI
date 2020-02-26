@@ -1,9 +1,10 @@
-import AppPage from './AppPage';
-import LoginPage from '../user/_page/LoginPage';
-import Menu from './Menu';
-import LogoutPage from '../user/_page/LogoutPage';
+import AppPage from '../../_PageObjects/AppPage';
+import LoginPage from '../../user/_page/LoginPage';
+import Menu from '../../_PageObjects/Menu';
+import LogoutPage from '../../user/_page/LogoutPage';
 
 class GroupsPage extends AppPage {
+
   get groupsLink() {
     return browser.$('//a[@qa="groups-link"]');
   }
@@ -12,12 +13,12 @@ class GroupsPage extends AppPage {
     return browser.$('//h1');
   }
 
-  get groupLink() {
-    return browser.$('=QA 5 new Group');
+  get groupNameLink() {
+    return browser.$('=GROUP FOR TEST');
   }
 
-  lectureLink(lectureName) {
-    return browser.$(`//span[text() = "${lectureName}"]`);
+  get createNewGroupBtn() {
+    return browser.$('//a[@qa="create-group-button"]');
   }
 
   get group4TestLink() {

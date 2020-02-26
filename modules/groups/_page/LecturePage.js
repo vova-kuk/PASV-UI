@@ -1,12 +1,9 @@
-import AppPage from './AppPage';
+import AppPage from '../../_PageObjects/AppPage';
 
-class GroupNamePage extends AppPage {
+class LecturePage extends AppPage {
+
   get h1() {
     return browser.$('//h1');
-  }
-
-  get lectureInTheList() {
-    return browser.$('//a[@qa="link"]//span');
   }
 
   get video() {
@@ -30,7 +27,7 @@ class GroupNamePage extends AppPage {
   }
 
   get homeworkDescription() {
-    return browser.$('//h3[text()="Homework"]//p');
+    return browser.$('//h3[text()="Homework"]');
   }
 
   get sendYourHomeworkToReviewField() {
@@ -52,6 +49,10 @@ class GroupNamePage extends AppPage {
   get addCommentBtn() {
     return browser.$('//button[text()="Add comment"]');
   }
+
+  lectureLink(lectureName) {
+    return browser.$(`//span[text() = "${lectureName}"]`);
+  }
 }
 
-export default new GroupNamePage();
+export default new LecturePage();

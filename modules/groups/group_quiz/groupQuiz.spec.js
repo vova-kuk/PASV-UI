@@ -1,7 +1,7 @@
 import Menu from '../../_PageObjects/Menu';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import GroupsPage from '../../_PageObjects/GroupsPage';
+import GroupsPage from '../_page/GroupsPage';
 import { student } from '../../user/_data/user.data';
 
 describe('GROUPS QUIZ TAB', () => {
