@@ -17,7 +17,7 @@ describe('LOGIN PAGE NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
         LoginPage.passwordInput.setValue(123456);
     });
 
-    it('should Login btn is disabled', () => {
+    it('should Login button is disabled', () => {
         expect(LoginPage.submitBtn.isEnabled()).eq(false);
     });
 });
