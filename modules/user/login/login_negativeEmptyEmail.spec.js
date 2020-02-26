@@ -3,7 +3,7 @@ import LoginPage from '../../_PageObjects/LoginPage';
 import {student} from  './../../_data/user.data';
 import Menu from "../../_PageObjects/Menu";
 
-describe('LOGIN PAGE NEGATIVE with empty Email field and valid Password', () => {
+describe('LOGIN PAGE NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
     before(() => {
         LoginPage.open();
     });

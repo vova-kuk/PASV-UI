@@ -4,7 +4,7 @@ import {student} from  './../../_data/user.data';
 import Menu from "../../_PageObjects/Menu";
 import Notification from "../../_PageObjects/Notification";
 
-describe('LOGIN PAGE NEGATIVE with invalid Email and valid Password', () => {
+describe('LOGIN PAGE NEGATIVE WITH INVALID EMAIL AND VALID PASSWORD', () => {
     before(() => {
         LoginPage.open();
     });

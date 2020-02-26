@@ -3,7 +3,7 @@ import {student} from  './../../_data/user.data';
 import Menu from "../../_PageObjects/Menu";
 import Notification from "../../_PageObjects/Notification";
 
-describe('LOGIN PAGE NEGATIVE with not correct email entering', () => {
+describe('LOGIN PAGE NEGATIVE WITH NOT CORRECT EMAIL ENTERING', () => {
     before(() => {
         LoginPage.open();
     });
