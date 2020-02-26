@@ -1,4 +1,4 @@
-import AppPage from '../../groups/_data/_page/AppPage';
+import AppPage from '../../_page/AppPage';
 
 class CardsTrainingPage extends AppPage {
   get groupTitle() {

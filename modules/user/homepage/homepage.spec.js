@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import HomePage from '../../groups/_data/_page/HomePage';
+import HomePage from '../../_page/HomePage';
 
 describe('HOMEPAGE', () => {
     it('should open the homepage', () => {

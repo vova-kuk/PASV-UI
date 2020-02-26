@@ -1,4 +1,4 @@
-import AppPage from '../_data/_page/AppPage';
+import AppPage from '../../_page/AppPage';
 
 class GroupRating extends AppPage {
   get ratingLink() {

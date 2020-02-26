@@ -1,9 +1,9 @@
-import Menu from '../../groups/_data/_page/Menu';
-import Notification from '../../groups/_data/_page/Notification';
+import Menu from '../../_page/Menu';
+import Notification from '../../_page/Notification';
 import ProfilePage from '../_page/ProfilePage';
 import LoginPage from '../_page/LoginPage';
 import LogoutPage from '../_page/LogoutPage';
-import CreateDayReportPage from '../../groups/_data/_page/CreateDayReportPage';
+import CreateDayReportPage from '../../_page/CreateDayReportPage';
 import { text } from '../_data/profilePage.data';
 import { student } from '../_data/user.data';
 

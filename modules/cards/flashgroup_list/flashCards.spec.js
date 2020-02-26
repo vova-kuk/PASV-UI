@@ -1,7 +1,7 @@
-import FlashCardsPage from '../../groups/_data/_page/FlashCardsPage';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
 import { student } from '../../user/_data/user.data';
-import Menu from '../../groups/_data/_page/Menu';
+import Menu from '../../_page/Menu';
 
 describe('CARDS/FLASHCARDS --POSITIVE', () => {
   before('login as a student', () => {

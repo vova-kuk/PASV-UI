@@ -1,10 +1,10 @@
 import AppPage from './AppPage';
-import LoginPage from '../../../user/_page/LoginPage';
-import { admin } from '../../../user/_data/user.data';
-import GroupsPage from '../../_page/GroupsPage';
-import GroupNamePage from '../../_page/GroupNamePage';
+import LoginPage from '../user/_page/LoginPage';
+import { admin } from '../user/_data/user.data';
+import GroupsPage from '../groups/_page/GroupsPage';
+import GroupNamePage from '../groups/_page/GroupNamePage';
 //import {lectureName} from "../groups/group_lectures/groupLecturesMarkAsUnderstoodBtn.spec";
-import LogoutPage from '../../../user/_page/LogoutPage';
+import LogoutPage from '../user/_page/LogoutPage';
 const lectureName = Math.random() + 'lecture';
 
 class CreateLecturePage extends AppPage {

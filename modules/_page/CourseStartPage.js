@@ -1,5 +1,5 @@
 import AppPage from './AppPage';
-import { newCourseCreate } from '../../../_data/courseStart.data';
+import { newCourseCreate } from '../_data/courseStart.data';
 
 class CourseStartPage extends AppPage {
   createdCourseOpen() {

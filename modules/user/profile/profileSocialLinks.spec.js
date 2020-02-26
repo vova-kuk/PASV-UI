@@ -1,4 +1,4 @@
-import Menu from '../../groups/_data/_page/Menu';
+import Menu from '../../_page/Menu';
 import ProfilePage from '../_page/ProfilePage';
 import LoginPage from '../_page/LoginPage';
 import LogoutPage from '../_page/LogoutPage';

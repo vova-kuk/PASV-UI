@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import Menu from '../../groups/_data/_page/Menu';
-import FlashCardsPage from '../../groups/_data/_page/FlashCardsPage';
+import Menu from '../../_page/Menu';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
 import { student } from '../../user/_data/user.data';
 import CardsTrainingPage from '../_page/CardsTrainingPage';

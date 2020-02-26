@@ -3,8 +3,8 @@ import GroupsPage from '../_page/GroupsPage';
 import GroupNamePage from '../_page/GroupNamePage';
 import { student } from '../../user/_data/user.data';
 import { groupsLectures } from '../_data/groupsLectures.data.js';
-import CreateLecturePage from '../_data/_page/CreateLecturePage';
-import { lectureName } from '../_data/_page/CreateLecturePage';
+import CreateLecturePage from '../../_page/CreateLecturePage';
+import { lectureName } from '../../_page/CreateLecturePage';
 
 describe('CLICK MARK AS UNDERSTOOD BUTTON AS A STUDENT', () => {
   before('should create new lecture and login as Student', () => {

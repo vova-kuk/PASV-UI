@@ -1,9 +1,9 @@
 import {expect}  from 'chai';
-import LoginPage from '../../groups/_data/_page/LoginPage';
-import HomePage from '../../groups/_data/_page/HomePage';
+import LoginPage from '../../_page/LoginPage';
+import HomePage from '../../_page/HomePage';
 import {student} from  './../../_data/user.data';
-import Menu from "../../groups/_data/_page/Menu";
-import Notification from "../../groups/_data/_page/Notification";
+import Menu from "../../_page/Menu";
+import Notification from "../../_page/Notification";
 
 describe('LOGIN PAGE --POSITIVE', () => {
     before(() => {

@@ -1,6 +1,6 @@
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import CreateDayReportPage from '../../groups/_data/_page/CreateDayReportPage';
+import CreateDayReportPage from '../../_page/CreateDayReportPage';
 import { student } from '../../user/_data/user.data';
 
 describe('CREATE DAY REPORT -- POSITIVE', () => {

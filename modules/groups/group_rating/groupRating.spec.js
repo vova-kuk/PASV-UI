@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { student } from '../../user/_data/user.data';
 import LoginPage from '../../user/_page/LoginPage';
-import Menu from '../_data/_page/Menu';
+import Menu from '../../_page/Menu';
 import GroupsPage from '../_page/GroupsPage';
 import GroupRating from '../_page/GroupRating';
 

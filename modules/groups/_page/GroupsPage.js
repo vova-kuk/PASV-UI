@@ -1,6 +1,6 @@
-import AppPage from '../_data/_page/AppPage';
+import AppPage from '../../_page/AppPage';
 import LoginPage from '../../user/_page/LoginPage';
-import Menu from '../_data/_page/Menu';
+import Menu from '../../_page/Menu';
 import LogoutPage from '../../user/_page/LogoutPage';
 
 class GroupsPage extends AppPage {
