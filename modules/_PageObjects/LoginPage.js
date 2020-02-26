@@ -29,6 +29,10 @@ class LoginPage extends AppPage{
         return browser.$('//h4[@class="notification-title"]');
     }
 
+    get invalidEmailNotification() {
+        return browser.$('//div[contains(text(),"Invalid email address")]"]');
+    }
+
     login(role) {
         this.open();
         this.emailInput.setValue(role.email);
