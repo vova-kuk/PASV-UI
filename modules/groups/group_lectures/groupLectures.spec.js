@@ -81,4 +81,5 @@ describe('GROUPS LECTURES', () => {
   it('should click Add comment button', () => {
     LecturePage.addCommentBtn.click();
   });
+
 });
