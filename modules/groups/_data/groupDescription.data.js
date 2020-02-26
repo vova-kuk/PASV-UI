@@ -1,10 +1,8 @@
-const data = {
+const groupDescription = {
   partialUrl: 'description',
-  header: 'Groups',
-  group: {
-    name: 'GROUP FOR TEST',
-    description: 'test test test test test',
-  },
+  h1: 'Groups',
+  name: 'Group GROUP FOR TEST',
+  description: 'test test test test test',
 };
 
-export { data };
+export { groupDescription };
