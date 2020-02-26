@@ -3,8 +3,8 @@ import Notification from '../../_PageObjects/Notification';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
-import DailyReportsPage from '../../_PageObjects/DailyReportsPageList';
-import { data } from '../../_data/dailyReportsList.data';
+import DailyReportsPage from '../_page/DailyReportsPageList';
+import { dailyReportList } from '../_data/dailyReportsList.data';
 import { student } from '../../user/_data/user.data';
 
 describe('DAILY REPORTS PAGE TESTING', () => {
@@ -22,17 +22,10 @@ describe('DAILY REPORTS PAGE TESTING', () => {
 
   it('should show success notification', () => {
     browser.waitUntil(() => Notification.title.isDisplayed());
-    const element = Notification.success;
-    expect(element.isDisplayed()).true;
-  });
-
-  it('should check notification is correct', () => {
-    const element = Notification.title.getText();
-    expect(element.includes(data.notificationText));
   });
 
   it('should check that page has correct description', () => {
-    expect(Menu.h1.getText()).equal(data.h1);
+    expect(Menu.h1.getText()).equal(dailyReportList.h1);
   });
 
   it('should check Create Day Report button is displayed', () => {
@@ -41,7 +34,7 @@ describe('DAILY REPORTS PAGE TESTING', () => {
 
   it('should check paragraph contains correct description', () => {
     const actual = Menu.p.getText();
-    expect(actual).eq(data.p);
+    expect(actual).eq(dailyReportList.p);
   });
 
   it('should Create Day Report button be clickable', () => {
