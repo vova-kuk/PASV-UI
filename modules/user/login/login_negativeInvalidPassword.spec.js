@@ -28,6 +28,6 @@ describe('LOGIN PAGE NEGATIVE with valid Email and invalid Password', () => {
     });
 
     it('should get negative login notification', () => {
-        browser.waitUntil(() => $(Notification.fail).isDisplayed(), 60000);
+        browser.waitUntil(() => $(Notification.fail).isDisplayed(), 100000);
     });
 });

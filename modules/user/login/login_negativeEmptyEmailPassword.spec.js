@@ -22,3 +22,4 @@ describe('LOGIN PAGE NEGATIVE with not correct email entering', () => {
         browser.waitUntil(() => $(LoginPage.invalidEmailNotification).isDisplayed(), 5000);
     });
 });
+
