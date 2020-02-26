@@ -2,9 +2,9 @@
 
 
 
-import ProfilePage from '../../_PageObjects/ProfilePage';
-import LoginPage from '../../_PageObjects/LoginPage';
-import Menu from '../../_PageObjects/Menu';
+import ProfilePage from '../../_page/ProfilePage';
+import LoginPage from '../../_page/LoginPage';
+import Menu from '../../_page/Menu';
 import { student } from '../../_data/user.data';
 import {data} from "../../_data/profilePage.data";
 

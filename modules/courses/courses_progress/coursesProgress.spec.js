@@ -1,11 +1,11 @@
-import Menu from '../../_PageObjects/Menu';
+import Menu from '../../groups/_data/_page/Menu';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
 import ProfilePage from '../../user/_page/ProfilePage';
-import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
+import CoursesProgressPage from '../../groups/_data/_page/CoursesProgressPage';
 import { data } from '../../user/_data/profilePage.data';
 import { admin, student } from '../../user/_data/user.data';
-import CoursesPage from '../../_PageObjects/CoursesPage';
+import CoursesPage from '../../groups/_data/_page/CoursesPage';
 import { course } from '../../_data/courseProgress.data';
 
 // this test will be refactored once Create New Course method is proper

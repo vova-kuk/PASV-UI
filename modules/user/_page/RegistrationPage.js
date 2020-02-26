@@ -1,4 +1,4 @@
-import AppPage from '../../_PageObjects/AppPage';
+import AppPage from '../../groups/_data/_page/AppPage';
 import { newUserData } from '../_data/registration.data';
 import { userRegisteredData } from '../_data/userAlreadyRegistered.data';
 

@@ -1,4 +1,4 @@
-import AppPage from './AppPage';
+import AppPage from '../_data/_page/AppPage';
 
 class GroupDescriptionPage extends AppPage {
   get recentlyCreatedGroup() {

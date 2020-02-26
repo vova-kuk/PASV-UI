@@ -1,4 +1,4 @@
-import AppPage from '../../_PageObjects/AppPage';
+import AppPage from '../../groups/_data/_page/AppPage';
 
 class DailyReportsPageList extends AppPage {
   get diaryBtn() {

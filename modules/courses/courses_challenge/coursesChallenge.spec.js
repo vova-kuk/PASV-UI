@@ -1,12 +1,12 @@
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
 import { admin, student } from '../../user/_data/user.data';
-import CoursesPage from '../../_PageObjects/CoursesPage';
-import ChallengePage from '../../_PageObjects/ChallengePage';
-import { courseData } from '../../_PageObjects/CoursesPage';
-import { challengeData } from '../../_PageObjects/ChallengePage';
-import Notification from '../../_PageObjects/Notification';
-import Menu from '../../_PageObjects/Menu';
+import CoursesPage from '../../groups/_data/_page/CoursesPage';
+import ChallengePage from '../../groups/_data/_page/ChallengePage';
+import { courseData } from '../../groups/_data/_page/CoursesPage';
+import { challengeData } from '../../groups/_data/_page/ChallengePage';
+import Notification from '../../groups/_data/_page/Notification';
+import Menu from '../../groups/_data/_page/Menu';
 
 describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
   before('should login as Admin, create Course, create Challenge', () => {

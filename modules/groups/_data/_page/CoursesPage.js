@@ -1,5 +1,5 @@
 import AppPage from './AppPage';
-import LoginPage from '../user/_page/LoginPage';
+import LoginPage from '../../../user/_page/LoginPage';
 import Menu from './Menu';
 
 class CoursesPage extends AppPage {

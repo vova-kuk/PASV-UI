@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import FlashCardsPage from '../../groups/_data/_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
 import { negative3 } from '../../_data/newCard.data';
 import { student } from '../../user/_data/user.data';
