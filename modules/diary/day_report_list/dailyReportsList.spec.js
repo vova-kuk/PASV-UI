@@ -1,11 +1,11 @@
 import Menu from '../../_PageObjects/Menu';
 import Notification from '../../_PageObjects/Notification';
-import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from '../../_PageObjects/LogoutPage';
+import LoginPage from '../../user/_page/LoginPage';
+import LogoutPage from '../../user/_page/LogoutPage';
 import CreateDayReportPage from '../../_PageObjects/CreateDayReportPage';
 import DailyReportsPage from '../../_PageObjects/DailyReportsPageList';
 import { data } from '../../_data/dailyReportsList.data';
-import { student } from '../../_data/user.data';
+import { student } from '../../user/_data/user.data';
 
 describe('DAILY REPORTS PAGE TESTING', () => {
   before(() => {

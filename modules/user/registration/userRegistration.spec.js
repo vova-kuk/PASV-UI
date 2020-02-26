@@ -1,26 +1,32 @@
-import RegistrationPage from '../../_PageObjects/RegistrationPage';
+import RegistrationPage from '../_page/RegistrationPage';
 import HomePage from '../../_PageObjects/HomePage';
-import Menu from '../../_PageObjects/Menu';
-import Notification from "../../_PageObjects/Notification";
-import {urlData} from "../../_data/url.data";
-import {newUserData, pageRegisterData, successfulNotificationData} from '../../_data/registration.data';
+import Notification from '../../_PageObjects/Notification';
+import { urlData } from '../../_data/url.data';
+import {
+  newUserData,
+  pageRegisterData,
+  successfulNotificationData,
+} from '../_data/registration.data';
+import AppPage from '../../_PageObjects/AppPage';
 
+describe('USER REGISTRATION', () => {
+  before(
+    'should open Home Page, click button `Registration` and redirect to Registration Page',
+    () => {
+      HomePage.open();
+      HomePage.registrationLink.click();
+      browser.pause(1000);
+    },
+  );
 
-describe('REGISTRATION PAGE -- POSITIVE', () => {
-  before('should open Home Page, click button `Registration` and redirect to Registration Page',() => {
-    HomePage.open();
-    HomePage.registrationLink.click();
-    browser.pause(1000);
-  });
-
-  it('should registration page has correct heading', () => {
-    const actual = Menu.h1.getText();
+  it('should registration page has correct header', () => {
+    const actual = AppPage.h1.getText();
     const expected = pageRegisterData.h1;
     expect(actual).eq(expected);
   });
 
   it('should have correct warning text', () => {
-    const actual = Menu.p.getText();
+    const actual = RegistrationPage.p.getText();
     const expected = pageRegisterData.warningText;
     expect(actual).eq(expected);
   });
@@ -82,8 +88,7 @@ describe('REGISTRATION PAGE -- POSITIVE', () => {
   });
 
   it('should wait until redirect to login page after submitting form', () => {
-    browser.waitUntil(() => {
-      return browser.getUrl() === urlData.loginUrl}, 3000);
+    browser.waitUntil(() => browser.getUrl() === urlData.loginUrl, 3000);
   });
 
   it('should get successful notification about user registration in the system', () => {
@@ -91,7 +96,4 @@ describe('REGISTRATION PAGE -- POSITIVE', () => {
     const expected = successfulNotificationData.successfulNotification;
     expect(actual).eq(expected);
   });
-
 });
-
-

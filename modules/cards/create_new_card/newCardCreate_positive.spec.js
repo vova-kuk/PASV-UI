@@ -1,8 +1,8 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
-import LoginPage from '../../_PageObjects/LoginPage';
-import {positive, pageTitle} from '../../_data/newCard.data';
-import {student} from '../../_data/user.data';
+import LoginPage from '../../user/_page/LoginPage';
+import { positive, pageTitle } from '../../_data/newCard.data';
+import { student } from '../../user/_data/user.data';
 
 describe('CREATE NEW CARD -- POSITIVE', () => {
   before('should login as a student', () => {
@@ -86,6 +86,5 @@ describe('CREATE NEW CARD -- POSITIVE', () => {
 
   after('logout', () => {
     FlashCardsPage.logout();
-  })
-
+  });
 });

@@ -1,5 +1,4 @@
-import AppPage from '../AppPage';
-
+import AppPage from './AppPage';
 
 class CoursesProgressPage extends AppPage {
   get progressLink() {
@@ -11,9 +10,8 @@ class CoursesProgressPage extends AppPage {
   }
 
   get createNewCourseBtn() {
-      return $('//a[@class="btn btn-primary"]')
+    return $('//a[@class="btn btn-primary"]');
   }
-
 }
 
 export default new CoursesProgressPage();

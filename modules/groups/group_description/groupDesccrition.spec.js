@@ -1,9 +1,9 @@
 import Menu from '../../_PageObjects/Menu';
-import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from '../../_PageObjects/LogoutPage';
+import LoginPage from '../../user/_page/LoginPage';
+import LogoutPage from '../../user/_page/LogoutPage';
 import GroupsPage from '../../_PageObjects/GroupsPage';
 import GroupDescriptionPage from '../../_PageObjects/GroupDescriptionPage';
-import { admin, student } from '../../_data/user.data';
+import { admin, student } from '../../user/_data/user.data';
 import { data } from '../../_data/groupDescription.data';
 
 describe('GROUP DESCRIPTION TAB', () => {

@@ -1,109 +1,116 @@
-import AppPage from '../AppPage';
-import {groupNameLink} from "../_data/newCard.data";
-
+import AppPage from './AppPage';
+import { groupNameLink } from '../_data/newCard.data';
 
 class FlashCardsPage extends AppPage {
+  open() {
+    super.open('https://stage.pasv.us/flash');
+  }
 
-    open() {
-        super.open('https://stage.pasv.us/flash');
-    }
+  get h1() {
+    return browser.$('//h1');
+  }
 
-    get h1() {
-        return browser.$('//h1');
-    }
+  get pageDescription() {
+    return browser.$('//div//p[@qa="flash-description"]');
+  }
 
+  openCardsMenu() {
+    return browser.$('//li//a[contains(text(),"Cards")]');
+  }
 
-    get pageDescription(){
-        return browser.$('//div//p[@qa="flash-description"]');
-    }
+  get groupName() {
+    return browser.$(groupNameLink);
+  }
 
-    openCardsMenu(){
-        return browser.$('//li//a[contains(text(),"Cards")]');
-    }
+  get createNewCardBtn() {
+    return browser.$('//button[text() = "Create new Card"]');
+  }
 
-    get groupName() {
-        return browser.$(groupNameLink);
-    }
+  get modalForm() {
+    return browser.$('//div[contains(@class, "sidepanel")]');
+  }
 
-    get createNewCardBtn() {
-        return browser.$('//button[text() = "Create new Card"]');
-    }
+  get modalFormTitle() {
+    return browser.$(
+      '//div[contains(@class, "sidepanel")]//*[@class="modal-title"]',
+    );
+  }
 
-    get modalForm() {
-        return browser.$('//div[contains(@class, "sidepanel")]');
-    }
+  get question() {
+    return browser.$('//textarea[@name = "question"]');
+  }
 
-    get modalFormTitle() {
-        return browser.$('//div[contains(@class, "sidepanel")]//*[@class="modal-title"]');
-    }
+  get answer() {
+    return browser.$('//textarea[@name = "answer"]');
+  }
 
-    get question() {
-        return browser.$('//textarea[@name = "question"]');
-    }
+  get createBtn() {
+    return browser.$('//button[text() = "Create"]');
+  }
 
-    get answer() {
-        return browser.$('//textarea[@name = "answer"]');
-    }
+  get titleOfCurrentGroup() {
+    return browser.$('//h1');
+  }
 
-    get createBtn() {
-        return browser.$('//button[text() = "Create"]');
-    }
+  get firstCreatedCard() {
+    return browser.$('//div[@qa="flash-group-list "]//a');
+  }
 
-    get titleOfCurrentGroup() {
-        return browser.$('//h1');
-    }
+  get lastCreatedCard() {
+    return browser.$(
+      '//div[@class = "pb-4 mb-4 border-bottom"]//strong[@class = "d-block mb-2"]',
+    );
+  }
 
-    get firstCreatedCard() {
-        return browser.$('//div[@qa="flash-group-list "]//a');
-    }
+  get profileDropdown() {
+    return browser.$('//a[@class = "dropdown-toggle nav-link"]');
+  }
 
-    get lastCreatedCard() {
-        return browser.$('//div[@class = "pb-4 mb-4 border-bottom"]//strong[@class = "d-block mb-2"]');
-    }
+  get logoutLink() {
+    return browser.$('// button[contains(text(), "Logout")]');
+  }
 
-    get profileDropdown() {
-        return browser.$('//a[@class = "dropdown-toggle nav-link"]');
-    }
+  logout() {
+    this.profileDropdown.click();
+    this.logoutLink.click();
+    browser.pause(1000);
+  }
 
-    get logoutLink() {
-        return browser.$('// button[contains(text(), "Logout")]');
-    }
+  //testing one of the cards
+  get h1LastCreated() {
+    return browser.$('//h1');
+  }
 
-    logout() {
-        this.profileDropdown.click();
-        this.logoutLink.click();
-        browser.pause(1000);
-    }
+  get mainViewLink() {
+    return browser.$('//*[contains(text(),"Main view")]');
+  }
 
-//testing one of the cards
-    get h1LastCreated(){
-        return browser.$('//h1');
-    }
+  get compactViewLink() {
+    return browser.$(
+      '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]',
+    );
+  }
 
-    get mainViewLink() {
-        return browser.$('//*[contains(text(),"Main view")]');
-    }
+  get waitingForApproval() {
+    return browser.$('//*[contains(text(),"Waiting for approval")]');
+  }
 
-    get compactViewLink() {
-        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]');
-    }
+  get trainingLink() {
+    return browser.$(
+      '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]',
+    );
+  }
 
-    get waitingForApproval() {
-        return browser.$('//*[contains(text(),"Waiting for approval")]');
-    }
+  get cardLastInList() {
+    return browser.$(
+      '//div[@qa="flash-group-list "]//div[@qa="flash-group-item"][last()]//a',
+    );
+  }
 
-    get trainingLink() {
-        return browser.$('//ul[@qa="flash-group-tabs"]//a[contains(text(),"Training")]');
-    }
-
-    get cardLastInList() {
-        return browser.$('//div[@qa="flash-group-list "]//div[@qa="flash-group-item"][last()]//a');
-    }
-
-    get linkToGroup() {
-        // return browser.$('=TestGroup');  - looks cool, but we decided to use other standard in thr whole project
-        return browser.$('//h4[@qa="name"]//a[text()="TestGroup"]');
-    }
+  get linkToGroup() {
+    // return browser.$('=TestGroup');  - looks cool, but we decided to use other standard in thr whole project
+    return browser.$('//h4[@qa="name"]//a[text()="TestGroup"]');
+  }
 }
 
 export default new FlashCardsPage();

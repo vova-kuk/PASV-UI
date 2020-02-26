@@ -1,15 +1,13 @@
-import AppPage from '../AppPage';
+import AppPage from './AppPage';
 
-class DiaryPage extends AppPage{
+class DiaryPage extends AppPage {
+  goToDiaryPage() {
+    super.click('//a[@qa="diary-link"]');
+  }
 
-    goToDiaryPage() {
-        super.click('//a[@qa="diary-link"]');
-    }
-
-    get approveBtn() {
-        return $('//button[@qa="approve-button"]');
-    }
-
+  get approveBtn() {
+    return $('//button[@qa="approve-button"]');
+  }
 }
 
 export default new DiaryPage();

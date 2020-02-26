@@ -1,4 +1,4 @@
-import AppPage from '../AppPage';
+import AppPage from './AppPage';
 
 class HomePage extends AppPage {
   get h1() {
@@ -20,8 +20,6 @@ class HomePage extends AppPage {
   get registrationLink() {
     return $('//a[@qa="register-link"]');
   }
-
 }
 
 export default new HomePage();
-

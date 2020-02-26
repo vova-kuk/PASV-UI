@@ -1,69 +1,67 @@
-import AppPage from '../AppPage';
-import LoginPage from "./LoginPage";
-import Menu from "./Menu";
-import LogoutPage from "./LogoutPage";
+import AppPage from './AppPage';
+import LoginPage from '../user/_page/LoginPage';
+import Menu from './Menu';
+import LogoutPage from '../user/_page/LogoutPage';
 
 class GroupsPage extends AppPage {
+  get groupsLink() {
+    return browser.$('//a[@qa="groups-link"]');
+  }
 
-    get groupsLink() {
-        return browser.$('//a[@qa="groups-link"]');
-    }
+  get h1() {
+    return browser.$('//h1');
+  }
 
-    get h1() {
-        return browser.$('//h1');
-    }
+  get groupLink() {
+    return browser.$('=QA 5 new Group');
+  }
 
-    get groupLink() {
-        return browser.$('=QA 5 new Group');
-    }
+  lectureLink(lectureName) {
+    return browser.$(`//span[text() = "${lectureName}"]`);
+  }
 
-    lectureLink(lectureName) {
-        return browser.$(`//span[text() = "${lectureName}"]`);
-    }
+  get group4TestLink() {
+    return $('//h4[@qa="group-name"]//a[text()="Group4Test"]');
+  }
 
-    get group4TestLink() {
-        return $('//h4[@qa="group-name"]//a[text()="Group4Test"]');
-    }
+  get linkToGroupGroup6Test() {
+    return $('//a[contains(text(),"GROUP6 TEST")]');
+  }
 
-    get linkToGroupGroup6Test() {
-        return $('//a[contains(text(),"GROUP6 TEST")]');
-    }
+  get quizTabBtn() {
+    return $('//a[contains(text(),"Quiz")]');
+  }
 
-    get quizTabBtn(){
-        return $('//a[contains(text(),"Quiz")]');
-    }
+  get createGroupBtn() {
+    return $('//a[@class="btn btn-secondary"]');
+  }
 
-    get createGroupBtn(){
-        return $('//a[@class="btn btn-secondary"]');
-    }
+  get groupNameInput() {
+    return $('//input[@name="name"]');
+  }
 
-    get groupNameInput(){
-        return $('//input[@name="name"]');
-    }
+  get groupDescriptionInput() {
+    return $('//input[@name="description"]');
+  }
 
-    get groupDescriptionInput(){
-        return $('//input[@name="description"]');
-    }
+  get accessTypeDropbox() {
+    return $('//select[@name="accessType"]');
+  }
 
-    get accessTypeDropbox(){
-        return $('//select[@name="accessType"]');
-    }
+  get createBtn() {
+    return $('//button[@type="submit"]');
+  }
 
-    get createBtn(){
-        return $('//button[@type="submit"]');
-    }
-
-    createNewGroup(role) {
-        LoginPage.login(role);
-        super.click(Menu.groupLink);
-        super.click(this.createGroupBtn);
-        this.groupNameInput.setValue('GROUP FOR TEST');
-        this.groupDescriptionInput.setValue('test '.repeat(5));
-        this.accessTypeDropbox.selectByVisibleText('All');
-        super.click(this.createBtn);
-        LogoutPage.logout()
-    }
-
+  createNewGroup(role) {
+    LoginPage.login(role);
+    super.click(Menu.groupLink);
+    super.click(this.createGroupBtn);
+    this.groupNameInput.setValue('GROUP FOR TEST');
+    this.groupDescriptionInput.setValue('test '.repeat(5));
+    this.accessTypeDropbox.selectByVisibleText('All');
+    super.click(this.createBtn);
+    LogoutPage.logout();
+  }
 }
 
 export default new GroupsPage();

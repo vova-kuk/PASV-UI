@@ -1,8 +1,11 @@
-import AppPage from '../AppPage';
-import {newUserData} from "../_data/registration.data";
-import {userRegisteredData} from "../_data/userAlreadyRegistered.data";
+import AppPage from '../../_PageObjects/AppPage';
+import { newUserData } from '../_data/registration.data';
+import { userRegisteredData } from '../_data/userAlreadyRegistered.data';
 
 class RegistrationPage extends AppPage {
+  get p() {
+    return $('//p');
+  }
 
   get firstNameInput() {
     return $('//form//input[@name="firstName"]');
@@ -63,7 +66,6 @@ class RegistrationPage extends AppPage {
     this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
     this.submitBtn.click();
   }
-
 }
 
 export default new RegistrationPage();

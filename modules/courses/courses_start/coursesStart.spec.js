@@ -1,9 +1,9 @@
-import LoginPage from '../../_PageObjects/LoginPage';
-import Logout from '../../_PageObjects/LogoutPage';
+import LoginPage from '../../user/_page/LoginPage';
+import Logout from '../../user/_page/LogoutPage';
 import NewCourseCreatePage from '../../_PageObjects/NewCourseCreatePage';
 import CourseStartPage from '../../_PageObjects/CourseStartPage';
 import { newCourseCreate } from '../../_data/courseStart.data';
-import { admin, student } from '../../_data/user.data';
+import { admin, student } from '../../user/_data/user.data';
 
 describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
   before(() => {
@@ -24,7 +24,6 @@ describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
     Logout.logout();
   });
 });
-
 
 describe('START THE COURSE (AS A STUDENT)', () => {
   before(() => {

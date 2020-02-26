@@ -1,10 +1,10 @@
 import Menu from '../../_PageObjects/Menu';
-import LoginPage from '../../_PageObjects/LoginPage';
-import LogoutPage from '../../_PageObjects/LogoutPage';
-import ProfilePage from '../../_PageObjects/ProfilePage';
+import LoginPage from '../../user/_page/LoginPage';
+import LogoutPage from '../../user/_page/LogoutPage';
+import ProfilePage from '../../user/_page/ProfilePage';
 import CoursesProgressPage from '../../_PageObjects/CoursesProgressPage';
-import { data } from '../../_data/profilePage.data';
-import { admin, student } from '../../_data/user.data';
+import { data } from '../../user/_data/profilePage.data';
+import { admin, student } from '../../user/_data/user.data';
 import CoursesPage from '../../_PageObjects/CoursesPage';
 import { course } from '../../_data/courseProgress.data';
 
@@ -21,8 +21,8 @@ describe('COURSES PROGRESS PAGE', () => {
   });
 
   it('should find and open recently created course', () => {
-    $(`//a[contains(text(),${course.name})]`).click();  browser.pause(4000);
-
+    $(`//a[contains(text(),${course.name})]`).click();
+    browser.pause(4000);
   });
 
   it('should click Progress link', () => {

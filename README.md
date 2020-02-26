@@ -70,7 +70,7 @@ module.exports = {
 1 Go to `https://github.com/KatAvdeeva/PASV-UI`.
 
 2 Clone the project link. 
-![](images/GH_Clone.png)
+![](docs/images/GH_Clone.png)
 
 3 Go to WebStorm dashboard. Click `Get from Version Control`.
 

@@ -1,4 +1,4 @@
-import AppPage from '../AppPage';
+import AppPage from './AppPage';
 import { newCourseCreate } from '../_data/courseStart.data';
 
 class NewCourseCreatePage extends AppPage {
