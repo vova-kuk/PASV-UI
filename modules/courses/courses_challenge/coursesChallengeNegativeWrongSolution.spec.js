@@ -9,7 +9,6 @@ import Notification from '../../_PageObjects/Notification';
 import Menu from '../../_PageObjects/Menu';
 
 describe('ADD A NEW CHALLENGE TO CREATED COURSE ', () => {
-
   before('should login as Admin, create Course, create Challenge', () => {
     LoginPage.login(admin);
     CoursesPage.createNewCourseGlobal;
@@ -65,7 +64,7 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
   });
 
   it('should fill in correct solution in "Write your solution here" textarea', () => {
-    $(ChallengePage.challengeInsideCourseTextarea).setValue(challengeData.solution);
+    $(ChallengePage.challengeInsideCourseTextarea).setValue('Let i == 909');
   });
 
   it('should click "Validate solution" ', () => {
@@ -73,19 +72,12 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
     browser.pause(1000);
   });
 
-  it('should confirm all tests passed', () => {
-    expect($(ChallengePage.challengePassArray).length).eq(challengeData.testsQuantity);
+  it('should confirm tests NOT passed', () => {
+    expect($(ChallengePage.challengePassArray).length).notEqual(challengeData.testsQuantity);
   });
 
-  it('should click button "Submit solution" ', () => {
-    $(ChallengePage.challengeSubmitSolutionBtn).click();
+  it('should confirm fail notification wrapper is Displayed', () => {
+    $(Notification.fail).isDisplayed();
   });
 
-  it('should confirm success notification wrapper is Displayed', () => {
-    $(Notification.success).isDisplayed();
-  });
-
-  it('should confirm challenge marked as a "Completed"', () => {
-    $(ChallengePage.challengeCompleteMark).isDisplayed();
-  });
 });

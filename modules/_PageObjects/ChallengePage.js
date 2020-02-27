@@ -1,11 +1,12 @@
 import AppPage from './AppPage';
 import { courseData } from './CoursesPage';
+import Menu from "./Menu";
 
 class ChallengePage extends AppPage {
   get createNewChallengeGlobal() {
     this.open('https://stage.pasv.us/challenge');
     this.createNewChallengeBtn.click();
-    browser.pause(1000);
+    browser.waitUntil(() => $(Menu.h1).isDisplayed());
     this.challengeNameInput.setValue(challengeData.name);
     this.challengeDescriptionTextarea.setValue(challengeData.description);
     this.challengeInstructionTextarea.setValue(challengeData.instruction);
@@ -16,7 +17,7 @@ class ChallengePage extends AppPage {
     this.challengeLevelSelect.selectByAttribute('value', challengeData.level);
     this.chalelngeCheckerSelect.selectByAttribute('value', challengeData.checker);
     this.challengeSaveBtn.click();
-    browser.waitUntil(() => $('//h1').isDisplayed());
+    browser.waitUntil(() => $(Menu.h1).isDisplayed());
   }
 
   get createNewChallengeBtn() {

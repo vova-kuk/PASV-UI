@@ -4,7 +4,7 @@
   "description": "PASV-UI Project",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",
