@@ -17,63 +17,6 @@ class CreateDayReportPage extends AppPage {
     return browser.$('//div[contains(@class, "mb-2")]//strong');
   }
 
-  get needHelp() {
-    return browser.$('//input[@id="input-0"]') && browser.$('//input[@label="I need help"]');
-  }
-
-  get understoodEverything() {
-    return (
-      browser.$('//input[@id="input-1"]') && browser.$('//input[@label="I understood everything"]')
-    );
-  }
-
-  get helpedClassmates() {
-    return browser.$('//input[@id="input-2"]') && browser.$('//input[@label="Helped classmates"]');
-  }
-
-  get watchedLectures() {
-    return browser.$('//input[@id="input-3"]') && browser.$('//input[@label="Watched lectures"]');
-  }
-
-  get readDocumentation() {
-    return browser.$('//input[@id="input-4"]') && browser.$('//input[@label="Read documentation"]');
-  }
-
-  get codePractice() {
-    return browser.$('//input[@id="input-5"]') && browser.$('//input[@label="Code practice"]');
-  }
-
-  get quizPractice() {
-    return browser.$('//input[@id="input-6"]') && browser.$('//input[@label="Quiz practice"]');
-  }
-
-  get interviewPreparation() {
-    return (
-      browser.$('//input[@id="input-7"]') && browser.$('//input[@label="Interview preparation"]')
-    );
-  }
-
-  get recruiterPhoneCall() {
-    return (
-      browser.$('//input[@id="input-8"]') && browser.$('//input[@label="Recruiter phone call"]')
-    );
-  }
-
-  get interviewTechScreen() {
-    return (
-      browser.$('//input[@id="input-9"]') &&
-      browser.$('//input[@label="Interview technical screen"]')
-    );
-  }
-
-  get interviewOnsite() {
-    return browser.$('//input[@id="input-10"]') && browser.$('//input[@label="Interview onsite"]');
-  }
-
-  get jobOffer() {
-    return browser.$('//input[@id="input-11"]') && browser.$('//input[@label="Got a job offer"]');
-  }
-
   get instructionToNeedHelp1() {
     return browser.$('//label[@for="input-0"]//small[@class="text-secondary"]');
   }
