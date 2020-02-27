@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import LoginPage from '../../user/_page/LoginPage';
 import DayReportLikePage from '../_page/DayReportLikePage';
-import CreateDayReportPage from "../../_page/CreateDayReportPage";
+import CreateDayReportPage from "../../diary/_page/CreateDayReportPage";
 import { student } from '../../user/_data/user.data';
 
-describe('DAY_REPORT_LIKE_PAGE', () => {
+describe('DAY REPORT PAGE LIKE BUTTON TESTING', () => {
   before(() => {
     LoginPage.login(student);
     DayReportLikePage.diaryLink.click();
