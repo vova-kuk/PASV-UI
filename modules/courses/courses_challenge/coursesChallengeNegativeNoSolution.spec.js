@@ -79,5 +79,4 @@ describe('STUDENT CHECK CHALLENGE IN COURSE --- POSITIVE', () => {
   it('should confirm fail notification wrapper is Displayed', () => {
     $(Notification.fail).isDisplayed();
   });
-
 });
