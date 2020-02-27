@@ -1,7 +1,7 @@
 const testEmails = {
   incorrectFormat: 'amcamc@@',
   notRegistered: 'asdadfdfs@mail.com',
-  correctFormat: 'ooopartner00@mail.ru',
+  correctFormat: 'olya6avg@gmail.com',
 };
 
 const pagePswRecovery = {
