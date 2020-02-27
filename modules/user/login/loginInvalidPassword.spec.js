@@ -1,5 +1,5 @@
-import LoginPage from '../../_page/LoginPage';
-import {student} from  './../../_data/user.data';
+import LoginPage from '../_page/LoginPage';
+import {student} from  '../_data/user.data';
 import Menu from "../../_page/Menu";
 import Notification from "../../_page/Notification";
 

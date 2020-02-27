@@ -1,9 +1,10 @@
 import { expect } from 'chai';
-import LoginPage from '../../_page/LoginPage';
-import {student} from  './../../_data/user.data';
+import LoginPage from '../_page/LoginPage';
+import {student} from  '../_data/user.data';
 import Menu from "../../_page/Menu";
 
-describe('LOGIN PAGE NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
+
+describe('LOGIN PAGE NEGATIVE WITH VALID EMAIL AND EMPTY PASSWORD FIELD', () => {
     before(() => {
         LoginPage.open();
     });
@@ -13,11 +14,12 @@ describe('LOGIN PAGE NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
           5000, 'expected header to be different after 3s');
     });
 
-    it('should fill out password field', () => {
-        LoginPage.passwordInput.setValue(123456);
+    it('should fill out email field', () => {
+        LoginPage.emailInput.setValue(student.email);
     });
 
-    it('should Login button is disabled', () => {
+    it('should Login btn is disabled', () => {
         expect(LoginPage.submitBtn.isEnabled()).eq(false);
     });
+
 });
