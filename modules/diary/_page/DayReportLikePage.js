@@ -9,7 +9,7 @@ class DayReportLikePage extends AppPage {
     return browser.$('//h1');
   }
 
-  get submitBtn() {
+  get likeBtn() {
     return browser.$('//button[@qa="like-button"]');
   }
 

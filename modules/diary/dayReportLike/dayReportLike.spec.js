@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import LoginPage from '../../user/_page/LoginPage';
 import DayReportLikePage from '../_page/DayReportLikePage';
-import CreateDayReportHelper from './CreateDayReportHelper';
+import CreateDayReportPage from "../../_page/CreateDayReportPage";
 import { student } from '../../user/_data/user.data';
 
 describe('DAY_REPORT_LIKE_PAGE', () => {
@@ -12,23 +12,20 @@ describe('DAY_REPORT_LIKE_PAGE', () => {
   });
 
   it('should have a correct page title', () => {
-    const actual = DayReportLikePage.h1.getText();
+    const actual = CreateDayReportPage.header.getText();
     const expected = 'Daily reports';
     expect(actual).equal(expected);
   });
 
   it('should click Like button', () => {
-    DayReportLikePage.createDayReportBtn.click();
+    CreateDayReportPage.createNewDayReport();
+    expect(DayReportLikePage.likeBtn.getText()).equal('Like 👍');
+    DayReportLikePage.likeBtn.click();
     browser.pause(500);
-    CreateDayReportHelper.createReport();
-    browser.pause(500);
-    expect(DayReportLikePage.submitBtn.getText()).equal('Like 👍');
-    DayReportLikePage.submitBtn.click();
-    browser.pause(500);
-    expect(DayReportLikePage.submitBtn.getText()).equal('I like this 👍1');
+    expect(DayReportLikePage.likeBtn.getText()).equal('I like this 👍1');
   });
 
   it('should Like button be disabled', () => {
-    expect(DayReportLikePage.submitBtn.isEnabled()).equal(false);
+    expect(DayReportLikePage.likeBtn.isEnabled()).equal(false);
   });
 });
