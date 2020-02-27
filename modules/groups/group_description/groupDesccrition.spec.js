@@ -1,10 +1,10 @@
-import Menu from '../../_PageObjects/Menu';
+import Menu from '../../_page/Menu';
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import GroupsPage from '../../_PageObjects/GroupsPage';
-import GroupDescriptionPage from '../../_PageObjects/GroupDescriptionPage';
+import GroupsPage from '../_page/GroupsPage';
+import GroupDescriptionPage from '../_page/GroupDescriptionPage';
 import { admin, student } from '../../user/_data/user.data';
-import { data } from '../../_data/groupDescription.data';
+import { groupDescription } from '../_data/groupDescription.data';
 
 describe('GROUP DESCRIPTION TAB', () => {
   before(() => {
@@ -19,7 +19,7 @@ describe('GROUP DESCRIPTION TAB', () => {
 
   it('should have a correct page title', () => {
     const actual = Menu.h1.getText();
-    const expected = data.header;
+    const expected = groupDescription.h1;
     expect(actual).equal(expected);
   });
 
@@ -30,7 +30,7 @@ describe('GROUP DESCRIPTION TAB', () => {
 
   it('should Group have correct name', () => {
     const element = Menu.h1.getText();
-    expect(element.includes(data.group.name)).true;
+    expect(element.includes(groupDescription.name)).true;
   });
 
   it('should open Group description tab', () => {
@@ -40,12 +40,12 @@ describe('GROUP DESCRIPTION TAB', () => {
 
   it('should check Group description tab has opened', () => {
     const element = browser.getUrl();
-    expect(element.includes(data.partialUrl)).true;
+    expect(element.includes(groupDescription.partialUrl)).true;
   });
 
   it('should Group have correct description', () => {
     const actual = Menu.p.getText();
-    const expected = data.group.description;
+    const expected = groupDescription.description;
     expect(actual).equal(expected);
   });
 

@@ -1,10 +1,10 @@
 import { expect } from 'chai';
-import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
-import { negative2 } from '../../_data/newCard.data';
+import { negative4 } from '../../_data/newCard.data';
 import { student } from '../../user/_data/user.data';
 
-describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
+describe('CREATE NEW CARD -- NEGATIVE WITH 9 CHARS IN ANSWER', () => {
   before('should login as a student', () => {
     LoginPage.login(student);
   });
@@ -13,12 +13,12 @@ describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
     FlashCardsPage.open();
   });
 
-  it('should check if the `FlashCards`group exists', () => {
+  it('should check if the group exists', () => {
     const actual = FlashCardsPage.groupName;
     expect(actual).to.exist;
   });
 
-  it('should click the link with `FlashCards` group name', () => {
+  it('should click the link with a `FlashCards` group name', () => {
     FlashCardsPage.groupName.click();
   });
 
@@ -31,7 +31,7 @@ describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
     browser.pause(2000);
   });
 
-  it('should check if  a modal form is opened', () => {
+  it('should check if a modal form is opened', () => {
     const element = FlashCardsPage.modalForm;
     expect(element.isDisplayed()).true;
   });
@@ -43,11 +43,11 @@ describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY ANSWER', () => {
   });
 
   it('should fill in the `Question` text area', () => {
-    FlashCardsPage.question.setValue(negative2.questionText);
+    FlashCardsPage.question.setValue(negative4.questionText);
   });
 
   it('should fill in the `Answer` text area', () => {
-    FlashCardsPage.answer.setValue(negative2.answerText);
+    FlashCardsPage.answer.setValue(negative4.answerText);
     browser.pause(3000);
   });
 

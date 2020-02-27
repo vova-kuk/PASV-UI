@@ -1,8 +1,8 @@
 import { expect } from 'chai';
-import LoginPage from '../../_PageObjects/LoginPage';
+import LoginPage from '../../_page/LoginPage';
 import {student} from  './../../_data/user.data';
-import Menu from "../../_PageObjects/Menu";
-import Notification from "../../_PageObjects/Notification";
+import Menu from "../../_page/Menu";
+import Notification from "../../_page/Notification";
 
 describe('LOGIN PAGE NEGATIVE WITH INVALID EMAIL AND VALID PASSWORD', () => {
     before(() => {

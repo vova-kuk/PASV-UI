@@ -1,8 +1,8 @@
-import Menu from '../../_PageObjects/Menu';
+import Menu from '../../_page/Menu';
 import ProfilePage from '../_page/ProfilePage';
 import LoginPage from '../_page/LoginPage';
 import LogoutPage from '../_page/LogoutPage';
-import { data } from '../_data/profilePage.data';
+import { text } from '../_data/profilePage.data';
 import { student } from '../_data/user.data';
 
 describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
@@ -26,7 +26,8 @@ describe('PROFILE PAGE CREATE DAILY REPORT BUTTON TESTING', () => {
   });
 
   it('should have correct header', () => {
-    expect(Menu.h1.getText()).equal(data.dayReport.h1);
+    browser.waitUntil(() => Menu.h1.isDisplayed());
+    expect(Menu.h1.getText()).equal(text.createDayReportH1);
   });
 
   after('should logout', () => {

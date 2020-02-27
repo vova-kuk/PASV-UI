@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import LoginPage from '../../user/_page/LoginPage';
-import DayReportLikePage from '../../_PageObjects/DayReportLikePage';
+import DayReportLikePage from '../_page/DayReportLikePage';
 import CreateDayReportHelper from './CreateDayReportHelper';
 import { student } from '../../user/_data/user.data';
 

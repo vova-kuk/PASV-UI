@@ -1,6 +1,6 @@
 import RegistrationPage from '../_page/RegistrationPage';
-import HomePage from '../../_PageObjects/HomePage';
-import Notification from '../../_PageObjects/Notification';
+import HomePage from '../../_page/HomePage';
+import Notification from '../../_page/Notification';
 import { userRegisteredData } from '../_data/userAlreadyRegistered.data';
 
 describe('USER REGISTRATION -- NEGATIVE -- DUPLICATE REGISTRATION', () => {

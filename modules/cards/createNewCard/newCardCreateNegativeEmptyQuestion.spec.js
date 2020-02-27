@@ -1,10 +1,10 @@
 import { expect } from 'chai';
-import FlashCardsPage from '../../_PageObjects/FlashCardsPage';
+import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
-import { negative4 } from '../../_data/newCard.data';
+import { negative1 } from '../../_data/newCard.data';
 import { student } from '../../user/_data/user.data';
 
-describe('CREATE NEW CARD -- NEGATIVE WITH 9 CHARS IN ANSWER', () => {
+describe('CREATE NEW CARD -- NEGATIVE WITH EMPTY QUESTION', () => {
   before('should login as a student', () => {
     LoginPage.login(student);
   });
@@ -13,12 +13,12 @@ describe('CREATE NEW CARD -- NEGATIVE WITH 9 CHARS IN ANSWER', () => {
     FlashCardsPage.open();
   });
 
-  it('should check if the group exists', () => {
+  it('should check if the `FlashCards` group exists', () => {
     const actual = FlashCardsPage.groupName;
     expect(actual).to.exist;
   });
 
-  it('should click the link with a `FlashCards` group name', () => {
+  it('should click the link with `FlashCards` group name', () => {
     FlashCardsPage.groupName.click();
   });
 
@@ -43,11 +43,11 @@ describe('CREATE NEW CARD -- NEGATIVE WITH 9 CHARS IN ANSWER', () => {
   });
 
   it('should fill in the `Question` text area', () => {
-    FlashCardsPage.question.setValue(negative4.questionText);
+    FlashCardsPage.question.setValue(negative1.questionText);
   });
 
   it('should fill in the `Answer` text area', () => {
-    FlashCardsPage.answer.setValue(negative4.answerText);
+    FlashCardsPage.answer.setValue(negative1.answerText);
     browser.pause(3000);
   });
 
