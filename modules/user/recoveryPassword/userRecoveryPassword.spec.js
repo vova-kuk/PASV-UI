@@ -24,7 +24,7 @@ describe('USER PASSWORD RECOVERY', () => {
   });
 
   it('should check if the button `Send password reset email` is displayed', () => {
-    expect(ResetPasswordPage.submitBtn.isDisplayed()).true;
+    ResetPasswordPage.submitBtn.waitForDisplayed(100);
   });
 
   it('should check if `Required` message is displayed for empty Email field', () => {
@@ -36,17 +36,17 @@ describe('USER PASSWORD RECOVERY', () => {
     expect(ResetPasswordPage.submitBtn.isEnabled()).false;
   });
 
-  it('should check if `Send password reset email` button is not clickable if incorrect email is entered', () => {
+  it('should check if `Send password reset email` button is not clickable with incorrect email', () => {
     ResetPasswordPage.emailInput.setValue(testEmails.incorrectFormat);
     browser.waitUntil(() => !ResetPasswordPage.submitBtn.isClickable(), 500);
   });
 
-  it('should check if `Invalid email address` warning is displayed if incorrect email is entered', () => {
+  it('should check if `Invalid email address` warning is displayed with incorrect email', () => {
     ResetPasswordPage.emailInput.setValue(testEmails.incorrectFormat);
-    browser.waitUntil(() => Notification.invalidMsg.isDisplayed(), 500);
+    Notification.invalidMsg.waitForDisplayed(500);
   });
 
-  it('should check if “Send password reset email” button is clickable if correct email is entered', () => {
+  it('should check if “Send password reset email” button is clickable with correct email', () => {
     ResetPasswordPage.emailInput.setValue(testEmails.correctFormat);
     browser.waitUntil(() => ResetPasswordPage.submitBtn.isClickable(), 500);
   });
@@ -57,29 +57,29 @@ describe('USER PASSWORD RECOVERY', () => {
     browser.waitUntil(() => Notification.title.getText() === pagePswRecovery.failedMsgTxt, 500);
   });
 
-  it('should check that user is left on the same page if entered email is not found in the database', () => {
+  it('should check that user is left on the same page if email is not in the database', () => {
     expect(ResetPasswordPage.h1.getText()).eq(pagePswRecovery.h1);
   });
 
-  it('should check that user gets redirected to `CheckMail` page if correct email was entered', () => {
+  it('should check that user gets redirected to `CheckMail` page with correct email', () => {
     ResetPasswordPage.emailInput.setValue(testEmails.correctFormat);
     ResetPasswordPage.submitBtn.click();
-    browser.waitUntil(() => browser.getUrl() === pagePswRecovery.urlRedirect, 2000);
+    browser.waitUntil(() => browser.getUrl() === pagePswRecovery.urlRedirect, 5000);
   });
 
   it('should success message be displayed', () => {
-    expect(CheckEmailPage.successMsg.isDisplayed()).true;
+    CheckEmailPage.successMsg.waitForDisplayed(500);
   });
 
-  it('should h1 title be correct', () => {
+  it('should check if header of the `CheckEmailPage` is correct', () => {
     expect(CheckEmailPage.h1.getText()).eq(pagePswRecovery.h1Redirect);
   });
 
-  it('should try again link be displayed', () => {
-    expect(CheckEmailPage.tryAgainLink.isDisplayed()).true;
+  it('should `Try again` link be displayed', () => {
+    CheckEmailPage.tryAgainLink.waitForDisplayed(500);
   });
 
-  it('should check user gets redirected to `Forgot Password` page after `try again` link clicked', () => {
+  it('should check `Try again` link redirects to `Forgot Password` page', () => {
     CheckEmailPage.tryAgainLink.click();
     browser.waitUntil(() => browser.getUrl() === pagePswRecovery.urlResetPsw, 1000);
   });
