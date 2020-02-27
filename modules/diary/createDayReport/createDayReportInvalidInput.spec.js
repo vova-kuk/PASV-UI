@@ -1,10 +1,10 @@
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import CreateDayReportPage from '../../_page/CreateDayReportPage';
+import CreateDayReportPage from '../_page/CreateDayReportPage';
 import { student } from '../../user/_data/user.data';
 
-describe('CREATE DAY REPORT -- NEGATIVE', () => {
-  before('should login as STUDENT', () => {
+describe('CREATE DAY REPORT -- INVALID INPUT', () => {
+  before('should login as STUDENT, navigate to Day Report page', () => {
     LoginPage.login(student);
     CreateDayReportPage.diaryLink.click();
     CreateDayReportPage.createDayReportBtn.click();
@@ -32,6 +32,10 @@ describe('CREATE DAY REPORT -- NEGATIVE', () => {
 
   it('should display MAX 10 HOURS WARNING', () => {
     CreateDayReportPage.maxTenWarning.isDisplayed();
+  });
+
+  it('should input 29 CHARACTER STRING', () => {
+    CreateDayReportPage.howWasYourDayNegative();
   });
 
   it('should display MUST BE 30 CHARACTERS OR MORE WARNING', () => {

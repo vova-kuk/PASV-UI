@@ -1,18 +1,12 @@
 import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
-import CreateDayReportPage from '../../_page/CreateDayReportPage';
+import CreateDayReportPage from '../_page/CreateDayReportPage';
 import { student } from '../../user/_data/user.data';
 
-describe('CREATE DAY REPORT -- POSITIVE', () => {
-  before('should login as STUDENT', () => {
+describe('CREATE DAY REPORT', () => {
+  before('should login as STUDENT, navigate to Day Report page', () => {
     LoginPage.login(student);
-  });
-
-  it('should click DIARY navigation LINK', () => {
     CreateDayReportPage.diaryLink.click();
-  });
-
-  it('should click CREATE DAY REPORT BUTTON', () => {
     CreateDayReportPage.createDayReportBtn.click();
   });
 
@@ -25,7 +19,7 @@ describe('CREATE DAY REPORT -- POSITIVE', () => {
   });
 
   it('should select ALL CHECK MARKS to DAILY REPORT', () => {
-    CreateDayReportPage.allMarksChecked();
+    CreateDayReportPage.checkAllMarks();
   });
 
   it('should display & verify INSTRUCTION to NEED HELP check mark', () => {
@@ -36,8 +30,8 @@ describe('CREATE DAY REPORT -- POSITIVE', () => {
   });
 
   it('should display & verify INSTRUCTION to UNDERSTOOD EVERYTHING check mark', () => {
-    expect(CreateDayReportPage.instructionToUnderstoodEverything1.getText()).eq(
-      'It means that you are not experiencing difficulties and understand the material that is discussed in the lessons.',
+    expect(CreateDayReportPage.instructionToUnderstoodEverything1.getText()).to.contain(
+      'It means that you are not experiencing difficulties and understand',
     );
     CreateDayReportPage.instructionToUnderstoodEverything2.isDisplayed();
   });
@@ -62,7 +56,7 @@ describe('CREATE DAY REPORT -- POSITIVE', () => {
   });
 
   it('should verify FOOTER SLOGAN text', () => {
-    expect(CreateDayReportPage.slogan.getText()).eq('© 2020 And what do you do for your career?');
+    expect(CreateDayReportPage.slogan.getText()).to.contain('what do you do for your career?');
   });
 
   it('should verify SAVE BUTTON TEXT', () => {
