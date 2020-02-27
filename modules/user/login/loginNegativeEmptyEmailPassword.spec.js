@@ -1,7 +1,5 @@
-import LoginPage from '../../_page/LoginPage';
-import {student} from  './../../_data/user.data';
+import LoginPage from '../_page/LoginPage';
 import Menu from "../../_page/Menu";
-import Notification from "../../_page/Notification";
 
 describe('LOGIN PAGE NEGATIVE WITH NOT CORRECT EMAIL ENTERING', () => {
     before(() => {
