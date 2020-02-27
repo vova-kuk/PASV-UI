@@ -1,8 +1,8 @@
 import LoginPage from '../../user/_page/LoginPage';
 import Logout from '../../user/_page/LogoutPage';
-import NewCourseCreatePage from '../../_page/NewCourseCreatePage';
-import CourseStartPage from '../../_page/CourseStartPage';
-import { newCourseCreate } from '../../_data/courseStart.data';
+import NewCourseCreatePage from '../_page/NewCourseCreatePage';
+import CourseStartPage from '../_page/CourseStartPage';
+import { newCourseCreate } from '../_data/courseStart.data';
 import { admin, student } from '../../user/_data/user.data';
 
 describe('LOGIN AS ADMIN TO CREATE A COURSE', () => {
