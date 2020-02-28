@@ -103,20 +103,58 @@ describe('GROUP RATING', () => {
     expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-desc');
   });
 
-  it('should check if first student becomes last after sorting', () => {
-    GroupRating.honorColumnHeader.click();
-    const nameOfFirstStudent = $('//div[@class="rt-tr-group"][1]//div[@class="rt-td"]//a[1]').getText();
-    GroupRating.honorColumnHeader.click();
-    const nameOfLastStudent = $('//div[@class="rt-tr-group"][6]//div[@class="rt-td"]//a[1]').getText();
-    expect(nameOfFirstStudent).eq(nameOfLastStudent);
+  it('should check if students go to the right place after sorting in `D` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.dColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.dColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
   });
 
-  it('should check if second student becomes next-to-last after sorting', () => {
-    GroupRating.honorColumnHeader.click();
-    const nameOfSecondStudent = $('//div[@class="rt-tr-group"][2]//div[@class="rt-td"]//a[1]').getText();
-    GroupRating.honorColumnHeader.click();
-    const nameOfNextToLastStudent = $('//div[@class="rt-tr-group"][5]//div[@class="rt-td"]//a[1]').getText();
-    expect(nameOfSecondStudent).eq(nameOfNextToLastStudent);
-      });
+  it('should check if students go to the right place after sorting in `honor` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.honorColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.honorColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
 
+  it('should check if students go to the right place after sorting in `tasks` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.tasksColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.tasksColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `trend` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.trendColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.trendColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `pulse` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.pulseColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.pulseColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
 });

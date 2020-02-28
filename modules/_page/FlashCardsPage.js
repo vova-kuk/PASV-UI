@@ -82,17 +82,21 @@ class FlashCardsPage extends AppPage {
   }
 
   get mainViewLink() {
-    return browser.$('//*[contains(text(),"Main view")]');
+    return browser.$(
+        '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Main view")]',
+        );
   }
 
   get compactViewLink() {
     return browser.$(
-      '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]',
-    );
+        '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Compact view")]',
+        );
   }
 
   get waitingForApproval() {
-    return browser.$('//*[contains(text(),"Waiting for approval")]');
+    return browser.$(
+        '//ul[@qa="flash-group-tabs"]//a[contains(text(),"Waiting for approval")]',
+        );
   }
 
   get trainingLink() {
@@ -108,7 +112,7 @@ class FlashCardsPage extends AppPage {
   }
 
   get linkToGroup() {
-    // return browser.$('=TestGroup');  - looks cool, but we decided to use other standard in thr whole project
+    // return browser.$('=TestGroup');  - looks cool, but we decided to use other standard in the whole project
     return browser.$('//h4[@qa="name"]//a[text()="TestGroup"]');
   }
 }
