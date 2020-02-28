@@ -42,7 +42,6 @@ describe('GROUPS LECTURES', () => {
 
   it('should verify video is displaying', () => {
     LecturePage.video.isDisplayed();
-    browser.pause(1000);
   });
 
   it('should click Dislike button', () => {
