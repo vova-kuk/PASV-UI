@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import LoginPage from '../_page/LoginPage';
 import {student} from  '../_data/user.data';
-import Menu from "../../_page/Menu";
+import Menu from '../../_page/Menu';
 
 
-describe('LOGIN PAGE NEGATIVE WITH VALID EMAIL AND EMPTY PASSWORD FIELD', () => {
+describe('LOGIN PAGE --NEGATIVE WITH VALID EMAIL AND EMPTY PASSWORD FIELD', () => {
     before(() => {
         LoginPage.open();
     });

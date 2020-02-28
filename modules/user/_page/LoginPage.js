@@ -2,27 +2,31 @@ import AppPage from '../../_page/AppPage';
 
 class LoginPage extends AppPage {
   get emailInput() {
-    return browser.$('//input[@name="email"]');
+    return $('//input[@name="email"]');
   }
 
   get passwordInput() {
-    return browser.$('//input[@name="password"]');
+    return $('//input[@name="password"]');
   }
 
   get forgotPasswordLink() {
-    return browser.$('//a[@qa="forgot-password-link"]');
+    return $('//a[@qa="forgot-password-link"]');
   }
 
   get submitBtn() {
-    return browser.$('//button[@type="submit"]');
+    return $('//button[@type="submit"]');
   }
 
   get bullets() {
-    return browser.$('//input[@name="password"][@autocomplete="current-password" ]');
+    return $('//input[@name="password"][@autocomplete="current-password" ]');
   }
 
   get notification() {
-    return browser.$('//h4[@class="notification-title"]');
+    return $('//h4[@class="notification-title"]');
+  }
+
+  get invalidEmailNotification(){
+    return $('//div[@class="invalid-feedback"]')
   }
 
   login(role) {
