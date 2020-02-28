@@ -1,22 +1,21 @@
-import AppPage from './AppPage';
-import LoginPage from '../user/_page/LoginPage';
-import Menu from './Menu';
-
+import AppPage from '../../_page/AppPage';
+import LoginPage from '../../user/_page/LoginPage';
+import Menu from '../../_page/Menu';
+import {courseData} from '../_data/courseCreateData';
 class CoursesPage extends AppPage {
+
   get createNewCourseGlobal() {
-    this.open('https://stage.pasv.us/course');
-    browser.pause(1000);
+    Menu.coursesLink.click();
+   // browser.waitUntil(() => Menu.h1.getText() === 'Courses');
     this.createNewCourseBtn.click();
-    browser.pause(1000);
     this.courseNameInput.setValue(courseData.name);
     this.courseDescriptionInput.setValue(courseData.description);
     this.accessTypeSelect.selectByAttribute('value', courseData.type);
     this.createBtn.click();
-    browser.pause(1000);
   }
 
   get createNewCourseBtn() {
-    return $('//a[contains(., "Create new Course")]');
+    return $('//a[text() ="Create new Course"]');
   }
 
   get courseNameInput() {
@@ -63,14 +62,4 @@ class CoursesPage extends AppPage {
   }
 }
 
-const courseRandom99 = Math.trunc(Math.random() * 100);
-
-const courseData = {
-  name: courseRandom99 + ' Course for adding Challenge',
-  description: 'description, description',
-  type: 'all',
-};
-
 export default new CoursesPage();
-
-export { courseData };
