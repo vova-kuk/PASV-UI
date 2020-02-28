@@ -46,8 +46,8 @@ describe(' STUDENT COURSE CHALLENGE VALID INPUT', () => {
   //   expect(ChallengePage.challengeInsideCourseName.getText()).eq(challengeData.name);
   // });
   //
-  // it('should fill in WRONG solution in "Write your solution here" textarea', () => {
-  //   ChallengePage.challengeInsideCourseTextarea.setValue('let a === 9087');
+  // it('should fill in VALID solution in "Write your solution here" textarea', () => {
+  //   ChallengePage.challengeInsideCourseTextarea.setValue(challengeData.solution);
   // });
   //
   // it('should click button "Validate solution" ', () => {
@@ -55,15 +55,19 @@ describe(' STUDENT COURSE CHALLENGE VALID INPUT', () => {
   //   browser.pause(1000);
   // });
   //
-  // it('should confirm tests NOT passed', () => {
-  //   expect(ChallengePage.challengePassArray.length).notEqual(challengeData.testsQuantity);
+  // it('should confirm all tests passed', () => {
+  //   expect(ChallengePage.challengePassArray.length).eq(challengeData.testsQuantity);
   // });
   //
-  // it('should confirm FAIL notification wrapper is Displayed', () => {
-  //   expect(Notification.fail.isDisplayed()).true;
+  // it('should click button "Submit solution"', () => {
+  //   ChallengePage.challengeSubmitSolutionBtn.click();
   // });
   //
-  // it('should confirm challenge NOT marked as a "Completed"', () => {
-  //   ChallengePage.challengeCompleteMark.isDisplayed().false;
+  // it('should confirm success notification wrapper is Displayed', () => {
+  //   expect(Notification.success.isDisplayed()).true;
+  // });
+  //
+  // it('should confirm challenge marked as a "Completed"', () => {
+  //   ChallengePage.challengeCompleteMark.isDisplayed().true;
   // });
 });

@@ -20,6 +20,10 @@ class Menu {
         return $('//div[@id="site-menu"]//a[@qa="groups-link"]');
     }
 
+    get challengeLink () {
+        return $('//li[@class="nav-item"]//a[text() ="Challenge"]');
+    }
+
     get siteName (){
         return $('//span[@id="site-name"]');
     }
