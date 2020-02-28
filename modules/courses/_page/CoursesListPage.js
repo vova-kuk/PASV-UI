@@ -23,5 +23,4 @@ class CoursesListPage extends AppPage {
     return browser.$('//ul[@class="list-group"]//div[20]/a');
   }
 }
-
 export default new CoursesListPage();
