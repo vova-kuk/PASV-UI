@@ -3,7 +3,7 @@ import LoginPage from '../../user/_page/LoginPage';
 import { student } from '../../user/_data/user.data';
 import Menu from '../../_page/Menu';
 
-describe('CARDS/FLASHCARDS --POSITIVE', () => {
+describe('MENU CARDS PAGE', () => {
   before('login as a student', () => {
     LoginPage.login(student);
   });
@@ -36,14 +36,13 @@ describe('CARDS/FLASHCARDS --POSITIVE', () => {
 
   it('should check title of the oldest created card', function() {
     const actual = FlashCardsPage.cardLastInList.getText();
-    const expected = 'Любители багов';
+    const expected = 'TestGroup';
     expect(actual).eq(expected);
   });
 
   it('should check `Main view` title in the navigation menu link', function() {
     FlashCardsPage.firstCreatedCard.click();
-    const actual = FlashCardsPage.mainViewLink.getText();
-    expect(actual).eq('Main view');
+    browser.waitUntil(()=>FlashCardsPage.mainViewLink.getText()==='Main view');
   });
 
   it('should check `Compact view` title in the navigation menu', function() {

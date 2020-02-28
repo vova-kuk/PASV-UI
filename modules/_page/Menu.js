@@ -16,6 +16,10 @@ class Menu {
         return $('//div[@id="site-menu"]//a[@qa="cards-link"]');
     }
 
+    get diaryLink() {
+        return $('//div[@id="site-menu"]//a[@qa="diary-link"]');
+    }
+
     get groupLink () {
         return $('//div[@id="site-menu"]//a[@qa="groups-link"]');
     }

@@ -4,10 +4,9 @@ import FlashCardsPage from '../../_page/FlashCardsPage';
 import LoginPage from '../../user/_page/LoginPage';
 import { student } from '../../user/_data/user.data';
 import CardsTrainingPage from '../_page/CardsTrainingPage';
-import { groupName } from '../_data/cardsTraining.data';
 
 describe('CARDS TRAINING', () => {
-  before('login as a student, click Cards label and redirect to the FlashCards page', () => {
+  before('login as student and open Cards page from Home page', () => {
     LoginPage.login(student);
     Menu.cardsLink.click();
     browser.waitUntil(() => FlashCardsPage.h1.getText() === 'FlashCards', 2000);
@@ -25,52 +24,40 @@ describe('CARDS TRAINING', () => {
 
   it('should click `Training` link and check if `Start training` button is displayed', () => {
     FlashCardsPage.trainingLink.click();
-    CardsTrainingPage.startTrainingBtn.waitForDisplayed(5000);
+    CardsTrainingPage.startTrainingBtn.waitForDisplayed();
   });
-
-  // it('should check if `Start training` button is displayed', () => {
-  //   expect(CardsTrainingPage.startTrainingBtn.isDisplayed()).true;
-  // });
 
   it('should click `Start training` button', () => {
     CardsTrainingPage.startTrainingClick();
   });
 
   it('should check if `I know` button is displayed', () => {
-    CardsTrainingPage.iKnowBtn.waitForDisplayed(1000);
+    CardsTrainingPage.iKnowBtn.waitForDisplayed();
   });
 
   it('should check if `Show answer` button is displayed', () => {
-    CardsTrainingPage.showAnswerBtn.waitForDisplayed(1000);
+    CardsTrainingPage.showAnswerBtn.waitForDisplayed();
   });
 
   it('should check if `Get random next` button is displayed', () => {
-    CardsTrainingPage.getRandomBtn.waitForDisplayed(1000);
+    CardsTrainingPage.getRandomBtn.waitForDisplayed();
   });
 
   it('should click `Show answer` button and check if answer is displayed', () => {
     CardsTrainingPage.showAnswerBtnClick();
-    CardsTrainingPage.answerTxt.waitForDisplayed(1000);
+    CardsTrainingPage.answerTxt.waitForDisplayed();
   });
 
-  it('should check if an answer is displayed', () => {
-    CardsTrainingPage.answerTxt.waitForDisplayed(1000);
-  });
-
-  it('should click `Get Random` button', () => {
+  it('should click `Get Random` button and wait for action buttons for display', () => {
     CardsTrainingPage.getRandomBtnClick();
+    CardsTrainingPage.iKnowBtn.waitForDisplayed();
   });
 
-  it('should check progress bar value and click `I know`', () => {
+  it('should check progress bar value and click `I know` until FlashGroup finished', () => {
     FlashCardsPage.compactViewLink.click();
-    browser.pause(1000);
-
-    const nrOfCards = $$('//div[@class="pb-1 mb-1 border-bottom"]').length;
-    browser.pause(1000);
-
+    $('//div[@class="pb-1 mb-1 border-bottom"]').waitForDisplayed();
+    const nrOfCards = CardsTrainingPage.cardsList.length;
     FlashCardsPage.trainingLink.click();
-    browser.pause(1000);
-
     for (let i = 0; i < nrOfCards; i++) {
       expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq(
         Math.floor((100 / nrOfCards) * i).toString(),
@@ -81,6 +68,7 @@ describe('CARDS TRAINING', () => {
   });
 
   it('should check if `Start training` button is enabled', () => {
-    expect(CardsTrainingPage.startTrainingBtn.isEnabled()).true;
+    CardsTrainingPage.startTrainingBtn.waitForEnabled();
   });
+
 });

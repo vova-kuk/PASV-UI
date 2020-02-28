@@ -6,11 +6,8 @@ import GroupsPage from '../_page/GroupsPage';
 import GroupRating from '../_page/GroupRating';
 
 describe('GROUP RATING', () => {
-  before('login as a student', () => {
+  before('login as student and open Groups page from Home page', () => {
     LoginPage.login(student);
-  });
-
-  it('should click menu "Groups" link', () => {
     Menu.groupLink.click();
     browser.waitUntil(() => GroupsPage.h1.getText() === 'Groups', 500);
   });
@@ -104,5 +101,60 @@ describe('GROUP RATING', () => {
   it('should click `Pulse` columnheader and check order is descending', () => {
     GroupRating.pulseColumnHeader.click();
     expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-desc');
+  });
+
+  it('should check if students go to the right place after sorting in `D` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.dColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.dColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `honor` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.honorColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.honorColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `tasks` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.tasksColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.tasksColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `trend` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.trendColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.trendColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
+  });
+
+  it('should check if students go to the right place after sorting in `pulse` column', () => {
+    const length = $$('//div[@class="rt-tr-group"]').length;
+    for (let i = 1; i <= length; i++) {
+      GroupRating.pulseColumnHeader.click();
+      const actualName = $(`(${'//div[@class="rt-tr-group"]'})[${i}]//div[@class="rt-td"]//a[1]`).getText();
+      GroupRating.pulseColumnHeader.click();
+      const expectedNameAfterSort = $(`(${'//div[@class="rt-tr-group"]'})[${length+1-i}]//div[@class="rt-td"]//a[1]`).getText();
+      expect(actualName).eq(expectedNameAfterSort);
+    }
   });
 });

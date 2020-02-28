@@ -1,4 +1,5 @@
 import AppPage from '../../_page/AppPage';
+import {createDayReport, hoursStudiedInputsInvalid, howWasYourDayInputsInvalid, howWasYourDayInputs, hoursStudiedInputs} from "../_data/createDayReport.data";
 
 class CreateDayReportPage extends AppPage {
   get diaryLink() {
@@ -99,46 +100,28 @@ class CreateDayReportPage extends AppPage {
     this.moraleLevel.selectByVisibleText('0 – I give up');
   }
 
-  hoursStudiedInput() {
-    this.howManyHours.setValue('1'); //one digit number from 0 to 9
-    this.howManyHours.setValue('9'); //one digit number from 0 to 9
-    this.howManyHours.setValue('10'); //two-digit number below 11
-  }
-
-  hoursStudiedInputNeg() {
-    this.howManyHours.setValue('восемь'); //input not as a number, but as a text
-    this.howManyHours.setValue('11'); //number greater than 10
-    this.howManyHours.setValue('111'); //three-digit number
-  }
-
-  howWasYourDayInput() {
-    this.howWasYourDay.setValue('QWERTYUIOPASDFGHJKLZXCVBNMQWERT'); //31-character Capital letters
-    this.howWasYourDay.setValue('&-+=87900-=%$#@!&*((((((((((()'); //symbols and numbers
-    this.howWasYourDay.setValue(
-      'Khaskjfhajkdhajdhsajhjahjahjkhjkahfjkahkjahsjkhjkfhfjkdhjkahdkjahjkf' +
-        'hajfhadjkhfjhafjhakjfhadjhfjkahdfjkhjksncknsjvajnhfjahshaldhlafhlakhdlfaafl;huohrfdjkkkkkkkkkkkkk' +
-        'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kjKhaskjfhajkdhajdhsajhjahjahjkhjkahfjkahkjahsjkhjkfhfjkdhj' +
-        'kahdkjahjkfhajfhadjkhfjhafjhakjfhadjhfjkahdfjkhjksncknsjvajnhfjahshaldhlafhlakhdlfaafl;huohrfdjkk' +
-        'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKhaskjfhajkdhajdhsajhjahjahjkhjkahfjkahkjahsjkhjk' +
-        'fhfjkdhjkahdkjahjkfhajfhadjkhfjhafjhakjfhadjhfjkahdfjkhjksncknsjvajnhfjahshaldhlafhlakhdlfaafl;huo' +
-        'hrfdjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkKhaskjfhajkdhajdhsajhjahjahjkhjkahfjkahkjahsjk' +
-        'hjkfhfjkdhjkahdkjahjkfhajfhadjkhfjhafjhakjfhadjhfjkahdfjkhjksncknsjvajnhfjahshaldhlafhlakhdlfaafl;' +
-        'huohrfdjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
-    ); //800-character text
-    this.howWasYourDay.setValue('орплорпвылыплпфрвпфровпофпрфпрфпыр'); //Russian alphabet
-    this.howWasYourDay.setValue('qwertyuiopasdfghjklzxcvbnmqwer'); //30-character text entered
-  }
-
   howWasYourDayNegative() {
     this.howWasYourDay.setValue('qwertyuiopasdfghjklzxcvbnmqwe'); //29-character text entered
+  }
+
+ beforeForHowManyHoursNegativeScenarios() {
+    this.checkAllMarks();
+    this.moraleLevel.selectByVisibleText('9');
+    this.howWasYourDay.setValue(howWasYourDayInputs[0]);
+  }
+
+  beforeForHowWasYourDayNegativeScenarios() {
+    this.checkAllMarks();
+    this.moraleLevel.selectByVisibleText('9');
+    this.howManyHours.setValue(hoursStudiedInputs[4]);
   }
 
   createNewDayReport() {
     this.createDayReportBtn.click();
     this.checkAllMarks();
     this.moraleLevel.selectByVisibleText('9');
-    this.howManyHours.setValue('5');
-    this.howWasYourDayInput();
+    this.howManyHours.setValue(hoursStudiedInputs[4]);
+    this.howWasYourDay.setValue(howWasYourDayInputs[4]);
     this.saveBtn.click();
   }
 }

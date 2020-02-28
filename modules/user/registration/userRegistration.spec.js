@@ -1,13 +1,13 @@
 import RegistrationPage from '../_page/RegistrationPage';
 import HomePage from '../../_page/HomePage';
 import Notification from '../../_page/Notification';
+import Menu from '../../_page/Menu';
 import { urlData } from '../../_data/url.data';
 import {
   newUserData,
   pageRegisterData,
   successfulNotificationData,
-} from '../_data/registration.data';
-import AppPage from '../../_page/AppPage';
+} from '../_data/userRegistration.data';
 
 describe('USER REGISTRATION', () => {
   before(
@@ -20,7 +20,7 @@ describe('USER REGISTRATION', () => {
   );
 
   it('should registration page has correct header', () => {
-    const actual = AppPage.h1.getText();
+    const actual = Menu.h1.getText();
     const expected = pageRegisterData.h1;
     expect(actual).eq(expected);
   });

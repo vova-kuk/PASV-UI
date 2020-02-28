@@ -29,6 +29,10 @@ class CardsTrainingPage extends AppPage {
     return browser.$('//div[@class="progress"]//div[@aria-valuenow]');
   }
 
+  get cardsList() {
+    return browser.$$('//div[@class="pb-1 mb-1 border-bottom"]');
+  }
+
   open(path) {
     super.open('');
   }

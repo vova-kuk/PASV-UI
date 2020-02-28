@@ -1,6 +1,4 @@
 import AppPage from '../../_page/AppPage';
-import { newUserData } from '../_data/registration.data';
-import { userRegisteredData } from '../_data/userAlreadyRegistered.data';
 
 class RegistrationPage extends AppPage {
   get p() {
@@ -43,27 +41,15 @@ class RegistrationPage extends AppPage {
     return $('//form//button[@type="submit"]');
   }
 
-  registrationNewUser() {
-    this.firstNameInput.setValue(newUserData.firstName);
-    this.lastNameInput.setValue(newUserData.lastName);
-    this.cellPhoneNumberInput.setValue(newUserData.phone);
-    this.emailInput.setValue(newUserData.email);
-    this.passwordInput.setValue(newUserData.password);
-    this.aboutInput.setValue(newUserData.about);
-    this.myGoalsInput.setValue(newUserData.goals);
-    this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
-    this.submitBtn.click();
-  }
-
-  registrationUserAlreadyExist() {
-    this.firstNameInput.setValue(newUserData.firstName);
-    this.lastNameInput.setValue(newUserData.lastName);
-    this.cellPhoneNumberInput.setValue(newUserData.phone);
-    this.emailInput.setValue(userRegisteredData.email);
-    this.passwordInput.setValue(newUserData.password);
-    this.aboutInput.setValue(newUserData.about);
-    this.myGoalsInput.setValue(newUserData.goals);
-    this.englishLevelOption.selectByVisibleText(newUserData.englishLevel);
+  userRegistration(role) {
+    this.firstNameInput.setValue(role.firstName);
+    this.lastNameInput.setValue(role.lastName);
+    this.cellPhoneNumberInput.setValue(role.phone);
+    this.emailInput.setValue(role.email);
+    this.passwordInput.setValue(role.password);
+    this.aboutInput.setValue(role.about);
+    this.myGoalsInput.setValue(role.goals);
+    this.englishLevelOption.selectByVisibleText(role.englishLevel);
     this.submitBtn.click();
   }
 }

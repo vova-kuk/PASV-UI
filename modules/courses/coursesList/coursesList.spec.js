@@ -1,6 +1,7 @@
 import LoginPage from '../../user/_page/LoginPage';
-import CoursesList from './CoursesList';
+import CoursesListPage from '../_page/CoursesListPage';
 import { student } from '../../user/_data/user.data';
+import AppPage from '../../_page/Menu';
 import Menu from '../../_page/Menu';
 
 describe('COURSE LIST', () => {
@@ -13,38 +14,38 @@ describe('COURSE LIST', () => {
   });
 
   it('should have correct title', () => {
-    expect(Menu.h1.getText()).eq('Courses');
+    expect(AppPage.h1.getText()).eq('Courses');
   });
 
   it('should click first item in the course list', () => {
-    CoursesList.name1.click();
-    browser.waitUntil(() => Menu.h1.getText() === 'JS');
+    CoursesListPage.name1.click();
+    browser.waitUntil(() => AppPage.h1.getText() === 'COURSE73.57');
     browser.back();
   });
 
   it('should have description about course', () => {
-    expect(CoursesList.description1.getText()).eq('JavaScript');
+    expect(CoursesListPage.description1.getText()).eq('TEST PURPOSES ONLY');
   });
 
   it('should click Progress of first course', () => {
-    CoursesList.progress1.click();
-    browser.waitUntil(() => Menu.h1.getText() === 'Course Report');
+    CoursesListPage.progress1.click();
+    browser.waitUntil(() => AppPage.h1.getText() === 'Course Report');
     browser.back();
   });
 
-  it('should click 50th item in the course list', () => {
-    CoursesList.name50.click();
-    browser.waitUntil(() => Menu.h1.getText() === 'JavaScript. Arrays');
+  it('should click 20th item in the course list', () => {
+    CoursesListPage.name20.click();
+    browser.waitUntil(() => AppPage.h1.getText() === '28 Course for adding Challenge');
     browser.back();
   });
 
   it('should have description about course', () => {
-    expect(CoursesList.description50.getText()).eq('JavaScript. Arrays');
+    expect(CoursesListPage.description20.getText()).eq('description, description');
   });
 
-  it('should click Progress of 50th course', () => {
-    CoursesList.progress50.click();
-    browser.waitUntil(() => Menu.h1.getText() === 'Course Report');
+  it('should click Progress of 20th course', () => {
+    CoursesListPage.progress20.click();
+    browser.waitUntil(() => AppPage.h1.getText() === 'Course Report');
     browser.back();
   });
 });
