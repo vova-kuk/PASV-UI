@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import ProfilePage from '../../user/_page/ProfilePage';
 import FlashCardsPage from '../../_page/FlashCardsPage';
 import { student } from '../../user/_data/user.data';
-import CardsTrainingPage from '../_page/CardsTrainingPage';
 import LoginPage from '../../user/_page/LoginPage';
 import CardsWaitingForApprovalPage from '../_page/CardsWaitingForApprovalPage';
 import { positive } from '../../_data/newCard.data';
 import Logout from '../../user/_page/LogoutPage';
+import {waitingForApprovalData} from "../_data/cardsWaitingForApproval.data";
+import {pageTestData} from "../_data/cardsMainAndCompact.data";
 
 describe('WAITING FOR APPROVAL', () => {
   before('login as a student', () => {
@@ -14,40 +14,36 @@ describe('WAITING FOR APPROVAL', () => {
   });
 
   it('should click `Cards` in the navigation bar', () => {
-    ProfilePage.cardsLink.click();
-    browser.pause(500);
+    CardsWaitingForApprovalPage.cardsLink.click();
   });
 
-  it('should have a correct h1 title', () => {
-    expect(FlashCardsPage.h1.getText()).eq('FlashCards');
+  it('should have correct header', () => {
+    expect(FlashCardsPage.h1.getText()).eq(pageTestData.title);
   });
 
   it('should find group `Test Group` and click', () => {
     FlashCardsPage.linkToGroup.scrollIntoView();
     FlashCardsPage.linkToGroup.click();
-    browser.pause(1000);
   });
 
   it('should check a group title', () => {
-    expect(CardsTrainingPage.title.getText()).equal('TestGroup');
+    expect(CardsWaitingForApprovalPage.h1.getText()).eq(waitingForApprovalData.header);
   });
 
   it('should click `Waiting for approval` link', () => {
     FlashCardsPage.waitingForApproval.click();
-    browser.pause(1000);
   });
 
   it('should verify `Waiting for approval` title', () => {
-    expect(CardsWaitingForApprovalPage.PageNameTitle.getText()).eq('Waiting for approval');
+    expect(CardsWaitingForApprovalPage.PageNameTitle.getText()).eq(waitingForApprovalData.title);
   });
 
   it('should click `Create new Card` button', () => {
     CardsWaitingForApprovalPage.CreateCard.click();
-    browser.pause(500);
   });
 
   it('should verify a modal window title', () => {
-    expect(CardsWaitingForApprovalPage.ModuleWindowTitle.getText()).eq('Create Flash Card');
+    browser.waitUntil(() => CardsWaitingForApprovalPage.ModuleWindowTitle.getText() === waitingForApprovalData.moduleTitle);
   });
 
   it('should verify that `Question` text area is present', () => {
@@ -72,7 +68,6 @@ describe('WAITING FOR APPROVAL', () => {
 
   it('should fill in the `Answer` text area', () => {
     FlashCardsPage.answer.setValue(positive.answerText);
-    browser.pause(300);
   });
 
   it('should check if `Create` button is enabled', () => {
@@ -81,7 +76,6 @@ describe('WAITING FOR APPROVAL', () => {
 
   it('should click `Create` button', () => {
     FlashCardsPage.createBtn.click();
-    browser.pause(500);
   });
 
   it('should check if the card was created', () => {
@@ -103,6 +97,6 @@ describe('WAITING FOR APPROVAL', () => {
   });
 
   it('should check if the card has right status', () => {
-    expect(CardsWaitingForApprovalPage.lastCreatedCardStatus.getText()).eq('new');
+    expect(CardsWaitingForApprovalPage.lastCreatedCardStatus.getText()).eq(waitingForApprovalData.cardStatus);
   });
 });

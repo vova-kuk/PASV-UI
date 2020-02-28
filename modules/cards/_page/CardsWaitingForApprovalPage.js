@@ -1,6 +1,15 @@
 import AppPage from '../../_page/AppPage';
 
 class CardsWaitingForApprovalPage extends AppPage {
+
+  get cardsLink() {
+    return browser.$('//a[@qa="cards-link"]');
+  }
+
+  get h1(){
+    return browser.$('//h1');
+  }
+
   get PageNameTitle() {
     return browser.$('//span[contains(text(), "Waiting for approval")]');
   }
