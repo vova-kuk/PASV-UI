@@ -4,7 +4,7 @@ import Notification from '../../_page/Notification';
 import {
   userRegisteredData,
   errorNotificationData
-} from '../_data/registration.data';
+} from '../_data/userRegistration.data';
 
 describe('USER REGISTRATION -- NEGATIVE -- DUPLICATE REGISTRATION', () => {
   before('Go to register page from home page', () => {

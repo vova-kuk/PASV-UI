@@ -7,7 +7,7 @@ import {
   newUserData,
   pageRegisterData,
   successfulNotificationData,
-} from '../_data/registration.data';
+} from '../_data/userRegistration.data';
 
 describe('USER REGISTRATION', () => {
   before(
