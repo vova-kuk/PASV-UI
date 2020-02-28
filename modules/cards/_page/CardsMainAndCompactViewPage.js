@@ -1,14 +1,12 @@
-import AppPage from './AppPage';
+import AppPage from '../../_page/AppPage';
 
-class MainAndCompactViewPage extends AppPage {
+class CardsMainAndCompactViewPage extends AppPage {
   get mainView() {
     return browser.$('//a[contains(text(),"Main view")]');
   }
 
   get mainViewActive() {
-    return browser.$(
-      '//a[contains(text(),"Main view")][contains(@class,"nav-link active")]',
-    );
+    return browser.$('//a[contains(text(),"Main view")][contains(@class,"nav-link active")]');
   }
 
   get compactView() {
@@ -16,9 +14,7 @@ class MainAndCompactViewPage extends AppPage {
   }
 
   get compactViewActive() {
-    return browser.$(
-      '//a[contains(text(),"Compact view")][contains(@class,"nav-link active")]',
-    );
+    return browser.$('//a[contains(text(),"Compact view")][contains(@class,"nav-link active")]');
   }
 
   get questionText() {
@@ -39,4 +35,4 @@ class MainAndCompactViewPage extends AppPage {
     return browser.$('//span[@qa="answer"]');
   }
 }
-export default new MainAndCompactViewPage();
+export default new CardsMainAndCompactViewPage();
