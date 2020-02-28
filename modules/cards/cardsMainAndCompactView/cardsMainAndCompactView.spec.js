@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import LoginPage from '../../user/_page/LoginPage';
-import MainAndCompactViewPage from '../../_page/MainAndCompactViewPage';
+import MainAndCompactViewPage from '../_page/CardsMainAndCompactViewPage';
 import FlashCardsPage from '../../_page/FlashCardsPage';
 import { student } from '../../user/_data/user.data';
 import { pageTestData } from '../_data/cardsMainAndCompact.data';
@@ -9,7 +9,7 @@ import { groupNameLink } from '../../_data/newCard.data';
 describe('CARDS MAIN VIEW AND COMPACT VIEW', () => {
   before('login as a student', () => {
     LoginPage.login(student);
-    browser.pause(500);
+    browser.pause(200);
   });
 
   it('should open `FlashCards` page', () => {
