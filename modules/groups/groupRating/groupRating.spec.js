@@ -6,11 +6,8 @@ import GroupsPage from '../_page/GroupsPage';
 import GroupRating from '../_page/GroupRating';
 
 describe('GROUP RATING', () => {
-  before('login as a student', () => {
+  before('login as student and open Groups page from Home page', () => {
     LoginPage.login(student);
-  });
-
-  it('should click menu "Groups" link', () => {
     Menu.groupLink.click();
     browser.waitUntil(() => GroupsPage.h1.getText() === 'Groups', 500);
   });
@@ -105,4 +102,21 @@ describe('GROUP RATING', () => {
     GroupRating.pulseColumnHeader.click();
     expect(GroupRating.pulseColumnHeader.getAttribute('class')).include('-sort-desc');
   });
+
+  it('should check if first student becomes last after sorting', () => {
+    GroupRating.honorColumnHeader.click();
+    const nameOfFirstStudent = $('//div[@class="rt-tr-group"][1]//div[@class="rt-td"]//a[1]').getText();
+    GroupRating.honorColumnHeader.click();
+    const nameOfLastStudent = $('//div[@class="rt-tr-group"][6]//div[@class="rt-td"]//a[1]').getText();
+    expect(nameOfFirstStudent).eq(nameOfLastStudent);
+  });
+
+  it('should check if second student becomes next-to-last after sorting', () => {
+    GroupRating.honorColumnHeader.click();
+    const nameOfSecondStudent = $('//div[@class="rt-tr-group"][2]//div[@class="rt-td"]//a[1]').getText();
+    GroupRating.honorColumnHeader.click();
+    const nameOfNextToLastStudent = $('//div[@class="rt-tr-group"][5]//div[@class="rt-td"]//a[1]').getText();
+    expect(nameOfSecondStudent).eq(nameOfNextToLastStudent);
+      });
+
 });

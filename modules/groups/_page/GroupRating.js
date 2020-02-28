@@ -52,6 +52,9 @@ class GroupRating extends AppPage {
   get pulseColumnHeader() {
     return $('//div[text()="Pulse (7 days)"]/..');
   }
-}
 
+  get test() {
+    return $$('//div[@class="rt-td"]');
+  }
+}
 export default new GroupRating();
