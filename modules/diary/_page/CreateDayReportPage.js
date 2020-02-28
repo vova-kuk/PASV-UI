@@ -115,6 +115,15 @@ class CreateDayReportPage extends AppPage {
     this.moraleLevel.selectByVisibleText('9');
     this.howManyHours.setValue(hoursStudiedInputs[4]);
   }
+
+  createNewDayReport() {
+    this.createDayReportBtn.click();
+    this.checkAllMarks();
+    this.moraleLevel.selectByVisibleText('9');
+    this.howManyHours.setValue(hoursStudiedInputs[4]);
+    this.howWasYourDay.setValue(howWasYourDayInputs[4]);
+    this.saveBtn.click();
+  }
 }
 
 export default new CreateDayReportPage();

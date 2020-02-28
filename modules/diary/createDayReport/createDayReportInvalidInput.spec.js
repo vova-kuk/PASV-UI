@@ -91,5 +91,6 @@ describe('CREATE DAY REPORT -- INVALID INPUT IN HOW WAS YOUR DAY', () => {
   after('should LOGOUT', () => {
     LogoutPage.logout();
   });
+
 });
 

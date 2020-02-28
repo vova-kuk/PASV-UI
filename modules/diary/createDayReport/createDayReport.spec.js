@@ -50,7 +50,7 @@ describe('CREATE DAY REPORT', () => {
   it('should fill out HOW MANY HOURS USER STUDIED TODAY input', () => {
     for(let i = 0; i < hoursStudiedInputs.length; i++) {
       expect(CreateDayReportPage.howManyHours.setValue(hoursStudiedInputs[i]));
-      CreateDayReportPage.howWasYourDay.setValue(howWasYourDayInputs[4]);
+      CreateDayReportPage.howWasYourDay.setValue(howWasYourDayInputs[5]);
       expect(CreateDayReportPage.saveBtn.isEnabled()).be.true;
     }
   });
@@ -79,10 +79,11 @@ describe('CREATE DAY REPORT', () => {
   });
 
   it('should verify DAY REPORT WAS SUBMITTED', () => {
-    expect(CreateDayReportPage.newDayReport.getText()).eq(howWasYourDayInputs[4]);
+    expect(CreateDayReportPage.newDayReport.getText()).eq(howWasYourDayInputs[5]);
   });
 
   after('should LOGOUT', () => {
     LogoutPage.logout();
   });
+
 });
