@@ -13,12 +13,12 @@ class HomePage extends AppPage {
     return $('//a[@qa="login-link"]');
   }
 
-  open() {
-    super.open('https://stage.pasv.us/');
-  }
-
   get registrationLink() {
     return $('//a[@qa="register-link"]');
+  }
+
+  open() {
+    super.open('https://stage.pasv.us/');
   }
 }
 
