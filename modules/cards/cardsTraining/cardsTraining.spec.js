@@ -5,6 +5,8 @@ import LoginPage from '../../user/_page/LoginPage';
 import { student } from '../../user/_data/user.data';
 import CardsTrainingPage from '../_page/CardsTrainingPage';
 
+let nrOfCards;
+
 describe('CARDS TRAINING', () => {
   before('login as student and open Cards page from Home page', () => {
     LoginPage.login(student);
@@ -18,17 +20,25 @@ describe('CARDS TRAINING', () => {
     browser.waitUntil(() => CardsTrainingPage.groupTitle.getText() === 'TestGroup', 100);
   });
 
-  it('should check if `Training` label is displayed', () => {
-    expect(FlashCardsPage.trainingLink.isDisplayed()).true;
+  it('should check number of cards in a group from CompactView page', () => {
+    FlashCardsPage.compactViewLink.waitForDisplayed();
+    FlashCardsPage.compactViewLink.click();
+    $('//div[@class="pb-1 mb-1 border-bottom"]').waitForDisplayed();
+    nrOfCards = CardsTrainingPage.cardsList.length;
   });
 
-  it('should click `Training` link and check if `Start training` button is displayed', () => {
+  it('should click `Training` link', () => {
+    FlashCardsPage.trainingLink.waitForDisplayed();
     FlashCardsPage.trainingLink.click();
-    CardsTrainingPage.startTrainingBtn.waitForDisplayed();
+    browser.pause(500);
   });
 
-  it('should click `Start training` button', () => {
-    CardsTrainingPage.startTrainingClick();
+  it('should click `I Know` until StartTraining button is displayed and click', () => {
+    while (!CardsTrainingPage.startTrainingBtn.isDisplayed()) {
+        CardsTrainingPage.iKnowBtnClick();
+        browser.pause(500);
+      }
+      CardsTrainingPage.startTrainingClick();
   });
 
   it('should check if `I know` button is displayed', () => {
@@ -53,11 +63,7 @@ describe('CARDS TRAINING', () => {
     CardsTrainingPage.iKnowBtn.waitForDisplayed();
   });
 
-  it('should check progress bar value and click `I know` until FlashGroup finished', () => {
-    FlashCardsPage.compactViewLink.click();
-    $('//div[@class="pb-1 mb-1 border-bottom"]').waitForDisplayed();
-    const nrOfCards = CardsTrainingPage.cardsList.length;
-    FlashCardsPage.trainingLink.click();
+  it('should click `I know` until FlashGroup finished and check values in Progress Bar', () => {
     for (let i = 0; i < nrOfCards; i++) {
       expect(CardsTrainingPage.progressBar.getAttribute('aria-valuenow')).eq(
         Math.floor((100 / nrOfCards) * i).toString(),
@@ -70,5 +76,4 @@ describe('CARDS TRAINING', () => {
   it('should check if `Start training` button is enabled', () => {
     CardsTrainingPage.startTrainingBtn.waitForEnabled();
   });
-
 });
