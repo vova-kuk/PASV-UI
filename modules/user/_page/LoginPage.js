@@ -17,10 +17,6 @@ class LoginPage extends AppPage {
     return $('//button[@type="submit"]');
   }
 
-  get bullets() {
-    return $('//input[@name="password"][@autocomplete="current-password" ]');
-  }
-
   get notification() {
     return $('//h4[@class="notification-title"]');
   }
