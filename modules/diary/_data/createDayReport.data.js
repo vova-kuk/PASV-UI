@@ -27,10 +27,8 @@ const howWasYourDayInputs = [
 const hoursStudiedInputs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     //all positive scenarios: any number from 0 to 10;
 
-
 const hoursStudiedInputsInvalid = ['восемь', '11', '111'];
 // 3 negative scenarios: number entered as a word; two-digit number greater than 10; three digit number;
-
 
 const howWasYourDayInputsInvalid = ['qwertyuiopasdfghjklzxcvbnmqwe']; //1 scenarion for now: 29-character text entered
 
