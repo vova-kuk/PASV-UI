@@ -3,6 +3,8 @@ import LoginPage from '../../user/_page/LoginPage';
 import DayReportLikePage from '../_page/DayReportLikePage';
 import CreateDayReportPage from "../../diary/_page/CreateDayReportPage";
 import { student } from '../../user/_data/user.data';
+import Menu from "../../_page/Menu";
+import {text} from "../../user/_data/profilePage.data";
 
 describe('DAY REPORT PAGE LIKE BUTTON TESTING', () => {
   before(() => {
@@ -21,8 +23,7 @@ describe('DAY REPORT PAGE LIKE BUTTON TESTING', () => {
     CreateDayReportPage.createNewDayReport();
     expect(DayReportLikePage.likeBtn.getText()).equal('Like 👍');
     DayReportLikePage.likeBtn.click();
-    browser.pause(500);
-    expect(DayReportLikePage.likeBtn.getText()).equal('I like this 👍1');
+    browser.waitUntil(() => DayReportLikePage.likeBtn.getText() === 'I like this 👍1');
   });
 
   it('should Like button be disabled', () => {
