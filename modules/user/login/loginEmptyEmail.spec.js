@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import LoginPage from '../_page/LoginPage';
-import Menu from "../../_page/Menu";
+import Menu from '../../_page/Menu';
 
-describe('LOGIN PAGE NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
+describe('LOGIN PAGE --NEGATIVE WITH EMPTY EMAIL AND VALID PASSWORD', () => {
     before(() => {
         LoginPage.open();
     });
