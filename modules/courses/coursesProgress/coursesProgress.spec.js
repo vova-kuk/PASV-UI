@@ -3,7 +3,7 @@ import LoginPage from '../../user/_page/LoginPage';
 import LogoutPage from '../../user/_page/LogoutPage';
 import ProfilePage from '../../user/_page/ProfilePage';
 import CoursesProgressPage from '../../_page/CoursesProgressPage';
-import { data } from '../../user/_data/profilePage.data';
+import { text } from '../../user/_data/profilePage.data';
 import { admin, student } from '../../user/_data/user.data';
 import CoursesPage from '../_page/CoursesPage';
 import { course } from '../../_data/courseProgress.data';
@@ -45,7 +45,7 @@ describe('COURSES PROGRESS PAGE', () => {
   });
 
   it('should go to `Profile` page', () => {
-    expect(Menu.h1.getText()).equal(data.student.name);
+    expect(Menu.h1.getText()).equal(text.studentName);
   });
 
   after('should logout', () => {
